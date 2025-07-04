@@ -1,0 +1,1952 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="好记性不如烂笔头">
+      
+      
+        <meta name="author" content="张彬彬">
+      
+      
+        <link rel="canonical" href="https://iamzhangbinbin.github.io/MM32%20Guide/MM32%20MDPWM/MM32%20MDPWM/">
+      
+      
+        <link rel="prev" href="../../MM32%20ADC/MM32%20ADC/">
+      
+      
+        <link rel="next" href="../../../Python%E7%AC%94%E8%AE%B0/SXT%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/SXT%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/">
+      
+      
+      <link rel="icon" href="../../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>MM32 MDPWM - 张彬彬的杂货铺</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config",""),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mindpwm" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="张彬彬的杂货铺" class="md-header__button md-logo" aria-label="张彬彬的杂货铺" data-md-component="logo">
+      
+  <img src="../../../img/zahuopu.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            张彬彬的杂货铺
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MM32 MDPWM
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="切换至日间模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至日间模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/iamzhangbinbin/iamzhangbinbin.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    I'mZhangBinbin
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../MCU%E5%BC%80%E5%8F%91%E6%94%AF%E6%8C%81/%E5%88%B6%E4%BD%9Ckeil%20pack%E5%AE%89%E8%A3%85%E5%8C%85/%E5%88%B6%E4%BD%9Ckeil%20pack%E5%AE%89%E8%A3%85%E5%8C%85/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  MCU开发支持
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../MM32%20Flash/MM32%20Flash/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  MM32 Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Python%E7%AC%94%E8%AE%B0/SXT%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/SXT%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Python笔记
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../芯片勘误表4.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  ClassB入门
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E5%9F%BA%E4%BA%8EMini-F5277-OB%E7%A7%BB%E6%A4%8DTinyUSB%E5%8D%8F%E8%AE%AE%E6%A0%88/%E5%9F%BA%E4%BA%8EMini-F5277-OB%E7%A7%BB%E6%A4%8DTinyUSB%E5%8D%8F%E8%AE%AE%E6%A0%88/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  USB入门
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E5%9F%BA%E4%BA%8EMM32G5330%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/%E5%9F%BA%E4%BA%8EMM32G5330%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  CAN入门
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../LwIP%E7%A7%BB%E6%A4%8D%E7%AC%94%E8%AE%B0/LwIP%E7%A7%BB%E6%A4%8D%E7%AC%94%E8%AE%B0/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  ENET入门
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../MkDocs%E5%85%A5%E9%97%A8/MkDocs%E5%85%A5%E9%97%A8/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  构建此站
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="张彬彬的杂货铺" class="md-nav__button md-logo" aria-label="张彬彬的杂货铺" data-md-component="logo">
+      
+  <img src="../../../img/zahuopu.png" alt="logo">
+
+    </a>
+    张彬彬的杂货铺
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/iamzhangbinbin/iamzhangbinbin.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    I'mZhangBinbin
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    MCU开发支持
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            MCU开发支持
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MCU%E5%BC%80%E5%8F%91%E6%94%AF%E6%8C%81/%E5%88%B6%E4%BD%9Ckeil%20pack%E5%AE%89%E8%A3%85%E5%8C%85/%E5%88%B6%E4%BD%9Ckeil%20pack%E5%AE%89%E8%A3%85%E5%8C%85/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    制作keil pack安装包
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MCU%E5%BC%80%E5%8F%91%E6%94%AF%E6%8C%81/%E5%88%B6%E4%BD%9Ckeil%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E6%96%87%E4%BB%B6/%E5%88%B6%E4%BD%9Ckeil%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E6%96%87%E4%BB%B6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    制作keil编程算法文件
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    MM32 Guide
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            MM32 Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MM32%20Flash/MM32%20Flash/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MM32 Flash
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MM32%20ADC/MM32%20ADC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MM32 ADC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    MM32 MDPWM
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    MM32 MDPWM
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      简介
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      功能列表
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      功能详解
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="功能详解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      时钟选择
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      寄存器重载与计数器同步
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pwm" class="md-nav__link">
+    <span class="md-ellipsis">
+      PWM输出
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hrpwm" class="md-nav__link">
+    <span class="md-ellipsis">
+      HRPWM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      故障保护
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      故障保护的使用示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      例程详解
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="例程详解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      重要的宏定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      重要的结构体
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      例程工作流程
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Python笔记
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Python笔记
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Python%E7%AC%94%E8%AE%B0/SXT%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/SXT%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SXT课堂笔记
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../芯片勘误表4.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ClassB入门
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    USB入门
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            USB入门
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%9F%BA%E4%BA%8EMini-F5277-OB%E7%A7%BB%E6%A4%8DTinyUSB%E5%8D%8F%E8%AE%AE%E6%A0%88/%E5%9F%BA%E4%BA%8EMini-F5277-OB%E7%A7%BB%E6%A4%8DTinyUSB%E5%8D%8F%E8%AE%AE%E6%A0%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TinyUSB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    CAN入门
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            CAN入门
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%9F%BA%E4%BA%8EMM32G5330%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/%E5%9F%BA%E4%BA%8EMM32G5330%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CANopenNode
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ENET入门
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            ENET入门
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LwIP%E7%A7%BB%E6%A4%8D%E7%AC%94%E8%AE%B0/LwIP%E7%A7%BB%E6%A4%8D%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LwIP移植笔记
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    构建此站
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            构建此站
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MkDocs%E5%85%A5%E9%97%A8/MkDocs%E5%85%A5%E9%97%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MkDocs入门
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MaterialForMkDocs%E5%85%A5%E9%97%A8/MaterialForMkDocs%E5%85%A5%E9%97%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MaterialForMkDocs入门
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/iamzhangbinbin/iamzhangbinbin.github.io/edit/master/docs/MM32 Guide/MM32 MDPWM/MM32 MDPWM.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/iamzhangbinbin/iamzhangbinbin.github.io/raw/master/docs/MM32 Guide/MM32 MDPWM/MM32 MDPWM.md" title="查看本页的源代码" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="mindpwm">MindPWM应用笔记<a class="headerlink" href="#mindpwm" title="Permanent link">&para;</a></h1>
+<h2 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>本应用笔记作为UM的补充，以MM32F5370系列为例，讲解MindPWM的功能与使用步骤。文中对应例程可在EVB-F5375开发板上验证。<br />
+MindPWM 是灵动微电子自主研发的高精度脉宽调制器模块，该模块拥有最多 4 个子模块，每个子模块都配有一个单独的16位定时器，可以分别产生 2 个独立的 PWM 输出或者 1 对互补的 PWM 输出，整个模块的 8 个输出，全部支持硬件死区插入，支持故障刹车，支持最高 174ps 的高精度。 MindPWM可以产生多种多样的开关模式，包括非常复杂的波形。它可以用来控制所有已知的电机类型，用于控制开关电源也非常理想。<br />
+本文首先列举MindPWM的功能特点，然后依照 MindPWM 的功能框图介绍其工作原理，最后结合灵动提供的MindPWM 固件库例程的代码，讲解如何编程使用功能强大的MindPWM。</p>
+<h2 id="_2">功能列表<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>16位分辨率PWM，支持中央对齐、边缘对齐和相移等模式</li>
+<li>支持双开关PWM输出</li>
+<li>支持有符号数生成PWM</li>
+<li>独立可编程PWM输出极性</li>
+<li>每个PWM输出可通过软件独立控制</li>
+<li>支持小数PWM以提高周期和占空比分辨率</li>
+<li>HRPWM时钟生成</li>
+<li>HRPWM时钟不可用时，使用周期性抖动模拟小数PWM</li>
+<li>PWM可以作为互补对或独立通道输出</li>
+<li>死区时间的独立插入</li>
+<li>每个互补对可以独立配置PWM频率和死区时间值</li>
+<li>支持PWM输出上升和下降沿的独立控制</li>
+<li>支持与外部硬件或其他PWM的同步</li>
+<li>PWM影子寄存器，在RELOAD事件时生效，支持整周期或者半周期RELOAD能力</li>
+<li>每个PWM周期可以通过硬件生成多个输出触发事件</li>
+<li>可通过故障输入（FAULT）控制多个PWM输出</li>
+<li>故障输入支持可编程滤波</li>
+<li>所有的输出可以通过FORCE事件同时更改</li>
+<li>PWMX引脚可以选择为从每个子模块输出的第三个PWM信号</li>
+</ul>
+<h2 id="_3">功能详解<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>此部分作为UM的补充，通俗地讲解MindPWM使用中需要注意的关键点。UM中已详尽描述的内容不在此赘述。  </p>
+<h3 id="_4">时钟选择<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p><img alt="alt text" src="../image.png" /></p>
+<p>由SMxCR0[1:0]位决定子模块的时钟源。其中，  </p>
+<ul>
+<li>IPBus CLOCK指APB2总线时钟；  </li>
+<li>EXT_CLK指名称为MDPWM_ETR(详见具体芯片的Datasheet)的引脚外灌的时钟脉冲；  </li>
+<li>AUX_CLK 指由子模块0产生的时钟，受子模块0的预分频和RUN影响。注意子模块0本身没有此时钟源。  </li>
+</ul>
+<h3 id="_5">寄存器重载与计数器同步<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>预装载寄存器内的值在 RELOAD 事件发生的时候传输到内部影子寄存器。寄存器重载有两种方式：  </p>
+<p>第一， SMxCR0.[24] = 1 时，重载选择子模块 0 的 Master RELOAD 信号。而 Master RELOAD 则是子模块0本身的 Local RELOAD 。  </p>
+<p>第二， SMxCR0.[24] = 0 时，重载选择子模块的 Local RELOAD。Local RELOAD 又可以根据LDMOD 的值选择不同的重载方式。</p>
+<p>计数器同步，即让计数器的值设定为从 INIT 开始计数。同步中使用到 Local Sync 与 Master Sync，理解起来同前述重载的 Local RELOAD 与 Master RELOAD。  </p>
+<p>重载与同步中提到的 PWM_EXT_SYNC 和 EXT_FORCE 信号，来自 MindSwitch，可以灵活连接到 Timer、EXTI 等其他 IP 的输出，具体见 UM 里芯片特定配置章节的 MindSwitch 映射关系。<br />
+<img alt="alt text" src="../image-1.png" />  </p>
+<h3 id="pwm">PWM输出<a class="headerlink" href="#pwm" title="Permanent link">&para;</a></h3>
+<p>PWM的输出有中央对齐模式、边沿对齐模式、相移模式、双开关模式，其中中央对齐模式又分向上计数与向上向下计数两种。无论哪种模式，都涉及到了 SMxINIT、SMxVAL0、SMxVAL1、SMxVAL2、SMxVAL3、SMxVAL4 、SMxVAL5 这几个寄存器的设置。可以简单地理解为，SMxINIT 与 SMxVAL1的差值决定了 PWM 的周期，SMxVAL2 与 SMxVAL3 的差值决定了PWMA的占空比， SMxVAL4 与SMxVAL5 的差值决定了 PWMB 的占空比。而 SMxVAL0 的值在 SMxINIT 与 SMxVAL1 之间，用于产生半周期信号。SMxINIT 是初值，发生 sync 事件后计数器回到 SMxINIT。Sync 事件的来源由 SMxCR0[16:19] 决定，注意 4bit 中分别选中代表的事件以或的操作来生成 SYNC 事件。</p>
+<h3 id="hrpwm">HRPWM<a class="headerlink" href="#hrpwm" title="Permanent link">&para;</a></h3>
+<p>每个子模块的 PWMA 和 PWMB 输出，可经过 DLL (Delay Locked Loop) 的细调，改变上升沿、下降沿的输出宽度，从而调整 PWM 的占空比和周期，实现高精度的 PWM 的输出。<br />
+DLL的步长频率为 PLL 输出的 32 倍频，由 SMxFRCR 寄存器 FRACVALx 决定步长数，最大为 32。以 PLL 输出 180MHz 为例，DLL 步长为 1/180MHz/32 ≈ 174ps。此为 HRPWM 的最大精度值。<br />
+<img alt="alt text" src="../image-2.png" />   </p>
+<p>当芯片中没有 DLL 模块时，可以使 SMxFRCR0.FRAC_PU 为 0，来开启抖动方式实现小数延时。</p>
+<h3 id="_6">故障保护<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p><img alt="alt text" src="../image-3.png" /></p>
+<p>MindPWM支持四个 Fault 通道，分别为 Fault Channel 0、Fault Channel 1、Fault Channel 2、Fault Channel 3。每个 Fault 通道又包括 4 个 Fault 输入，共计 16 个 Fault 输入。16 个输入源详见 UM 中芯片特定配置章节的系统模块硬件互联。  </p>
+<ul>
+<li>CSS输出作为MindPWM_FAULT0；  </li>
+<li>名称为MDPWM_FLT1 - MDPWM_FLT12的引脚输入对应MindPWM_FAULT1 - MindPWM_FAULT12；  </li>
+<li>COMP1、COMP2、COMP3输出对应MindPWM_FAULT13、MindPWM_FAULT14、MindPWM_FAULT15。<br />
+<img alt="alt text" src="../image-4.png" /> </li>
+</ul>
+<p>这些Fault通道可以用来控制任意子模块的输出。每个子模块可以通过 SMxFDIS0、SMxFDIS1 寄存器自由选择任意 Fault 输入的组合，子模块 PWM 输出在 Fault 时的状态由 SMxOCR.PWMy_FS 寄存器单独控制。</p>
+<h3 id="_7">故障保护的使用示例<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<ol>
+<li>选择故障保护源<br />
+从 MindPWM_FAULT0~ MindPWM_FAULT15 中选择一个或多个故障保护源。本示例选择引脚复用功能为 MDPWM_FLT11 的 PA10 为故障保护输入源。  </li>
+<li>配置 FCxCR0 与 FCxCR1 寄存器<br />
+MindPWM_FAULT0~ MindPWM_FAULT15 中每四个源对应一个 Fault Channel，即MindPWM_FAULT0~ MindPWM_FAULT3 对应 Fault Channel0，<br />
+MindPWM_FAULT4~ MindPWM_FAULT7 对应 Fault Channel1，<br />
+MindPWM_FAULT8~ MindPWM_FAULT11 对应 Fault Channel2<br />
+MindPWM_FAULT12~ MindPWM_FAULT15 对应 Fault Channel3，<br />
+Fault Channel0 配置 FC0CR0、FC0CR1 寄存器，  <br />
+Fault Channel1 配置 FC1CR0、FC1CR1 寄存器，<br />
+Fault Channel2 配置 FC2CR0、FC2CR1 寄存器，<br />
+Fault Channel3 配置 FC3CR0、FC3CR1 寄存器。<br />
+寄存器中同名的位域有 4bit，分别对应该 Channel 下的 4 个 FAULTx，比如本例中故障保护中断使能，则配置 FC2CR0[3] 为 1，FC2CR0[2:0] 不需要配置。   </li>
+<li>关联到PWM输出子模块<br />
+如果故障保护源来自Fault Channel0 或者Fault Channel1，则配置SMxFDIS0，<br />
+如果故障保护源来自Fault Channel2 或者Fault Channel3，则配置SMxFDIS1，<br />
+若 x = 0、1、2、3，对应 MindPWM 的 4 个子模块。 
+同样地，SMxFDIS0、SMxFDIS1 中同名的位域有 4bit，分别对应该 Channel 下的 4 个 FAULTx 是否能影响 PWM 的输出。配置为 1，则会关闭对应的输出，配置为 0，则不会影响 PWM  的输出。</li>
+</ol>
+<h2 id="_8">例程详解<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h3 id="_9">重要的宏定义<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>修改此宏定义，可以改变PWM输出的频率与占空比。
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>#define APP_DEFAULT_PWM_FREQUENCE (505.0f)
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>/*!&lt; PWM pulse width, value should be between 0 to 100 */
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>#define APP_PWM_DUTYCYCLE_PERCENT (63.5f)
+</code></pre></div></td></tr></table></div></p>
+<h3 id="_10">重要的结构体<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>初始化 PWM 外设模块。使用 PWM_GetDefaultConfig() 函数可以获取默认的设置。
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>typedef struct
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>{
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>    bool enableDebugMode; /*!&lt; true: PWM continues to run in debug mode;
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>                               false: PWM is paused in debug mode */
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>    pwm_init_source_t initializationControl; /*!&lt; Option to initialize the counter */
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>    pwm_clock_source_t clockSource;          /*!&lt; Clock source for the counter */
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>    pwm_clock_prescale_t prescale;           /*!&lt; Pre-scaler to divide down the clock */
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a>    pwm_chnl_pair_operation_t pairOperation; /*!&lt; Channel pair in indepedent or complementary mode */
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>    pwm_register_reload_t reloadLogic;       /*!&lt; PWM Reload logic setup */
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a>    pwm_reload_source_select_t reloadSelect; /*!&lt; Reload source select */
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a>    pwm_load_frequency_t reloadFrequency;    /*!&lt; Specifies when to reload, used when user&#39;s choice
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a>                                                  is not immediate reload */
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a>    pwm_force_output_trigger_t forceTrigger; /*!&lt; Specify which signal will trigger a FORCE_OUT */
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a>} PWM_InitTypeDef;
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p>PWM 信号结构体。设置 PWM 的输出特性，占空比、死区等。
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span>
+<span class="normal"><a href="#__codelineno-2-7">7</a></span>
+<span class="normal"><a href="#__codelineno-2-8">8</a></span>
+<span class="normal"><a href="#__codelineno-2-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>typedef struct
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>{
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>    pwm_channels_t pwmChannel;    /*!&lt; PWM channel being configured; PWM A or PWM B */
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>    float dutyCyclePercent;       /*!&lt; PWM pulse width, value should be between 0 to 100 */
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>    pwm_level_select_t level;     /*!&lt; PWM output active level select */
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>    uint16_t deadtimeValue;       /*!&lt; The deadtime value; only used if channel pair is operating in complementary mode */
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>    pwm_fault_state_t faultState; /*!&lt; PWM output fault status */
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a>    bool pwmchannelenable;        /*!&lt; Enable PWM output */
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a>} pwm_signal_param_t;
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p>PWM_Fault 初始化结构体。使用 PWM_FaultDefaultConfig() 函数可以获取默认设置。
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span>
+<span class="normal"><a href="#__codelineno-3-5">5</a></span>
+<span class="normal"><a href="#__codelineno-3-6">6</a></span>
+<span class="normal"><a href="#__codelineno-3-7">7</a></span>
+<span class="normal"><a href="#__codelineno-3-8">8</a></span>
+<span class="normal"><a href="#__codelineno-3-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>typedef struct
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>{
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>    pwm_fault_clear_t faultClearingMode;   /*!&lt; Fault clearing mode to use */
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>    bool faultLevel;                       /*!&lt; true: Logic 1 indicates fault;
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>                                                false: Logic 0 indicates fault */
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a>    bool enableCombinationalPath;          /*!&lt; true: Combinational Path from fault input is enabled;
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>                                                false: No combination path is available */
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a>    pwm_fault_recovery_mode_t recoverMode; /*!&lt; Specify when to re-enable the PWM output */
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a>} PWM_Fault_InitTypeDef;
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p>fault input filter 设置。
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span>
+<span class="normal"><a href="#__codelineno-4-6">6</a></span>
+<span class="normal"><a href="#__codelineno-4-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>typedef struct
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>{
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>    uint8_t faultFilterCount;  /*!&lt; Fault filter count */
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>    uint8_t faultFilterPeriod; /*!&lt; Fault filter period;value of 0 will bypass the filter */
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>    bool faultGlitchStretch;   /*!&lt; Fault Glitch Stretch Enable: A logic 1 means that input
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>                                    fault signals will be stretched to at least 2 IPBus clock cycles */
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>} pwm_fault_input_filter_param_t;
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<h3 id="_11">例程工作流程<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>设置 PWM 输出引脚。
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span>
+<span class="normal"><a href="#__codelineno-5-13">13</a></span>
+<span class="normal"><a href="#__codelineno-5-14">14</a></span>
+<span class="normal"><a href="#__codelineno-5-15">15</a></span>
+<span class="normal"><a href="#__codelineno-5-16">16</a></span>
+<span class="normal"><a href="#__codelineno-5-17">17</a></span>
+<span class="normal"><a href="#__codelineno-5-18">18</a></span>
+<span class="normal"><a href="#__codelineno-5-19">19</a></span>
+<span class="normal"><a href="#__codelineno-5-20">20</a></span>
+<span class="normal"><a href="#__codelineno-5-21">21</a></span>
+<span class="normal"><a href="#__codelineno-5-22">22</a></span>
+<span class="normal"><a href="#__codelineno-5-23">23</a></span>
+<span class="normal"><a href="#__codelineno-5-24">24</a></span>
+<span class="normal"><a href="#__codelineno-5-25">25</a></span>
+<span class="normal"><a href="#__codelineno-5-26">26</a></span>
+<span class="normal"><a href="#__codelineno-5-27">27</a></span>
+<span class="normal"><a href="#__codelineno-5-28">28</a></span>
+<span class="normal"><a href="#__codelineno-5-29">29</a></span>
+<span class="normal"><a href="#__codelineno-5-30">30</a></span>
+<span class="normal"><a href="#__codelineno-5-31">31</a></span>
+<span class="normal"><a href="#__codelineno-5-32">32</a></span>
+<span class="normal"><a href="#__codelineno-5-33">33</a></span>
+<span class="normal"><a href="#__codelineno-5-34">34</a></span>
+<span class="normal"><a href="#__codelineno-5-35">35</a></span>
+<span class="normal"><a href="#__codelineno-5-36">36</a></span>
+<span class="normal"><a href="#__codelineno-5-37">37</a></span>
+<span class="normal"><a href="#__codelineno-5-38">38</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>    RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA | RCC_AHBPeriph_GPIOC, ENABLE);   
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>    RCC_APB2PeriphClockCmd(RCC_APB2Periph_MDPWM, ENABLE);
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>    GPIO_PinAFConfig(GPIOC, GPIO_PinSource6, GPIO_AF_11);  //MDPWM_CHA1
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>    GPIO_InitStructure.GPIO_Pin  =  GPIO_Pin_6;
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_High;
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>    GPIO_Init(GPIOC, &amp;GPIO_InitStructure);
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a>    GPIO_PinAFConfig(GPIOA, GPIO_PinSource1, GPIO_AF_17);  //MDPWM_CHB1       
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a>    GPIO_InitStructure.GPIO_Pin  =  GPIO_Pin_1;
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a>    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_High;
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a>    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a>    GPIO_Init(GPIOA, &amp;GPIO_InitStructure);
+<a id="__codelineno-5-15" name="__codelineno-5-15"></a>
+<a id="__codelineno-5-16" name="__codelineno-5-16"></a>    GPIO_PinAFConfig(GPIOC, GPIO_PinSource8, GPIO_AF_11);  //MDPWM_CHA2       
+<a id="__codelineno-5-17" name="__codelineno-5-17"></a>    GPIO_InitStructure.GPIO_Pin  =  GPIO_Pin_8;
+<a id="__codelineno-5-18" name="__codelineno-5-18"></a>    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_High;
+<a id="__codelineno-5-19" name="__codelineno-5-19"></a>    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+<a id="__codelineno-5-20" name="__codelineno-5-20"></a>    GPIO_Init(GPIOC, &amp;GPIO_InitStructure);
+<a id="__codelineno-5-21" name="__codelineno-5-21"></a>
+<a id="__codelineno-5-22" name="__codelineno-5-22"></a>    GPIO_PinAFConfig(GPIOC, GPIO_PinSource9, GPIO_AF_11);  //MDPWM_CHB2       
+<a id="__codelineno-5-23" name="__codelineno-5-23"></a>    GPIO_InitStructure.GPIO_Pin  =  GPIO_Pin_9;
+<a id="__codelineno-5-24" name="__codelineno-5-24"></a>    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_High;
+<a id="__codelineno-5-25" name="__codelineno-5-25"></a>    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+<a id="__codelineno-5-26" name="__codelineno-5-26"></a>    GPIO_Init(GPIOC, &amp;GPIO_InitStructure);    
+<a id="__codelineno-5-27" name="__codelineno-5-27"></a>
+<a id="__codelineno-5-28" name="__codelineno-5-28"></a>    GPIO_PinAFConfig(GPIOA, GPIO_PinSource8, GPIO_AF_11);  //MDPWM_CHA3       
+<a id="__codelineno-5-29" name="__codelineno-5-29"></a>    GPIO_InitStructure.GPIO_Pin  =  GPIO_Pin_8;
+<a id="__codelineno-5-30" name="__codelineno-5-30"></a>    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_High;
+<a id="__codelineno-5-31" name="__codelineno-5-31"></a>    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+<a id="__codelineno-5-32" name="__codelineno-5-32"></a>    GPIO_Init(GPIOA, &amp;GPIO_InitStructure);
+<a id="__codelineno-5-33" name="__codelineno-5-33"></a>
+<a id="__codelineno-5-34" name="__codelineno-5-34"></a>    GPIO_PinAFConfig(GPIOA, GPIO_PinSource9, GPIO_AF_11);  //MDPWM_CHB3       
+<a id="__codelineno-5-35" name="__codelineno-5-35"></a>    GPIO_InitStructure.GPIO_Pin  =  GPIO_Pin_9;
+<a id="__codelineno-5-36" name="__codelineno-5-36"></a>    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_High;
+<a id="__codelineno-5-37" name="__codelineno-5-37"></a>    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+<a id="__codelineno-5-38" name="__codelineno-5-38"></a>    GPIO_Init(GPIOA, &amp;GPIO_InitStructure);
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p>配置 PWM 模块参数。
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span>
+<span class="normal"><a href="#__codelineno-6-12">12</a></span>
+<span class="normal"><a href="#__codelineno-6-13">13</a></span>
+<span class="normal"><a href="#__codelineno-6-14">14</a></span>
+<span class="normal"><a href="#__codelineno-6-15">15</a></span>
+<span class="normal"><a href="#__codelineno-6-16">16</a></span>
+<span class="normal"><a href="#__codelineno-6-17">17</a></span>
+<span class="normal"><a href="#__codelineno-6-18">18</a></span>
+<span class="normal"><a href="#__codelineno-6-19">19</a></span>
+<span class="normal"><a href="#__codelineno-6-20">20</a></span>
+<span class="normal"><a href="#__codelineno-6-21">21</a></span>
+<span class="normal"><a href="#__codelineno-6-22">22</a></span>
+<span class="normal"><a href="#__codelineno-6-23">23</a></span>
+<span class="normal"><a href="#__codelineno-6-24">24</a></span>
+<span class="normal"><a href="#__codelineno-6-25">25</a></span>
+<span class="normal"><a href="#__codelineno-6-26">26</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>    PWM_GetDefaultConfig(&amp;PWM_InitStructure); 
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>    PWM_InitStructure.prescale        = PWM_Prescale_Divide_8;
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>    PWM_InitStructure.reloadLogic     = PWM_ReloadPwmFullCycle;
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>    PWM_InitStructure.pairOperation   = PWM_ComplementaryPwmA;
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>    PWM_InitStructure.enableDebugMode = true;
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a>    /* Initialize submodule 0 */
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a>    if (PWM_Init(MindPWM, PWM_Module_0, &amp;PWM_InitStructure) == 1)
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a>    {
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a>        printf(&quot;PWM submodule 0 initialization failed\n&quot;);
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a>    }
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a>
+<a id="__codelineno-6-13" name="__codelineno-6-13"></a>    /* Initialize submodule 1, make it use same counter clock as submodule 0. */
+<a id="__codelineno-6-14" name="__codelineno-6-14"></a>    PWM_InitStructure.clockSource           = PWM_Submodule0Clock;
+<a id="__codelineno-6-15" name="__codelineno-6-15"></a>    PWM_InitStructure.prescale              = PWM_Prescale_Divide_1;
+<a id="__codelineno-6-16" name="__codelineno-6-16"></a>    PWM_InitStructure.initializationControl = PWM_Initialize_MasterSync;
+<a id="__codelineno-6-17" name="__codelineno-6-17"></a>    if (PWM_Init(MindPWM, PWM_Module_1, &amp;PWM_InitStructure) == 1)
+<a id="__codelineno-6-18" name="__codelineno-6-18"></a>    {
+<a id="__codelineno-6-19" name="__codelineno-6-19"></a>        printf(&quot;PWM submodule 1 initialization failed\n&quot;);
+<a id="__codelineno-6-20" name="__codelineno-6-20"></a>    }
+<a id="__codelineno-6-21" name="__codelineno-6-21"></a>
+<a id="__codelineno-6-22" name="__codelineno-6-22"></a>    /* Initialize submodule 2 the same way as submodule 1 */
+<a id="__codelineno-6-23" name="__codelineno-6-23"></a>    if (PWM_Init(MindPWM, PWM_Module_2, &amp;PWM_InitStructure) == 1)
+<a id="__codelineno-6-24" name="__codelineno-6-24"></a>    {
+<a id="__codelineno-6-25" name="__codelineno-6-25"></a>        printf(&quot;PWM submodule 2 initialization failed\n&quot;);
+<a id="__codelineno-6-26" name="__codelineno-6-26"></a>    }
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p>使能 3 对 PWM。
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span>
+<span class="normal"><a href="#__codelineno-7-11">11</a></span>
+<span class="normal"><a href="#__codelineno-7-12">12</a></span>
+<span class="normal"><a href="#__codelineno-7-13">13</a></span>
+<span class="normal"><a href="#__codelineno-7-14">14</a></span>
+<span class="normal"><a href="#__codelineno-7-15">15</a></span>
+<span class="normal"><a href="#__codelineno-7-16">16</a></span>
+<span class="normal"><a href="#__codelineno-7-17">17</a></span>
+<span class="normal"><a href="#__codelineno-7-18">18</a></span>
+<span class="normal"><a href="#__codelineno-7-19">19</a></span>
+<span class="normal"><a href="#__codelineno-7-20">20</a></span>
+<span class="normal"><a href="#__codelineno-7-21">21</a></span>
+<span class="normal"><a href="#__codelineno-7-22">22</a></span>
+<span class="normal"><a href="#__codelineno-7-23">23</a></span>
+<span class="normal"><a href="#__codelineno-7-24">24</a></span>
+<span class="normal"><a href="#__codelineno-7-25">25</a></span>
+<span class="normal"><a href="#__codelineno-7-26">26</a></span>
+<span class="normal"><a href="#__codelineno-7-27">27</a></span>
+<span class="normal"><a href="#__codelineno-7-28">28</a></span>
+<span class="normal"><a href="#__codelineno-7-29">29</a></span>
+<span class="normal"><a href="#__codelineno-7-30">30</a></span>
+<span class="normal"><a href="#__codelineno-7-31">31</a></span>
+<span class="normal"><a href="#__codelineno-7-32">32</a></span>
+<span class="normal"><a href="#__codelineno-7-33">33</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>    RCC_ClocksTypeDef RCC_Clocks;
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>    uint16_t deadTimeVal = 0;
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>    pwm_signal_param_t pwmSignal[2];
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a>    uint32_t pwmSourceClockInHz;
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a>    float pwmFrequencyInHz = APP_DEFAULT_PWM_FREQUENCE;
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a>    RCC_GetClocksFreq(&amp;RCC_Clocks);
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a>    pwmSourceClockInHz = RCC_Clocks.PCLK2_Frequency;
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a>
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a>    pwmSignal[0].pwmChannel       = PWM_PwmA;
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a>    pwmSignal[0].level            = PWM_HighTrue;
+<a id="__codelineno-7-13" name="__codelineno-7-13"></a>    pwmSignal[0].dutyCyclePercent = APP_PWM_DUTYCYCLE_PERCENT; 
+<a id="__codelineno-7-14" name="__codelineno-7-14"></a>    pwmSignal[0].deadtimeValue    = deadTimeVal;
+<a id="__codelineno-7-15" name="__codelineno-7-15"></a>    pwmSignal[0].faultState       = PWM_PwmFaultState0;
+<a id="__codelineno-7-16" name="__codelineno-7-16"></a>    pwmSignal[0].pwmchannelenable = true;
+<a id="__codelineno-7-17" name="__codelineno-7-17"></a>
+<a id="__codelineno-7-18" name="__codelineno-7-18"></a>    pwmSignal[1].pwmChannel = PWM_PwmB;
+<a id="__codelineno-7-19" name="__codelineno-7-19"></a>    pwmSignal[1].level      = PWM_HighTrue;
+<a id="__codelineno-7-20" name="__codelineno-7-20"></a>    /* Dutycycle field of PWM B does not matter as we are running in PWM A complementary mode */
+<a id="__codelineno-7-21" name="__codelineno-7-21"></a>    pwmSignal[1].dutyCyclePercent = APP_PWM_DUTYCYCLE_PERCENT;
+<a id="__codelineno-7-22" name="__codelineno-7-22"></a>    pwmSignal[1].deadtimeValue    = deadTimeVal;
+<a id="__codelineno-7-23" name="__codelineno-7-23"></a>    pwmSignal[1].faultState       = PWM_PwmFaultState0;
+<a id="__codelineno-7-24" name="__codelineno-7-24"></a>    pwmSignal[1].pwmchannelenable = true;
+<a id="__codelineno-7-25" name="__codelineno-7-25"></a>
+<a id="__codelineno-7-26" name="__codelineno-7-26"></a>    /*********** PWMA_SM0 - phase A, configuration, setup 2 channel as an example ************/
+<a id="__codelineno-7-27" name="__codelineno-7-27"></a>    PWM_SetupPwm(MindPWM, PWM_Module_0, pwmSignal, 2, PWM_UpwardCenterAligned, pwmFrequencyInHz, pwmSourceClockInHz);
+<a id="__codelineno-7-28" name="__codelineno-7-28"></a>
+<a id="__codelineno-7-29" name="__codelineno-7-29"></a>    /*********** PWMA_SM1 - phase B configuration, setup PWM A channel only ************/
+<a id="__codelineno-7-30" name="__codelineno-7-30"></a>    PWM_SetupPwm(MindPWM, PWM_Module_1, pwmSignal, 2, PWM_UpwardCenterAligned, pwmFrequencyInHz, pwmSourceClockInHz/8);
+<a id="__codelineno-7-31" name="__codelineno-7-31"></a>
+<a id="__codelineno-7-32" name="__codelineno-7-32"></a>    /*********** PWMA_SM2 - phase C configuration, setup PWM A channel only ************/
+<a id="__codelineno-7-33" name="__codelineno-7-33"></a>    PWM_SetupPwm(MindPWM, PWM_Module_2, pwmSignal, 2, PWM_UpwardCenterAligned, pwmFrequencyInHz, pwmSourceClockInHz/8);
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p>设置 PA10 为 MindPWM Fault 源。EVB 开发板中，杜邦线连接 PA10 与 PC13，然后按 K1 键可以看到刹车效果。
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-8-10">10</a></span>
+<span class="normal"><a href="#__codelineno-8-11">11</a></span>
+<span class="normal"><a href="#__codelineno-8-12">12</a></span>
+<span class="normal"><a href="#__codelineno-8-13">13</a></span>
+<span class="normal"><a href="#__codelineno-8-14">14</a></span>
+<span class="normal"><a href="#__codelineno-8-15">15</a></span>
+<span class="normal"><a href="#__codelineno-8-16">16</a></span>
+<span class="normal"><a href="#__codelineno-8-17">17</a></span>
+<span class="normal"><a href="#__codelineno-8-18">18</a></span>
+<span class="normal"><a href="#__codelineno-8-19">19</a></span>
+<span class="normal"><a href="#__codelineno-8-20">20</a></span>
+<span class="normal"><a href="#__codelineno-8-21">21</a></span>
+<span class="normal"><a href="#__codelineno-8-22">22</a></span>
+<span class="normal"><a href="#__codelineno-8-23">23</a></span>
+<span class="normal"><a href="#__codelineno-8-24">24</a></span>
+<span class="normal"><a href="#__codelineno-8-25">25</a></span>
+<span class="normal"><a href="#__codelineno-8-26">26</a></span>
+<span class="normal"><a href="#__codelineno-8-27">27</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>    PWM_Fault_InitTypeDef  PWM_Fault_InitStructure;
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>    GPIO_InitTypeDef       GPIO_InitStructure;    
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a>    RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE); 
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a>    GPIO_PinAFConfig(GPIOA, GPIO_PinSource10, GPIO_AF_22);  //MDPWM_FLT11
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a>    GPIO_InitStructure.GPIO_Pin  =  GPIO_Pin_10;
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a>    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_High;
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a>    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a>    GPIO_Init(GPIOA, &amp;GPIO_InitStructure);
+<a id="__codelineno-8-11" name="__codelineno-8-11"></a>
+<a id="__codelineno-8-12" name="__codelineno-8-12"></a>     /*
+<a id="__codelineno-8-13" name="__codelineno-8-13"></a>     *   config-&gt;faultClearingMode = PWM_Automatic;
+<a id="__codelineno-8-14" name="__codelineno-8-14"></a>     *   config-&gt;faultLevel = false;
+<a id="__codelineno-8-15" name="__codelineno-8-15"></a>     *   config-&gt;enableCombinationalPath = true;
+<a id="__codelineno-8-16" name="__codelineno-8-16"></a>     *   config-&gt;recoverMode = PWM_NoRecovery;
+<a id="__codelineno-8-17" name="__codelineno-8-17"></a>     */
+<a id="__codelineno-8-18" name="__codelineno-8-18"></a>    PWM_FaultDefaultConfig(&amp;PWM_Fault_InitStructure);
+<a id="__codelineno-8-19" name="__codelineno-8-19"></a>    PWM_Fault_InitStructure.recoverMode = PWM_RecoverFullCycle;
+<a id="__codelineno-8-20" name="__codelineno-8-20"></a>
+<a id="__codelineno-8-21" name="__codelineno-8-21"></a>    /* Sets up the PWM fault protection */
+<a id="__codelineno-8-22" name="__codelineno-8-22"></a>    PWM_SetupFaults(MindPWM, PWM_Module_0, PWM_PwmA, PWM_Fault_11, &amp;PWM_Fault_InitStructure);
+<a id="__codelineno-8-23" name="__codelineno-8-23"></a>    PWM_SetupFaults(MindPWM, PWM_Module_1, PWM_PwmB, PWM_Fault_11, &amp;PWM_Fault_InitStructure);
+<a id="__codelineno-8-24" name="__codelineno-8-24"></a>    PWM_SetupFaults(MindPWM, PWM_Module_2, PWM_PwmA, PWM_Fault_11, &amp;PWM_Fault_InitStructure);
+<a id="__codelineno-8-25" name="__codelineno-8-25"></a>    PWM_SetupFaults(MindPWM, PWM_Module_2, PWM_PwmB, PWM_Fault_11, &amp;PWM_Fault_InitStructure);
+<a id="__codelineno-8-26" name="__codelineno-8-26"></a>
+<a id="__codelineno-8-27" name="__codelineno-8-27"></a>    printf(&quot;\r\nConnected PA10 and PC13, press KEY1 to brak PWM.&quot;);
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 ZhangBinbin/All Rights Reserved.
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://iamzhangbinbin.github.io/" target="_blank" rel="noopener" title="Wechat" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M385.2 167.6c6.4 0 12.6.3 18.8 1.1C387.4 90.3 303.3 32 207.7 32 100.5 32 13 104.8 13 197.4c0 53.4 29.3 97.5 77.9 131.6l-19.3 58.6 68-34.1c24.4 4.8 43.8 9.7 68.2 9.7 6.2 0 12.1-.3 18.3-.8-4-12.9-6.2-26.6-6.2-40.8-.1-84.9 72.9-154 165.3-154m-104.5-52.9c14.5 0 24.2 9.7 24.2 24.4 0 14.5-9.7 24.2-24.2 24.2-14.8 0-29.3-9.7-29.3-24.2.1-14.7 14.6-24.4 29.3-24.4m-136.4 48.6c-14.5 0-29.3-9.7-29.3-24.2 0-14.8 14.8-24.4 29.3-24.4 14.8 0 24.4 9.7 24.4 24.4 0 14.6-9.6 24.2-24.4 24.2M563 319.4c0-77.9-77.9-141.3-165.4-141.3-92.7 0-165.4 63.4-165.4 141.3S305 460.7 397.6 460.7c19.3 0 38.9-5.1 58.6-9.9l53.4 29.3-14.8-48.6C534 402.1 563 363.2 563 319.4m-219.1-24.5c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.8 0 24.4 9.7 24.4 19.3 0 10-9.7 19.6-24.4 19.6m107.1 0c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.5 0 24.4 9.7 24.4 19.3.1 10-9.9 19.6-24.4 19.6"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://iamzhangbinbin.github.io/" target="_blank" rel="noopener" title="telegram" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M248 8C111.033 8 0 119.033 0 256s111.033 248 248 248 248-111.033 248-248S384.967 8 248 8m114.952 168.66c-3.732 39.215-19.881 134.378-28.1 178.3-3.476 18.584-10.322 24.816-16.948 25.425-14.4 1.326-25.338-9.517-39.287-18.661-21.827-14.308-34.158-23.215-55.346-37.177-24.485-16.135-8.612-25 5.342-39.5 3.652-3.793 67.107-61.51 68.335-66.746.153-.655.3-3.1-1.154-4.384s-3.59-.849-5.135-.5q-3.283.746-104.608 69.142-14.845 10.194-26.894 9.934c-8.855-.191-25.888-5.006-38.551-9.123-15.531-5.048-27.875-7.717-26.8-16.291q.84-6.7 18.45-13.7 108.446-47.248 144.628-62.3c68.872-28.647 83.183-33.623 92.511-33.789 2.052-.034 6.639.474 9.61 2.885a10.45 10.45 0 0 1 3.53 6.716 43.8 43.8 0 0 1 .417 9.769"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://iamzhangbinbin.github.io/" target="_blank" rel="noopener" title="iamzhangbinbin.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9zm-24.8 373.8h39.1L151.1 88h-42z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://iamzhangbinbin.github.io/" target="_blank" rel="noopener" title="iamzhangbinbin.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<z466302@126.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M64 112c-8.8 0-16 7.2-16 16v22.1l172.5 141.6c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16zM48 212.2V384c0 8.8 7.2 16 16 16h384c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0zM0 128c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://iamzhangbinbin.github.io/" target="_blank" rel="noopener" title="iamzhangbinbin.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M488.6 104.1c16.7 18.1 24.4 39.7 23.3 65.7v202.4c-.4 26.4-9.2 48.1-26.5 65.1-17.2 17-39.1 25.9-65.5 26.7H92.02c-26.45-.8-48.21-9.8-65.28-27.2C9.682 419.4.767 396.5 0 368.2V169.8c.767-26 9.682-47.6 26.74-65.7C43.81 87.75 65.57 78.77 92.02 78h29.38L96.05 52.19c-5.75-5.73-8.63-13-8.63-21.79 0-8.8 2.88-16.06 8.63-21.797C101.8 2.868 109.1 0 117.9 0q13.2 0 21.9 8.603L213.1 78h88l74.5-69.397C381.7 2.868 389.2 0 398 0q13.2 0 21.9 8.603c5.7 5.737 8.6 12.997 8.6 21.797 0 8.79-2.9 16.06-8.6 21.79L394.6 78h29.3c26.4.77 48 9.75 64.7 26.1m-38.8 69.7c-.4-9.6-3.7-17.4-10.7-23.5-5.2-6.1-14-9.4-22.7-9.8H96.05c-9.59.4-17.45 3.7-23.58 9.8-6.14 6.1-9.4 13.9-9.78 23.5v194.4c0 9.2 3.26 17 9.78 23.5s14.38 9.8 23.58 9.8H416.4c9.2 0 17-3.3 23.3-9.8s9.7-14.3 10.1-23.5zm-264.3 42.7c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.2 6.3-14 9.5-23.6 9.5s-17.5-3.2-23.6-9.5-9.4-14-9.8-23.2v-33.3c.4-9.1 3.8-16.9 10.1-23.2s13.2-9.6 23.3-10c9.2.4 17 3.7 23.3 10m191.5 0c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2s-14 9.5-23.6 9.5-17.4-3.2-23.6-9.5c-7-6.3-9.4-14-9.7-23.2v-33.3c.3-9.1 3.7-16.9 10-23.2s14.1-9.6 23.3-10c9.2.4 17 3.7 23.3 10"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["toc.integrate", "announce.dismiss", "navigation.instant", "header.autohide", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "search.share", "navigation.expand", "navigation.indexes", "content.tabs.link", "content.tooltips", "content.code.copy", "content.action.edit", "content.action.view", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
