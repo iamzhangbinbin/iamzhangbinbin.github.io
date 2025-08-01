@@ -1,0 +1,2905 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="张彬彬的个人技术博客">
+      
+      
+        <meta name="author" content="张彬彬">
+      
+      
+        <link rel="canonical" href="https://iamzhangbinbin.github.io/%E6%A0%87%E5%87%86%E4%B8%8E%E8%AE%A4%E8%AF%81/ClassB%E8%BD%AF%E4%BB%B6%E5%BA%93/ClassB%E8%BD%AF%E4%BB%B6%E5%BA%93/">
+      
+      
+        <link rel="prev" href="../../%E5%9B%BD%E9%99%85%E7%BB%84%E7%BB%87%E7%AE%80%E4%BB%8B/%E5%9B%BD%E9%99%85%E7%BB%84%E7%BB%87%E7%AE%80%E4%BB%8B/">
+      
+      
+        <link rel="next" href="../../../USB%E5%85%A5%E9%97%A8/">
+      
+      
+      <link rel="icon" href="../../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>ClassB软件库 - 张彬彬的杂货铺</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#classb" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="张彬彬的杂货铺" class="md-header__button md-logo" aria-label="张彬彬的杂货铺" data-md-component="logo">
+      
+  <img src="../../../img/zahuopu.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            张彬彬的杂货铺
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ClassB软件库
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="切换至日间模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至日间模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/iamzhangbinbin/iamzhangbinbin.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    I'mZhangBinbin
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../MCU%E5%BC%80%E5%8F%91%E6%94%AF%E6%8C%81/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  MCU开发支持
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../MM32%20Guide/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  MM32 Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Python%E7%AC%94%E8%AE%B0/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Python笔记
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  标准与认证
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../USB%E5%85%A5%E9%97%A8/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  USB入门
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../CAN%E5%85%A5%E9%97%A8/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  CAN入门
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../ENET%E5%85%A5%E9%97%A8/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  ENET入门
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../blog/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  博客
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  About
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="张彬彬的杂货铺" class="md-nav__button md-logo" aria-label="张彬彬的杂货铺" data-md-component="logo">
+      
+  <img src="../../../img/zahuopu.png" alt="logo">
+
+    </a>
+    张彬彬的杂货铺
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/iamzhangbinbin/iamzhangbinbin.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    I'mZhangBinbin
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../MCU%E5%BC%80%E5%8F%91%E6%94%AF%E6%8C%81/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    MCU开发支持
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../MM32%20Guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    MM32 Guide
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Python%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Python笔记
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    标准与认证
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            标准与认证
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%9B%BD%E9%99%85%E7%BB%84%E7%BB%87%E7%AE%80%E4%BB%8B/%E5%9B%BD%E9%99%85%E7%BB%84%E7%BB%87%E7%AE%80%E4%BB%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    国际组织简介
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    ClassB软件库
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    ClassB软件库
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#iec60730" class="md-nav__link">
+    <span class="md-ellipsis">
+      IEC60730 标准概述
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IEC60730 标准概述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      标准组成
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      核心要求
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      与其他标准的关系
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      测试与认证
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      典型应用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      注意事项
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      软件库简介
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="软件库简介">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      软件库中的测试项
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      验证方法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="验证方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mcu" class="md-nav__link">
+    <span class="md-ellipsis">
+      MCU 相关故障检测
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      应用相关故障检测
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      系统测试流程
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="系统测试流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      启动自检
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      运行自检
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      软件库移植
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      CPU 寄存器测试
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CPU 寄存器测试">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cpu_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      CPU 寄存器测试原理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpu_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      CPU 寄存器测试实现
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ram" class="md-nav__link">
+    <span class="md-ellipsis">
+      RAM 验证测试
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RAM 验证测试">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ram_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      RAM 启动自检
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ram_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      RAM 运行自检
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flash" class="md-nav__link">
+    <span class="md-ellipsis">
+      FLASH 验证测试
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FLASH 验证测试">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flash_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      FLASH 验证方法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FLASH 验证方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iar-crc" class="md-nav__link">
+    <span class="md-ellipsis">
+      设置 IAR 生成 CRC
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keil-crc" class="md-nav__link">
+    <span class="md-ellipsis">
+      设置 Keil 生成 CRC
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crc" class="md-nav__link">
+    <span class="md-ellipsis">
+      在启动文件中设置 CRC
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crc_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      配置硬件 CRC
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flash-crc" class="md-nav__link">
+    <span class="md-ellipsis">
+      运行中计算 FLASH 中的 CRC
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      时钟验证测试
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="时钟验证测试">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      时钟启动自检
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      时钟运行自检
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      相关外设初始化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      时钟验证
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      测试时间
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="测试时间">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      启动自检
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="启动自检">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cpu_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      CPU寄存器自检
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      看门狗自检
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flash_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      FLASH自检
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ram_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      RAM自检
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      时钟自检
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      运行自检
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      控制流程检查测试
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="控制流程检查测试">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      程序流程控制
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      栈边界检测
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b" class="md-nav__link">
+    <span class="md-ellipsis">
+      B类安全方案软体结构
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="B类安全方案软体结构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      用户应用的集成
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      自检驱动接口文件
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../USB%E5%85%A5%E9%97%A8/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    USB入门
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../CAN%E5%85%A5%E9%97%A8/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    CAN入门
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../ENET%E5%85%A5%E9%97%A8/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    ENET入门
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../blog/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    博客
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../.." class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="classb">ClassB软件库<a class="headerlink" href="#classb" title="Permanent link">&para;</a></h1>
+<h2 id="iec60730">IEC60730 标准概述<a class="headerlink" href="#iec60730" title="Permanent link">&para;</a></h2>
+<p>IEC 60730 是国际电工委员会（IEC）制定的关于家用和类似用途的自动电气控制装置的安全标准，适用于各类电子控制器，如温控器、定时器、电机保护器等。该标准广泛应用于家电、工业控制及智能家居设备。</p>
+<h3 id="_1">标准组成<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>IEC 60730 是一个系列标准，主要包括以下部分：</p>
+<table>
+<thead>
+<tr>
+<th>标准号</th>
+<th>适用范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IEC 60730-1</td>
+<td>通用要求（适用于所有自动电气控制器）</td>
+</tr>
+<tr>
+<td>IEC 60730-2-X</td>
+<td>特定类型控制器的专用要求（如温控器、电机控制器等）</td>
+</tr>
+</tbody>
+</table>
+<p>常见子标准举例：</p>
+<ul>
+<li>IEC 60730-2-9：电动水阀控制器</li>
+<li>IEC 60730-2-14：电动门锁控制器</li>
+<li>IEC 60730-2-23：温度敏感控制器（如恒温器）</li>
+</ul>
+<h3 id="_2">核心要求<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>(1) 电气安全</p>
+<ul>
+<li>绝缘性能：耐压测试（如 1500V AC/1min）、爬电距离和电气间隙要求。</li>
+<li>防触电保护：防止用户接触带电部件。</li>
+<li>过载和短路保护：确保控制器在异常情况下不会引发火灾或电击风险。</li>
+</ul>
+<p>(2) 机械安全</p>
+<ul>
+<li>结构强度：外壳防护等级（如 IP20）、机械耐久性（如按键寿命测试）。</li>
+<li>防误操作：防止用户错误设置导致危险。</li>
+</ul>
+<p>(3) 功能安全<br />
+可靠性和故障保护（适用于 Class A/B 控制器）：</p>
+<ul>
+<li>Class A：无安全相关功能（如普通定时器）。</li>
+<li>Class B：涉及安全功能（如温控器，需防止过热）。</li>
+<li>Class C：高安全要求（如燃气阀控制）。</li>
+</ul>
+<p>失效模式分析（如短路、开路、软件故障的影响）。</p>
+<p>(4) 环境适应性</p>
+<ul>
+<li>温度范围（如-20°C ~ +55°C）。</li>
+<li>湿度、振动、EMC（电磁兼容）测试。</li>
+</ul>
+<h3 id="_3">与其他标准的关系<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>标准</th>
+<th>关联性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IEC 60335（家电安全）</td>
+<td>IEC 60730 控制器通常用于符合 IEC 60335 的家电产品</td>
+</tr>
+<tr>
+<td>IEC 61000（EMC）</td>
+<td>控制器需满足电磁兼容要求</td>
+</tr>
+<tr>
+<td>UL 60730</td>
+<td>北美市场适用，与 IEC 60730 技术内容基本一致</td>
+</tr>
+<tr>
+<td>GB 14536.1</td>
+<td>中国国家标准，等同采用 IEC 60730-1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_4">测试与认证<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>(1) 主要测试项目</p>
+<ul>
+<li>电气安全测试（耐压、接地、泄漏电流）。</li>
+<li>功能测试（控制精度、响应时间）。</li>
+<li>环境测试（高温、低温、湿热）。</li>
+<li>EMC测试（抗干扰、辐射发射）。</li>
+</ul>
+<p>(2) 适用认证</p>
+<ul>
+<li>CE认证（欧盟，需符合 EN 60730）。</li>
+<li>UL认证（北美，UL 60730）。</li>
+<li>CCC认证（中国，GB 14536.1）。</li>
+</ul>
+<h3 id="_5">典型应用<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>家用电器：洗衣机、空调、冰箱的温控器和电机控制器。</li>
+<li>智能家居：智能插座、照明控制器。</li>
+<li>工业控制：电动阀门、泵控制器。</li>
+</ul>
+<h3 id="_6">注意事项<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>最新版本：IEC 60730-1:2013（Ed 4.0）是当前通用标准，部分子标准已更新至2020+版本。<br />
+<strong>与软件相关</strong>：若控制器含可编程逻辑（如 MCU 控制），需评估软件安全（参考 IEC 60730-1 Annex H）。<br />
+中国市场：需符合 GB 14536.1-2022（等同 IEC 60730-1:2020）。</p>
+<h2 id="_7">软件库简介<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h3 id="_8">软件库中的测试项<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<ol>
+<li>CPU 寄存器测试</li>
+<li>时钟验证测试</li>
+<li>不变存储器 FLASH 验证测试</li>
+<li>可变存储器 RAM 验证测试</li>
+<li>看门狗验证测试</li>
+<li>控制流程检查验证测试</li>
+</ol>
+<h3 id="_9">验证方法<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<h4 id="mcu">MCU 相关故障检测<a class="headerlink" href="#mcu" title="Permanent link">&para;</a></h4>
+<p><img alt="alt text" src="../image.png" /></p>
+<h4 id="_10">应用相关故障检测<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<p><img alt="alt text" src="../image-1.png" /></p>
+<h3 id="_11">系统测试流程<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>MCU 在上电的时候会进行复位启动，在启动完成以后会进行运行自检，ClassB 系统流程如下：</p>
+<p><img alt="alt text" src="../image-2.png" /></p>
+<h4 id="_12">启动自检<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<p>CPU 寄存器进行自检操作，如果检测没有故障则进行看门狗的自检，如果有故障则进行故障的处理。看门狗自检流程与 CPU 寄存器自检的流程一致，后面依次会进行 FLASH，RAM 以及时钟自检，启动自检完成以后会进入程序的主循环函数中。</p>
+<p>启动自检流程如下：</p>
+<p><img alt="alt text" src="../image-3.png" /></p>
+<h4 id="_13">运行自检<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<p>在主循环中会定期的进行自检操作，在进行自检操作的时候会依次进行如下操作：CPU 寄存器的自检、栈自检、时钟自检、FLASH 自检、并设置定时器定时进行 RAM 自检，如果在自检的过程中出现故障则会进行故障的处理。</p>
+<p>运行自检流程如下：</p>
+<p><img alt="alt text" src="../image-4.png" /></p>
+<h3 id="_14">软件库移植<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>如果用户已经开发好相关的应用控制程序，只需要在原有的应用程序中添加 ClassB 的程序，操作方法如下：</p>
+<ol>
+<li>
+<p>在原有的工程框架中添加 ClassB 的相关 .c 和 .s 文件。<br />
+<img alt="alt text" src="../image-5.png" /></p>
+</li>
+<li>
+<p>在执行用户程序之前，先执行相关的变量初始化及监测、校准时钟。
+<div class="highlight"><pre><span></span><code>STL_InitRunTimeChecks();
+</code></pre></div></p>
+</li>
+<li>设置 WWDG 和 IWDG 功能，防止其在程序正常运行时复位。
+<div class="highlight"><pre><span></span><code>WWDG_Init(0xFF,0x7F);
+Iwdg_Init(IWDG_Prescaler_4, (LSI_Freq/4000-2));
+</code></pre></div></li>
+<li>设置启动和运行时的 RAM 和 FLASH 检测范围，CRC 校验的范围，checksum 在 Flash 中存储的位置。
+<div class="highlight"><pre><span></span><code>STL_FlashCrc32Init();
+</code></pre></div></li>
+<li>ClassB 变量的存储地址范围，堆栈边界检测区的位置，对检测到的故障进行处理。</li>
+<li>根据具体的应用，增加用户相关的故障检测内内容，根据具体应用定义程序运行时自检的频率，相关的变量设置 MM32_STLparam.h 文件中。</li>
+<li>主循环中调用STL_DoRunTimeChecks()
+<div class="highlight"><pre><span></span><code>STL_DoRunTimeChecks();
+</code></pre></div></li>
+</ol>
+<h2 id="cpu">CPU 寄存器测试<a class="headerlink" href="#cpu" title="Permanent link">&para;</a></h2>
+<p>R0 ~ R12 我们称为通用寄存器，其中寄存器 R0 ~ R7 我们称为低寄存器，寄存器 R8 ~ R12 我们称为高寄存器，可用于数据操作。</p>
+<p>在对 R0 ~ R12 寄存器进行操作时需要注意：绝大多数 16 位 Thumb 指令只能访问 R0‐R7，而 32 位 Thumb‐2 指令可以访问所有寄存器。</p>
+<p>R13 作为堆栈指针 SP，SP 有两个：</p>
+<ul>
+<li>主堆栈指针(MSP)：复位后缺省使用的堆栈指针，用于操作系统内核以及异常处理例程（包括中断服务例程）。</li>
+<li>进程堆栈指针(PSP)：由用户的应用程序代码使用。</li>
+</ul>
+<p>R14 称为子程序链接寄存器 LR(Link Register)，当执行子程序调用指令 (BL) 时,R14 可得到 R15(程序计数器 PC )的备份。</p>
+<p>CPU 自检在启动时和运行时都会进行，在启动时，所有寄存器(R0 ~ R12，PSP，MSP)和标记的功能测试都会进行一次自检；运行时，周期性自检，不检测R13，R14，仅检测寄存器R0 ~ R12。</p>
+<h3 id="cpu_1">CPU 寄存器测试原理<a class="headerlink" href="#cpu_1" title="Permanent link">&para;</a></h3>
+<p>在 mm32_cpustartKeil.s 与 mm32_cpurunKeil.s 文件中会对 CPU 寄存器进行测试，其中 mm32_cpustartKeil.s 文件中的测试为启动过程中对 CPU 寄存器进行的测试，mm32_cpurunKeil.s 文件中的测试为运行自检流程中的 CPU 寄存器测试，其原理为对寄存器每一位写 0 和写 1 操作，对比是否有错误。</p>
+<p>具体实现：分别写入 0xAAAAAAAA 和 0x55555555 再进行比较是否为写入的值。</p>
+<h3 id="cpu_2">CPU 寄存器测试实现<a class="headerlink" href="#cpu_2" title="Permanent link">&para;</a></h3>
+<p>以启动时 CPU 自检程序为例进行分析，将 conAA 数据定义为 0xAAAAAAAA，将 con55 定义为 0x55555555，并使用 EXPORT 指令进行声明。
+<div class="highlight"><pre><span></span><code>conAA       DCD     0xAAAAAAAA
+con55       DCD     0x55555555 
+con80       DCD     0x80000000
+conA8       DCD     0xAAAAAAA8
+con54       DCD     0x55555554
+
+EXPORT conAA
+EXPORT con55
+</code></pre></div>
+声明函数 ClassB_StartUpCPUTest 函数，并进行 CPU 寄存器中的 R1 寄存器的检测，先将 conAA 的数据赋值给 R0 寄存器，然后赋值给 R1 寄存器，然后比较 R0 与 R1 寄存器的数据，如果两者的数据相同则将 con55 分别赋值给 R1 与 R0 寄存器进行比较，否则会跳转执行 CPUTestFail 函数，如果两者的数据相同则将 0x01 赋值给 R1 寄存器，否则将会跳转到 CPUTestFail 函数中。
+<div class="highlight"><pre><span></span><code>    ; Register R1
+    LDR R0, =conAA
+    LDR R1,[R0]
+    LDR R0,[R0]
+    CMP R0,R1
+    BNE CPUTestFail
+    LDR R0, =con55
+    LDR R1,[R0]
+    LDR R0,[R0]
+    CMP R0,R1
+    BNE CPUTestFail
+    MOVS R1, #0x1             ; For ramp test
+</code></pre></div>
+在汇编程序中大家可以看到，如果检测失败，会跳转到 CPUTestFail 函数执行，如果检测成功则进行下一步的检测。
+依次针对 R2，R3，R4，R5，R6，R7，R8，R9，R10，R11，R12 寄存器进行与 R1 一样的操作，在上述的寄存器比较完成以后相应的寄存器会被赋予新的数据。
+<div class="highlight"><pre><span></span><code>Class_StartUpCPUTest PROC
+      EXPORT Class_StartUpCPUTest
+
+    PUSH {R4-R6}              ; Safe critical registers
+
+    MOVS R0, #0x00
+    UXTB R0,R0
+    ADDS R0,#0                            ; Set Z(ero) Flag
+    BNE CPUTestFail        ; Fails if Z clear
+    BMI CPUTestFail        ; Fails if N is set
+    SUBS R0,#1             ; Set N(egative) Flag
+    BPL CPUTestFail        ; Fails if N clear
+    ADDS R0,#2              ; Set C(arry) Flag and do not set Z
+    BCC CPUTestFail         ; Fails if C clear
+    BEQ CPUTestFail         ; Fails if Z is set
+    BMI CPUTestFail         ; Fails if N is set
+
+    LDR R0,=con80                 ; Prepares Overflow test
+    LDR R0,[R0]
+    ADDS R0, R0, R0          ; Set V(overflow) Flag
+    BVC CPUTestFail          ; Fails if V clear
+
+    ; This is for control flow test (ENTRY point)
+    LDR R0,=CtrlFlowCnt
+    LDR R1,[R0]
+    ADDS R1,R1,#0x3             ; CtrlFlowCnt += OxO3
+    STR R1,[R0]
+
+    ; Register R1
+    LDR R0, =conAA
+    LDR R1,[R0]
+    LDR R0,[R0]
+    CMP R0,R1
+    BNE CPUTestFail
+    LDR R0, =con55
+    LDR R1,[R0]
+    LDR R0,[R0]
+    CMP R0,R1
+    BNE CPUTestFail
+    MOVS R1, #0x1             ; For ramp test
+
+    ; Register R2
+    LDR R0, =conAA
+    LDR R2,[R0]
+    LDR R0,[R0]
+    CMP R0,R2
+    BNE CPUTestFail
+    LDR R0, =con55
+    LDR R2,[R0]
+    LDR R0,[R0]
+    CMP R0,R2
+    BNE CPUTestFail
+    MOVS R2, #0x2             ; For ramp test
+
+    ; Register R3
+    LDR R0, =conAA
+    LDR R3,[R0]
+    LDR R0,[R0]
+    CMP R0,R3
+    BNE CPUTestFail
+    LDR R0, =con55
+    LDR R3,[R0]
+    LDR R0,[R0]
+    CMP R0,R3
+    BNE CPUTestFail
+    MOVS R3, #0x3             ; For ramp test
+
+    ; Register R4
+    LDR R0, =conAA
+    LDR R4,[R0]
+    LDR R0,[R0]
+    CMP R0,R4
+    BNE CPUTestFail
+    LDR R0, =con55
+    LDR R4,[R0]
+    LDR R0,[R0]
+    CMP R0,R4
+    BNE CPUTestFail
+    MOVS R4, #0x4             ; For ramp test
+
+    ; Register R5
+    LDR R0, =conAA
+    LDR R5,[R0]
+    LDR R0,[R0]
+    CMP R0,R5
+    BNE CPUTestFail
+    LDR R0, =con55
+    LDR R5,[R0]
+    LDR R0,[R0]
+    CMP R0,R5
+    BNE CPUTestFail
+    MOVS R5, #0x5             ; For ramp test
+
+    ; Register R6
+    LDR R0, =conAA
+    LDR R6,[R0]
+    LDR R0,[R0]
+    CMP R0,R6
+    BNE CPUTestFail
+    LDR R0, =con55
+    LDR R6,[R0]
+    LDR R0,[R0]
+    CMP R0,R6
+    BNE CPUTestFail
+    MOVS R6, #0x6             ; For ramp test
+
+    ; Register R7
+    LDR R0, =conAA
+    LDR R7,[R0]
+    LDR R0,[R0]
+    CMP R0,R7
+    BNE CPUTestFail
+    LDR R0, =con55
+    LDR R7,[R0]
+    LDR R0,[R0]
+    CMP R0,R7
+    BNE CPUTestFail
+    MOVS R7, #0x7             ; For ramp test
+
+    ; Register R8
+    LDR R0, =conAA
+    LDR R0,[R0]
+    MOV R8,R0
+    CMP R0,R8
+    BNE CPUTestFail
+    LDR R0, =con55
+    LDR R0,[R0]
+    MOV R8,R0
+    CMP R0,R8
+    BNE CPUTestFail
+    MOVS R0, #0x08            ; For ramp test
+    MOV    R8,R0
+
+    BAL CPUTstCont
+
+CPUTestFail
+    BLAL FailSafePOR
+
+CPUTstCont
+    ; Register R9
+    LDR R0, =conAA
+    LDR R0,[R0]
+    MOV R9,R0
+    CMP R0,R9
+    BNE CPUTestFail
+    LDR R0, =con55
+    LDR R0,[R0]
+    MOV R9,R0
+    CMP R0,R9
+    BNE CPUTestFail
+    MOVS R0, #0x09            ; For ramp test
+    MOV    R9,R0
+
+    ; Register R10
+    LDR R0, =conAA
+    LDR R0,[R0]
+    MOV R10,R0
+    CMP R0,R10
+    BNE CPUTestFail
+    LDR R0, =con55
+    LDR R0,[R0]
+    MOV R10,R0
+    CMP R0,R10
+    BNE CPUTestFail
+    MOVS R0, #0x0A            ; For ramp test
+    MOV    R10,R0
+
+    ; Register R11
+    LDR R0, =conAA
+    LDR R0,[R0]
+    MOV R11,R0
+    CMP R0,R11
+    BNE CPUTestFail
+    LDR R0, =con55
+    LDR R0,[R0]
+    MOV R11,R0
+    CMP R0,R11
+    BNE CPUTestFail
+    MOVS R0, #0x0B            ; For ramp test
+    MOV    R11,R0
+
+    ; Register R12
+    LDR R0, =conAA
+    LDR R0,[R0]
+    MOV R12,R0
+    CMP R0,R12
+    BNE CPUTestFail
+    LDR R0, =con55
+    LDR R0,[R0]
+    MOV R12,R0
+    CMP R0,R12
+    BNE CPUTestFail
+    MOVS R0, #0x0C            ; For ramp test
+    MOV    R12,R0
+    LDR R0, =CPUTstCont
+</code></pre></div>
+R1 ~ R12 寄存器比较完成以后会在 Ramp 中做进一步的判断，判断 R1 寄存器的数值是否为 0x01，R2 寄存器的数值是否为 0x02，依次判断到 R12 寄存器，如果以上的判断都是正确的则说明 R1 ~ R12 寄存器验证通过。
+<div class="highlight"><pre><span></span><code>   ; Ramp pattern verification    (R0 is not tested)
+    CMP R1, #0x01
+    BNE CPUTestFail
+    CMP R2, #0x02
+    BNE CPUTestFail
+    CMP R3, #0x03
+    BNE CPUTestFail
+    CMP R4, #0x04
+    BNE CPUTestFail
+    CMP R5, #0x05
+    BNE CPUTestFail
+    CMP R6, #0x06
+    BNE CPUTestFail
+    CMP R7, #0x07
+    BNE CPUTestFail
+    MOVS R0, #0x08
+    CMP R0,R8
+    BNE CPUTestFail
+    MOVS R0, #0x09
+    CMP R0,R9
+    BNE CPUTestFail
+    MOVS R0, #0x0A
+    CMP R0,R10
+    BNE CPUTestFail
+    MOVS R0, #0x0B
+    CMP R0,R11
+    BNE CPUTestFail
+    MOVS R0, #0x0C
+    CMP R0,R12
+    BNE CPUTestFail
+</code></pre></div>
+对 R13 的自检功能与通用寄存器的操作不同，需要先保存堆栈到 R0，操作如下：
+<div class="highlight"><pre><span></span><code>    ; Process Stack pointer (banked Register R13)
+    MRS R0,PSP          ; Save process stack value
+    LDR R1, =conA8      ; Test is different (PSP is word aligned, 2 LSB cleared)
+    LDR R1,[R1]
+    MSR PSP,R1          ; load process stack value    MRS R2,PSP          ; Get back process stack value
+    CMP R2,R1           ; Verify value
+    BNE CPUTestFail
+
+    LDR R1, =con54      ; Test is different (PSP is word aligned, 2 LSB cleared)
+    LDR R1,[R1]
+    MSR PSP,R1          ; load process stack value    MRS R2,PSP          ; Get back process stack value
+    CMP R2,R1           ; Verify value
+    BNE CPUTestFail
+
+    MSR PSP, R0         ; Restore process stack value
+
+    ; Stack pointer (Register R13)
+    MRS R0,MSP          ; Save stack pointer value
+    LDR R1, =conA8      ; Test is different (SP is word aligned, 2 LSB cleared)
+    LDR R1,[R1]
+    MSR MSP,R1            ; load SP value    MRS R2,MSP            ; Get back SP value
+    CMP R2,R1            ; Verify value
+    BNE CPUTestFail
+
+    LDR R1, =con54
+    LDR R1,[R1]            ; load SP value
+    MSR MSP,R1            ; Get back SP value
+    MRS R2,MSP            ; Verify value
+    CMP R2,R1
+    BNE CPUTestFail
+
+    MSR MSP,R0            ; Restore stack pointer value
+
+    ; Control flow test (EXIT point)
+    LDR R0,=CtrlFlowCntInv    LDR R1,[R0]
+    SUBS R1,R1,#0x3        ; CtrlFlowCntInv -= OxO3
+    STR R1,[R0]
+
+    POP {R4-R6}            ; Restore critical registers
+
+    ; If next instruction is not executed, R0 will hold a value different from 0
+    MOVS R0, #0x1       ; CPUTEST_SUCCESS
+    BX LR               ; return to the caller
+
+    ALIGN
+
+    ENDP
+
+  END
+</code></pre></div>
+以上代码是在启动时 CPU 寄存器自检的汇编代码，在运行时 CPU 寄存器自检功能与启动自检的代码原理相同，只是对寄存器操作个数有差异，运行时不用对 R13\14 进行操作。</p>
+<p>在汇编程序中我们会使用 CMP 指令进行判断，后面会跟着 BNE 指令，其作用就是判断如果 CMP 判断的两个寄存器不相等，则直接执行 BNE 指令后面的 CPUTestFail 函数，直接提醒错误报警，或可以添加对应的处理机制。</p>
+<h2 id="ram">RAM 验证测试<a class="headerlink" href="#ram" title="Permanent link">&para;</a></h2>
+<p>SRAM 检测不仅检测数据区域的错误，还检测其内部地址和数据路径的错误。</p>
+<p>检测时由于需要执行软件算法(March-C)，会影响 CPU 的利用率，所以 SRAM 测试采用拓扑模式，按位阵列推进测试，阵列中的逻辑邻位（属于单字）物理上彼此分离，而带后续逻辑地址的字对在物理上却共享邻位，此时可采用按字测试的方法。</p>
+<p>SRAM 自检采用 March-C 算法，March-C 是一种用于嵌入式芯片 RAM 测试的算法，是安全认证的一部分，可用于测试那些未被硬件奇偶校验覆盖的部分 RAM。为了不影响 MCU 的运行，将 RAM 分成很多小块，每次测试其中一块, 先将要测试的块清零，然后按位逐位置 1，每置一位，测试该位是不是 1，是就继续，不是就报错；全部置完后，再逐位清 0，每清一个位，测试该位清 0 是不是 0，如果是就正确，不是就报错。如果是对工作区的 RAM，数据需要保留，在 RAM 中开一个安全保留区，先对安全保留区 March-C，然后把要测试的区的数据 copy 进安全区，再对要测试的工作区进行 March-C，测试 -- copy 进安全区 -- 测试 -- copy 进安全区...... 完成整个空间的测试。</p>
+<p>在 ClassB 检测中，RAM 自检也分为启动自检与运行自检两部分。</p>
+<h3 id="ram_1">RAM 启动自检<a class="headerlink" href="#ram_1" title="Permanent link">&para;</a></h3>
+<p>RAM 在启动自检过程中会检测全部的 RAM。算法中会用值（0x00000000）和值（0xFFFFFFFF）逐字填充，填充后读取出来比较看值是否相等。具体的运行流程图如下：</p>
+<p><img alt="alt text" src="../image-6.png" /></p>
+<p>主要有6步：</p>
+<ul>
+<li>对所有测试单元写0 (按地址增加的顺序)</li>
+<li>逐个检测每个单元是否为0，如果全为0，然后写为0xFF* (按地址增加的顺序)</li>
+<li>逐个检测每个单元是否为0xFF*，如果全为F，然后写为0 (按地址增加的顺序)</li>
+<li>逐个检测每个单元是否为0，如果全为0，然后写为0xFF* (按地址递减的顺序)</li>
+<li>逐个检测每个单元是否为0xFF*，如果全为F，然后写为0 (按地址递减的顺序)</li>
+<li>逐个检测每个单元是否为0(按地址递减的顺序)</li>
+</ul>
+<div class="highlight"><pre><span></span><code>Class_FullRamMarchC
+  PUSH  {R4-R7}
+  MOVS  R4, #0x1       ; Test success status by default
+  MOVS  R3,R2          ; setup inverted background pattern
+  RSBS  R3, R3, #0
+  SUBS  R3,R3, #1
+
+; *** Step 1 *** 
+; Write background pattern with addresses increasing
+  MOVS  R5,R0
+__FULL1_LOOP
+  CMP   R5,R1
+  BHI   __FULL_RET
+
+  LDR   R7,[R5, #+0]
+
+  STR   R2,[R5, #+0]
+  LDR   R6,[R5, #+0]
+  CMP   R2,R6
+  BNE   __FULL_ERR
+
+  STR   R3,[R5, #+0]
+  LDR   R6,[R5, #+0]
+  CMP   R3,R6
+  BNE   __FULL_ERR
+
+  STR   R7,[R5, #+0]
+
+  ADDS  R5,R5,#+4
+  B     __FULL1_LOOP
+
+; *** Step 2 *** 
+; Write background pattern with addresses decreasing
+
+  MOVS  R5,R1
+  SUBS  R5,R5,#+4
+__FULL2_LOOP
+  CMP   R5,R0
+  BLO   __FULL_RET
+
+  LDR   R7,[R5, #+0]
+
+  STR   R2,[R5, #+0]
+  LDR   R6,[R5, #+0]
+  CMP   R2,R6
+  BNE   __FULL_ERR
+
+  STR   R3,[R5, #+0]
+  LDR   R6,[R5, #+0]
+  CMP   R3,R6
+  BNE   __FULL_ERR
+
+  STR   R7,[R5, #+0]
+
+  SUBS  R5,R5,#+4
+  B     __FULL2_LOOP
+
+__FULL_ERR
+  MOVS  R4,#0       ; error result
+
+__FULL_RET
+
+  MOVS  R0,R4
+  POP   {R4-R7}
+  BX    LR          ; return to the caller
+</code></pre></div>
+<h3 id="ram_2">RAM 运行自检<a class="headerlink" href="#ram_2" title="Permanent link">&para;</a></h3>
+<p>RAM 在运行自检的过程中只检测部分 RAM，不会检测全部的 RAM。目前主要自检 0x20000030-0x2000007B 范围内的 RAM 以及 0x20000000-0x2000001F 缓冲区范围的 RAM，具体的操作流程如下：</p>
+<p><img alt="alt text" src="../image-7.png" /></p>
+<p>在 mm32_RamMcMxKeil.c 进行如下操作：
+<div class="highlight"><pre><span></span><code>; ***************** test of the RAM slice *********************
+  MOVS  R5, #0       ; NO - save content of the RAM slice into the backup buffer
+__SAVE_LOOP
+  LDR   R6,[R4, R5]  ; load data offset
+  LDR   R7,[R0, R6]  ; load data from RAM
+  ADDS  R5,R5,#4     ; original data are stored starting from second item of the buffer
+  STR   R7,[R1, R5]  ; (first and last items are used for testing purpose exclusively)
+  CMP   R5, #20
+  BLE   __SAVE_LOOP
+
+; *** Step 1 *** 
+; Write background pattern with addresses increasing
+  MOVS  R5, #0
+__STEP1_LOOP
+  LDR   R6,[R4, R5]  ; load data offset
+  STR   R2,[R0, R6]  ; store background pattern
+  ADDS  R5,R5,#4
+  CMP   R5, #20
+  BLE   __STEP1_LOOP
+
+; *** Step 2 ***
+; Verify background and write inverted background with addresses increasing
+  MOVS  R5, #0
+__STEP2_LOOP
+  LDR   R6,[R4, R5]  ; load data offset
+  LDR   R7,[R0, R6]  ; verify background pattern
+  CMP   R7, R2
+  BNE   __STEP_ERR
+  STR   R3,[R0, R6]  ; store inverted background pattern
+  ADDS  R5,R5,#4
+  CMP   R5, #20
+  BLE   __STEP2_LOOP
+</code></pre></div>
+在 mm32_STLClassBvar.h 文件中设置一些变量进行定址，并在工程配置中设定区域。
+<div class="highlight"><pre><span></span><code> /* RAM location for temporary storage of original values at run time RAM transparent test */
+  EXTERN uint32_t aRunTimeRamBuf[RT_RAM_BLOCKSIZE + 2] __attribute__((section(&quot;RUN_TIME_RAM_BUF&quot;)));
+
+  /* RAM pointer for run-time tests */
+  EXTERN uint32_t *pRunTimeRamChk        __attribute__((section(&quot;RUN_TIME_RAM_PNT&quot;)));
+  EXTERN uint32_t *pRunTimeRamChkInv     __attribute__((section(&quot;RUN_TIME_RAM_PNT&quot;)));
+  EXTERN uint32_t aGAP_FOR_RAM_TEST_OVERLAY[2] __attribute__((section(&quot;RUN_TIME_RAM_PNT&quot;)));
+
+  /*Note:the zero_init forces the linker to place variables in the bsssection */
+  /*This allows the UNINIT directive(in scatter file)to work. On the contrary */
+  /* all Class B variables pairs should be initialized properly by user before using them */
+
+  /* Counter for verifying correct program execution at start */
+  EXTERN uint32_t CtrlFlowCnt             __attribute__((section(&quot;CLASS_B_RAM&quot;), zero_init));
+  EXTERN uint32_t CtrlFlowCntInv          __attribute__((section(&quot;CLASS_B_RAM_REV&quot;), zero_init));
+
+  /* Counter for verifying correct program execution in interrupt */
+  EXTERN uint32_t ISRCtrlFlowCnt          __attribute__((section(&quot;CLASS_B_RAM&quot;), zero_init));
+  EXTERN uint32_t ISRCtrlFlowCntInv       __attribute__((section(&quot;CLASS_B_RAM_REV&quot;), zero_init));
+
+  /* LSI period measurement at TIM5 IRQHandler */
+  EXTERN uint32_t PeriodValue           __attribute__((section(&quot;CLASS_B_RAM&quot;), zero_init));
+  EXTERN uint32_t PeriodValueInv        __attribute__((section(&quot;CLASS_B_RAM_REV&quot;), zero_init));
+
+  /* Sofware time base used in main program (incremented in SysTick timer ISR */
+  EXTERN uint32_t TickCounter             __attribute__((section(&quot;CLASS_B_RAM&quot;), zero_init));
+  EXTERN uint32_t TickCounterInv          __attribute__((section(&quot;CLASS_B_RAM_REV&quot;), zero_init));
+
+  /* Indicates to the main routine a 100ms tick */
+  EXTERN __IO uint32_t TimeBaseFlag       __attribute__((section(&quot;CLASS_B_RAM&quot;), zero_init));
+  EXTERN __IO uint32_t TimeBaseFlagInv    __attribute__((section(&quot;CLASS_B_RAM_REV&quot;), zero_init));
+
+  /* Indicates to the main routine a 100ms tick */
+  EXTERN __IO uint32_t LSIPeriodFlag      __attribute__((section(&quot;CLASS_B_RAM&quot;), zero_init));
+  EXTERN __IO uint32_t LSIPeriodFlagInv   __attribute__((section(&quot;CLASS_B_RAM_REV&quot;), zero_init));
+
+  /* Stores the Control flow counter from one main loop to the other */
+  EXTERN uint32_t LastCtrlFlowCnt         __attribute__((section(&quot;CLASS_B_RAM&quot;), zero_init));
+  EXTERN uint32_t LastCtrlFlowCntInv      __attribute__((section(&quot;CLASS_B_RAM_REV&quot;), zero_init));
+
+  /* Pointer to FLASH for crc32 run-time tests */
+  EXTERN uint32_t *pRunCrc32Chk           __attribute__((section(&quot;CLASS_B_RAM&quot;), zero_init));
+  EXTERN uint32_t *pRunCrc32ChkInv        __attribute__((section(&quot;CLASS_B_RAM_REV&quot;), zero_init));
+
+/* Reference 32-bit CRC for run-time tests */
+  EXTERN uint32_t RefCrc32                __attribute__((section(&quot;CLASS_B_RAM&quot;), zero_init));
+  EXTERN uint32_t RefCrc32Inv             __attribute__((section(&quot;CLASS_B_RAM_REV&quot;), zero_init));
+  EXTERN uint32_t LSI_Freq                __attribute__((section(&quot;CLASS_B_RAM&quot;), zero_init));
+  /* Magic pattern for Stack overflow in this array */
+  EXTERN __IO uint32_t aStackOverFlowPtrn[4]   __attribute__((section(&quot;STACK_BOTTOM&quot;), zero_init));
+</code></pre></div>
+在 MDK 的 Options for Target 选项卡中进行如下配置：</p>
+<p><img alt="alt text" src="../image-8.png" /></p>
+<p>在 ClassBtest.sct 文件中可以看到如下结果：</p>
+<p><img alt="alt text" src="../image-9.png" /></p>
+<p>栈检查的操作原理：设定特定的值在栈底，当检测到栈底的数值发生变化了，就认为栈溢出了。
+<div class="highlight"><pre><span></span><code>    control_flow_call(STACK_OVERFLOW_TEST);
+    aStackOverFlowPtrn[0] = 0xEEEEEEEEuL;
+    aStackOverFlowPtrn[1] = 0xCCCCCCCCuL;
+    aStackOverFlowPtrn[2] = 0xBBBBBBBBuL;
+    aStackOverFlowPtrn[3] = 0xDDDDDDDDuL;
+    control_flow_resume(STACK_OVERFLOW_TEST);
+
+/**  * @brief  This function verifies that Stack didn&#39;t overflow  * @param  : None  * @retval : ErrorStatus = (ERROR, SUCCESS)  */
+ErrorStatus STL_CheckStack(void)
+{  ErrorStatus result = SUCCESS;
+
+  CtrlFlowCnt += STACK_OVERFLOW_CALLEE;
+
+  if ( aStackOverFlowPtrn[0] != 0xEEEEEEEEuL )
+  {
+    result = ERROR;
+  }
+  if ( aStackOverFlowPtrn[1] != 0xCCCCCCCCuL )
+  {
+    result = ERROR;
+  }
+  if ( aStackOverFlowPtrn[2] != 0xBBBBBBBBuL )
+  {
+    result = ERROR;
+  }
+  if ( aStackOverFlowPtrn[3] != 0xDDDDDDDDuL )
+  {
+    result = ERROR;
+  }
+  CtrlFlowCntInv -= STACK_OVERFLOW_CALLEE;
+  return (result);
+}
+</code></pre></div>
+以上代码是RAM自检的汇编代码，整个算法执行会花费一定时间，如果整个内存范围的测试时间太长，就会对用户应用程序造成较大的局限性，所以将其分成若干片段，这些片段与执行程序的本地区域相一致。对被测试区域进行动态修改，然后进行单独执行测试。检测出问题则会跳转后面的故障函数，可以添加对应的操作进行故障处理。</p>
+<h2 id="flash">FLASH 验证测试<a class="headerlink" href="#flash" title="Permanent link">&para;</a></h2>
+<p>测试 Flash 存储器完整性时，需要用到 CRC 校验，在参考代码中我们使用了硬件的 CRC 单元，通过硬件 CRC 生成器完成的 CRC 计算大大降低 CPU 负载。</p>
+<p>Flash 存储器测试的范围由用户界定，在运行时，如果整个内存范围因测试时间太长而不能接受，用户可将其分成若干片段，Flash 存储器测试范围由用户界定，我们需要对被测试区域进行动态修改，以便在那些区域单独执行测试。</p>
+<p>检查区域的边界必须与测试中用到的多重测试块的大小一致。根据 mm32_STLparam.h 文件中定义的参数 FLASH_BLOCK_WORDS，块大小默认设为 16 字（ 64 字节），检查中未使用的内存区域可通过预定义值来识别。</p>
+<p>我们会将 CRC 校验值存储在某一个地址，然后将 CRC 计算结果与相应的参考值进行比较，参考模式可由编译器（ IAR™）自动提供或由在外部计算后由最终用户添加（ MDK-ARM™和 AC6）。</p>
+<p>在 ClassB 检测中，Flash 存储器检测也分为启动自检与运行自检两部分。</p>
+<p>启动时对 FLASH 的检测方法：</p>
+<ul>
+<li>编译时计算整个 FLASH 的 CRC 校验值，并存储在 FLASH 末尾位置；</li>
+<li>启动时，用同样的算法重新计算整个 FLASH 的 CRC 校验值（不包括前面存储在 FLASH 中的 CRC 校验值），并与存储在 FLASH 中的 CRC 校验值做比较  </li>
+</ul>
+<p>函数为：
+<div class="highlight"><pre><span></span><code>void STL_StartUp(void);
+</code></pre></div></p>
+<p>运行时对 FLASH 的检测方法：</p>
+<ul>
+<li>对 FLASH 分块逐次计算出最终的 CRC 校验值；</li>
+<li>将最终结果与正确的CRC校验值做比较  </li>
+</ul>
+<p>函数为：
+<div class="highlight"><pre><span></span><code>ClassBTestStatus STL_crc32Run(void);
+</code></pre></div></p>
+<h3 id="flash_1">FLASH 验证方法<a class="headerlink" href="#flash_1" title="Permanent link">&para;</a></h3>
+<p>FLASH 的验证分为 2 个步骤，如下所示：</p>
+<ol>
+<li>读取 PC 端计算 FLASH 对应的 CRC 值。</li>
+<li>MCU 运行计算出来的 CRC 值与读取到的 PC 端计算的 CRC 值进行比较。</li>
+</ol>
+<p><img alt="alt text" src="../image-10.png" /></p>
+<h4 id="iar-crc">设置 IAR 生成 CRC<a class="headerlink" href="#iar-crc" title="Permanent link">&para;</a></h4>
+<ol>
+<li>IAR可以很方便的支持在编译时计算 CRC32，并存储在 FLASH 指定位置。<br />
+<img alt="alt text" src="../image-11.png" /><ul>
+<li>Fill unused code memory：定义了 FLASH 中需要计算 CRC 的范围和空闲字节填充值；</li>
+<li>Checksum size：选择 checksum 的大小（字节数）；</li>
+<li>Alignment：指定 checksum 的对齐方式，不填的话默认 2 字节对齐；</li>
+<li>Algorithm：选择 checksum 的算法；</li>
+<li>Complement：是否需要进行补码计算，选择 “As is” 就是不进行补码计算；</li>
+<li>Bit order：位输出的顺序，MSB first，每个字节的高位在前；LSB first，每个字节的低位在前；</li>
+<li>Reverse byte order within word：对于输入数据，在一个字内反转各个字节的顺序；</li>
+<li>Initial value：checksum 计算的初始化值；</li>
+<li>Checksum unit size：选择进行迭代的单元大小，按 8-bit，16-bit 还是 32-bit进 行迭代。</li>
+</ul>
+</li>
+<li>指定 checksum 在 FLASH 中的存储位置——修改 linker 文件：
+<div class="highlight"><pre><span></span><code>place at end of ROM_region { ro section .checksum };
+</code></pre></div></li>
+</ol>
+<h4 id="keil-crc">设置 Keil 生成 CRC<a class="headerlink" href="#keil-crc" title="Permanent link">&para;</a></h4>
+<p>在 Keil 中需要单独计算 CRC 的值，并手动添加代码将其放在 FLASH 末尾。</p>
+<p>当 MDK 在工程编译完成以后会在 option for target -&gt;User 页面下面，勾选 After build/Rebuild 中的 Run#1 选项，则会在工程编译完成以后执行 After build/Rebuild 中的 Run#1 选项后面 User Command 路径选择中选择的脚本（crc_gen_keil.bat脚本）。</p>
+<p><img alt="alt text" src="../image-12.png" /></p>
+<ul>
+<li>SREC_PATH：设定工具路径；  </li>
+<li>TARGET_NAME：生成 Hex 文件名；  </li>
+<li>MAP_FILE：原始生成的 map 文件；  </li>
+<li>INPUT_FILE：原始生产的 HEX 文件；  </li>
+<li>OUTPUT_FILE：计算 CRC 后的 CRC 文件；  </li>
+</ul>
+<div class="highlight"><pre><span></span><code>REM Path configuration
+SET SREC_PATH=C:\SREC
+SET TARGET_NAME=CLASSBTEST
+SET TARGET_PATH=OBJ
+SET BYTE_SWAP=1
+SET COMPARE_HEX=1
+SET CRC_ADDR_FROM_MAP=1
+REM Not used when CRC_ADDR_FROM_MAP=1
+SET CRC_ADDR=0x08007ce0
+</code></pre></div>
+<p>执行 SET 批处理命令，将相关的文件赋值给相对应的变量。
+<div class="highlight"><pre><span></span><code>REM Derived configuration
+SET MAP_FILE=%TARGET_PATH%\%TARGET_NAME%.map
+SET INPUT_HEX=%TARGET_PATH%\%TARGET_NAME%.hex
+SET OUTPUT_HEX=%TARGET_PATH%\%TARGET_NAME%_CRC.hex
+SET TMP_FILE=crc_tmp_file.txt
+</code></pre></div>
+通过srec_cat.exe 工具查找 map 文件中的__check_sum 地址，并把计算的新的 CRC 的值填入到这个地址。</p>
+<p><img alt="alt text" src="../image-13.png" /></p>
+<h4 id="crc">在启动文件中设置 CRC<a class="headerlink" href="#crc" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>    AREA    CHECKSUM, DATA, READONLY, ALIGN=6
+    EXPORT  __Check_Sum
+    ALIGN
+   __Check_Sum     DCD     0x8A7A061D;
+   END
+</code></pre></div>
+<h4 id="crc_1">配置硬件 CRC<a class="headerlink" href="#crc_1" title="Permanent link">&para;</a></h4>
+<p>MM32 的 CRC 初始化配置较简单，使能 CRC 时钟，复位 CRC 计算单元 即可。
+<div class="highlight"><pre><span></span><code>RCC_AHBPeriphClockCmd(RCC_AHBENR_CRCEN,ENABLE);
+CRC_ResetDR();
+</code></pre></div>
+计算CRC的数值：
+<div class="highlight"><pre><span></span><code>  for(index = 0; index &lt; (uint32_t)ROM_SIZEinWORDS; index++)
+  {
+    CRC-&gt;DR = __REV(*((uint32_t *)ROM_START + index));
+  }
+  crc_result = CRC-&gt;DR;
+</code></pre></div></p>
+<h3 id="flash-crc">运行中计算 FLASH 中的 CRC<a class="headerlink" href="#flash-crc" title="Permanent link">&para;</a></h3>
+<p>把要计算的 FLASH 大小分成多块累计计算 CRC。
+<div class="highlight"><pre><span></span><code>uint32_t index;
+
+for(index = 0; index &lt; (uint32_t)FLASH_BLOCK_WORDS; index++)
+  {
+    CRC-&gt;DR = __REV(*(pRunCrc32Chk + index));
+   }
+  pRunCrc32Chk += FLASH_BLOCK_WORDS;
+  pRunCrc32ChkInv = ((uint32_t *)~((uint32_t)pRunCrc32Chk));
+
+result = TEST_RUNNING;
+</code></pre></div></p>
+<p>MCU 运行中计算的 CRC 的数值与 PC 端计算的 CRC 数值进行比较，如果两者计算的 CRC 的数值相同则 FLASH 验证通过，否则验证失败。</p>
+<p>启动时对比结果：
+<div class="highlight"><pre><span></span><code>  #if defined(__CC_ARM) || defined(__GNUC__)
+    if(crc_result != *(uint32_t *)(&amp;REF_CRC32))
+  #endif
+    {
+      #ifdef STL_VERBOSE_POR
+        printf(&quot;FLASH 32-bit CRC Error at Start-up\n\r&quot;);
+      #endif  /* STL_VERBOSE_POR */
+        FailSafePOR();    //for ROM test  realse must  open;
+        //control_flow_resume(CRC_TEST_CALLER);
+    }
+    else
+    { /* Test OK */
+      #ifdef STL_VERBOSE_POR
+        printf(&quot; Start-up FLASH 32-bit CRC OK\n\r&quot;);
+      #endif  /* STL_VERBOSE_POR */
+
+      control_flow_resume(CRC_TEST_CALLER);
+    }
+</code></pre></div>
+运行时对比结果：
+<div class="highlight"><pre><span></span><code>if(CRC-&gt;DR == *(uint32_t *)(&amp;REF_CRC32))
+{
+   result = TEST_OK;
+}
+else
+{
+   //result = TEST_OK ;     //  for ROM test  realse must  open;*******
+   result = TEST_FAILURE;
+}
+</code></pre></div>
+如果该块的FLASH检测通过，则进行下一次的检测，循环这一个过程。</p>
+<h2 id="_15">时钟验证测试<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<p>MCU内部有4个时钟源：</p>
+<ul>
+<li>外部高速时钟源(HSE)：外部晶振选择范围为 2-24MHz</li>
+<li>外部低速时钟源(LSE)：可以使用一个 32.768KHz 的晶体/陶瓷谐振器构成的振荡器产生</li>
+<li>内部高速时钟源(HSI)：HSI振荡器的典型频率为 48MHz</li>
+<li>内部低速时钟源(LSI)：LSI振荡器的典型频率为 40KHz</li>
+</ul>
+<p>MCU有时钟安全系统(CSS)模块，除了 MCU 的硬件时钟安全机制之外，还可以结合软件对系统时钟进行检测保障安全。</p>
+<p>在出厂时，两个内部时钟的精度会校准在 ±1% 以内，但是两个时钟源在环境温度下精度特性表现不尽相同，具体的特性参数可以查看芯片数据手册，因此检测的极限限定值需要参考芯片的特性进行设定。</p>
+<p>系统时钟自检的检测方法就是采用两个独立时钟源交叉检查来进行测量，被测量的频率控制定时器时钟，另一个来给定定时器时钟输入。例如，使用内部低速 RC 振荡器时基(LSI)可检测外部晶振的错误频率。</p>
+<p>两个独立时钟源交叉检查来进行测量有两种实现方式：</p>
+<ol>
+<li>运行 IWDG 或 RTC(LSI) 和 WWDG 或 SysTick(HSE) 进行计数比较，这种实现方式需要支持硬件的 RTC 或者 IWDG 中断方式。</li>
+<li>通过输出 LSI 时钟利用另外一个高速时钟的定时器来捕获该频率，然后计算差值。<br />
+在这里需要 MCU 支持一个功能，LSI 输出频率内部可以通过定时器来捕获，在 MM32F013x 系列中硬件支持该功能，无需外部 MCO 输出 LSI 连接另外一个 TIMx_CHx 去捕获计数，LSI 内部硬件直接输出到 TIM2\3通道捕获，无需额外的引脚互联。</li>
+</ol>
+<p><img alt="alt text" src="../image-14.png" /></p>
+<p>同样，在 ClassB 检测中，系统时钟自检也分为启动自检与运行自检两部分。</p>
+<h3 id="_16">时钟启动自检<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<p>第一步，内部低速时钟（LSI）源启动。</p>
+<p>第二步，外部高速时钟源（HSE）启动，由 HSE 作为时钟源的 PLL 设为系统时钟。</p>
+<p>第三步，专用计时器初始化，用于 HSE 频率的交叉参考测量，由预先定义的 LSI 周期数控制。该定时器计数器连续两次获取的值不同，从而可得出 LSI 和 HSE 频率之间的比率。获取的值及其差别在定时器信道的定期中断服务期间处理。将比率测量与预期范围相比较，如果与标称值的差超过 &plusmn;20%，则报错。范围由宏 HSE_LimitHigh() 和 HSE_LimitLow() 根据一些常量定义在 mm32_STLparam.h 文件中定义。</p>
+<p>用户负责正确输入这些宏，并考虑这些限值是否能保持恒定，或这些限值是否根据应用而动态调整（例如，由于整个温度范围内参考时钟信号的准确性）。</p>
+<p>第四步，测试完成后，CPU时钟切换回默认HSI源。</p>
+<p><img alt="alt text" src="../image-15.png" /></p>
+<h3 id="_17">时钟运行自检<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p>时钟运行时自检采用与启动自检相似的程序，时钟交叉参考率的真实性检查取决于定时器捕获事件最后两次结果的差别。在专用定时器定期中断服务过程中，对这些结果加以储存，并提供系统（HSE）和参考（LSI）频率间的交叉参考测量。</p>
+<p>测试检查 HSE 率是否在预期范围内（标称值的&plusmn; 20%）。如果发现差别较大或 HSE 信号丢失，或测量中断消失，则 CPU 时钟源会立即切换回 HSI 且 HSE 故障状态返回，否则，测试返回至正常状态。</p>
+<p>在对 HSE 范围比较前，会检查所有和报告时钟检测结果有关的变量的完整性。</p>
+<p>如果使用 HSE，应对另一个应用时钟源（如 HSI）进行交叉检查。用户必须修改专用定时器的设置，以确保正确的时钟交叉测量并检查这种测量是否受实际产品支持。</p>
+<p>具体来说使用 LSI 的定时 1ms，在这 1ms 中断中查看 TIM3 计数值与上次进入时TIM3的计数值是否是在有效范围内(HSE_LimitLow &lt; PeriodValue &lt; HSE_LimitHigh)。</p>
+<p><img alt="alt text" src="../image-16.png" /></p>
+<h3 id="_18">相关外设初始化<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<p>在前面有提到过，两个独立时钟源交叉检查来进行测量目前有两种实现方式，分别通过不同时钟源的定时器进行计算比较，另外一种通过输出 LSI 定时器捕获方式进行比较，MM32 的 ClassB 认证库中有提供了两种实现方式：</p>
+<ol>
+<li>通过选择 LSI 作为时钟源的 IWDG 产生中断与选择 HSE 作为时钟源的 WWDG 或 TIM3 产生中断的方式进行交叉校验。</li>
+<li>直接通过 LSI 输出 TIM3 捕获的方式，该种方式操作简单。</li>
+</ol>
+<p>第一种方式，对TIM3，IWDG外设的初始化，以及相关的中断进行初始化配置，主要函数有：
+<div class="highlight"><pre><span></span><code>HAL_StatusTypeDef Iwdg_Init(unsigned short int IWDG_Prescaler, unsigned short int Reload);
+void TIM3_UPCount_test(u16 Prescaler, u16 Period);
+ErrorStatus STL_InitClock_Xcross_Measurement(void);
+void WWDG_Init(unsigned char ucTcnt, unsigned char ucWcnt);
+HAL_StatusTypeDef Iwdg_Init(unsigned short int IWDG_Prescaler, unsigned short int Reload);
+void WWDG_IWDG_IRQHandler(void);
+</code></pre></div></p>
+<h3 id="_19">时钟验证<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<p>时钟的验证可以分为 5 个步骤，如下所示：</p>
+<ol>
+<li>保留上一次 TIM3 计数值；</li>
+<li>读取当前的 TIM3 计数值；</li>
+<li>计算 2 次 TIM3 的差；</li>
+<li>设置相关标记位，做验证流程控制使用；</li>
+<li>重设 LSI 时间；</li>
+</ol>
+<p><div class="highlight"><pre><span></span><code>void WWDG_IWDG_IRQHandler(void)
+{
+    uint16_t tmpCC1_last_cpy;
+
+    IWDG-&gt;CTRL |= 0x00000002;
+
+    while ((IWDG-&gt;RLR) != 0xFFF)
+    {
+    }
+    /* store previous captured value */
+    tmpCC1_last_cpy = tmpCC1_last;
+    /* get currently captured value */
+    tmpCC1_last = (uint16_t)(TIM3-&gt;CNT);
+    /* The CC4IF flag is already cleared here be reading CCR4 register */
+
+    /* overight results only in case the data is required */
+    if (LSIPeriodFlag == 0u)
+    {
+        /* take correct measurement only */
+        {
+            /* Compute period length */
+            if (tmpCC1_last &gt; tmpCC1_last_cpy)
+            {
+                PeriodValue = ((uint32_t)(tmpCC1_last) - (uint32_t)(tmpCC1_last_cpy)) &amp; 0xFFFFuL;
+            }
+            else
+            {
+                PeriodValue = ((uint32_t)(tmpCC1_last) + SYSTCLK_AT_RUN_HSI / 1000 - 1 - (uint32_t)(tmpCC1_last_cpy)) &amp;
+                              0xFFFFuL;
+            }
+
+            PeriodValueInv = ~PeriodValue;
+
+            /* Set Flag tested at main loop */
+            LSIPeriodFlag = 0xAAAAAAAAuL;
+            LSIPeriodFlagInv = 0x55555555uL;
+        }
+        else
+        {
+            /* ignore computation in case of IC overflow */
+        }
+    }
+
+    Iwdg_Init(IWDG_Prescaler_4, (LSI_Freq / 4000 - 2));
+    EXTI_ClearITPendingBit(EXTI_Line24); //清除EXTI线24上的IWDG中断
+}
+</code></pre></div>
+计算HSI和HSE的数据的范围：
+<div class="highlight"><pre><span></span><code>  /* HSE frequency above this limit considered as harmonics */
+  #define HSE_LimitHigh(fcy) ((uint32_t)(((fcy)/LSI_Freq)*8u*5u)/4u) 
+  /* (HSEValue + 20%) */
+
+  /* HSE frequency below this limit considered as sub-harmonics*/
+  #define HSE_LimitLow(fcy) ((uint32_t)(((fcy)/LSI_Freq)*8u*3u)/4u)
+  /* (HSEValue - 20%) */
+
+  /* here you can define HSI frequency limits  */
+  #define HSI_LimitHigh(fcy) ((uint32_t)(((fcy)*6))/(1000*2u*5)) 
+  /* (HSIValue + 20%) */
+
+  #define HSI_LimitLow(fcy) ((uint32_t)(((fcy)*4))/(1000*2u*5))
+  /* (HSIValue - 20%) */
+</code></pre></div>
+判断采集的数据是否在计算的HSI的范围之内：
+<div class="highlight"><pre><span></span><code>ClockStatus STL_MainClockTest(void)
+{#if 1
+    ClockStatus result = TEST_ONGOING; /* In case of unexpected exit */
+
+    CtrlFlowCnt += CLOCKPERIOD_TEST_CALLEE;
+
+  #ifdef __IAR_SYSTEMS_ICC__ /* IAR Compiler */
+    #pragma diag_suppress=Pm026
+  #endif /* __IAR_SYSTEMS_ICC__ */
+
+    /* checking result of HSE measurement done at TIM17 interrupt */
+    if (((PeriodValue ^ PeriodValueInv) == 0xFFFFFFFFuL)         \
+        &amp;&amp;  ((LSIPeriodFlag ^ LSIPeriodFlagInv) == 0xFFFFFFFFuL) \
+        &amp;&amp;   (LSIPeriodFlag != 0u))
+  #ifdef __IAR_SYSTEMS_ICC__ /* IAR Compiler */
+    #pragma diag_default=Pm026
+  #endif /* __IAR_SYSTEMS_ICC__ */
+    /*     {  #ifdef HSE_CLOCK_APPLIED        if (PeriodValue &lt; HSE_LimitLow(SYSTCLK_AT_RUN_HSE))  #else        if (PeriodValue &lt; HSI_LimitLow(SYSTCLK_AT_RUN_HSI))  #endif        {            result = EXT_SOURCE_FAIL; /* Sub-harmonics: HSE - 20% below expected */
+        }
+        else
+        {
+  #ifdef HSE_CLOCK_APPLIED
+            if (PeriodValue &gt; HSE_LimitHigh(SYSTCLK_AT_RUN_HSE))
+  #else
+            if (PeriodValue &gt; HSI_LimitHigh(SYSTCLK_AT_RUN_HSI))
+  #endif
+            {
+                /* Switch back to internal clock */
+
+                result = EXT_SOURCE_FAIL; /* Harmonics: HSE + 20% above expected */
+                //result = FREQ_OK; /* Harmonics: HSE + 20% above expected */
+            }
+            else
+            {
+                result = FREQ_OK; /* Crystal or Resonator started correctly */
+                /* clear flag here to ensure refresh LSI measurement result will be taken at next check */
+                LSIPeriodFlag = 0u;
+            } /* No harmonics */
+        } /* No sub-harmonics */
+    }     /* Control Flow error */
+    else
+    {
+        result = CLASS_B_VAR_FAIL;
+    }
+
+    CtrlFlowCntInv -= CLOCKPERIOD_TEST_CALLEE;
+    return result;
+#endif
+}
+</code></pre></div>
+以上流程是系统时钟自检的检测方法，具体的实现方式可以参考例程。</p>
+<p>在此功能中，用户还可以通过高精度的HSI  HSE校准 LSI，具体实现方式如下：</p>
+<p>启用定时器计数后，当第一个参考信号上升沿发生时，捕捉定时器计数值，储存于 ReadValue1 中。在第二个上升沿，又捕捉到定时器计数，储存于 ReadValue2 中。在两个连续上升沿之间的时间 (ReadValue2 - ReadValue1)表示了参考信号的整个周期。</p>
+<p>因为定时器计数器的时钟由系统时钟提供(内部 RC 振荡器 HSI 或 HSE)，因此与参考信号有关的内部 RC 振荡器生成的真正频率为：
+<div class="highlight"><pre><span></span><code>Measuredfrequency = (ReadValue2 – ReadValue1) × referencefrequency
+</code></pre></div>
+误差(单位Hz)为测量频率与典型值之差的绝对值。</p>
+<p>因此，内部振荡器频率误差表示为：
+<div class="highlight"><pre><span></span><code>Error(Hz) = abs(Measuredfrequency - typicalvalue)
+</code></pre></div>
+对每个微调值计算误差之后，算法会决定最优微调值(对应于最接近典型值的频率)，然后根据差值就可以进行软件补偿处理。</p>
+<h2 id="_20">测试时间<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h2>
+<p>ClassB 认证的各部分代码段运行都会增加 MCU 的负担，为防止认证代码影响应用控制，我们需要对各个部分代码执行时间进行测试，分时段利用时间空隙进行自检。耗时与很多因素有关系，MCU 的性能和开发环境都会有影响，在单次运行中执行启动测试，测试时间取决于 MCU 性能和测试区的大小。运行期间测试逐块执行，因此其时间也取决于被测试块大小和测试的重复频率。</p>
+<p>用户需要在应用所需的性能和安全认证所需的性能之间找到平衡，主要挑战在于实现较短的整体诊断测试间隔，同时保持应用过程安全时间在可接受的长度范围内。在关键情况下，运行时测试可限制在收集关键代码或数据的区域。</p>
+<p>用户应考虑到该间隔也用于在运行期间计算系统时钟和 LSI 之间的时钟交叉参考率，因而其长度不得低于时钟交叉测量所用的 LSI 周期数相应间隔。</p>
+<p>当特定测试（RAM、Flash、时钟）启动时及每次完成测试程序（启动时和运行期间）时，通过切换 I/O 的翻转来测试各个部分的耗时。其中，在启动时和运行期间，这些 I/O 可用于测量测试长度、局部测试的频率及完成整个单测试周期所需的时间。完全检测被测试的专用区域后，一组局部测试又重新开始。</p>
+<p>在 ClassB 自检的过程中，ClassB 自检流程分为启动自检与运行自检两个部分，本次例程我们将采用翻转 GPIO 口的方式来测试 ClassB 启动自检以及运行自检所花费的时间。</p>
+<p>本次测试我们翻转 PA0 来进行计算时间(即在自检之前设置为低电平，自检完成以后设置为高电平，然后使用逻辑分析仪抓取低电平的持续时间即为自检部分花费的时间)。</p>
+<h3 id="_21">启动自检<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<p>启动自检部分包含 CPU 寄存器自检，看门狗自检，FLASH 自检，RAM 自检以及时钟自检，启动自检的流程如下图所示：</p>
+<p><img alt="alt text" src="../image-17.png" /></p>
+<h4 id="cpu_3">CPU寄存器自检<a class="headerlink" href="#cpu_3" title="Permanent link">&para;</a></h4>
+<p>CPU 寄存器自检调用的函数为STL_StartUpCPUTest()，在此函数之前我们调用 GPIO 的配置函数，将 PA0 配置为低电平，在函数运行完成后将 PA0 配置为高电平，然后使用逻辑分析仪抓取两次电平翻转的脉宽即可，逻辑分析仪获取波形如下：</p>
+<p><img alt="alt text" src="../image-18.png" /></p>
+<p>由上图可以看出 CPU 寄存器的启动自检的时间为12.51us。</p>
+<h4 id="_22">看门狗自检<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h4>
+<p>看门狗自检调用的函数为STL_WDGSelfTest() ，在此函数中进行 PA0 的翻转设置，其操作与 CPU 寄存器的操作一样，但是我们需要屏蔽掉 CPU 寄存器自检操作过程中 PA0 的翻转操作。</p>
+<p><img alt="alt text" src="../image-19.png" /></p>
+<p>由上述逻辑分析仪抓取的波形可知看门狗自检花费的时间为 3.591ms。</p>
+<h4 id="flash_2">FLASH自检<a class="headerlink" href="#flash_2" title="Permanent link">&para;</a></h4>
+<p>FALSH 自检操作在 FLASH 自检的地方对 GPIO 口进行翻转操作，逻辑分析仪获取波形如下：</p>
+<p><img alt="alt text" src="../image-20.png" /></p>
+<p>由逻辑分析仪抓取的波形可知 64K 的 FLASH 自检的时间为 9.36ms，其中包含 CRC 校验等耗费的时间。</p>
+<h4 id="ram_3">RAM自检<a class="headerlink" href="#ram_3" title="Permanent link">&para;</a></h4>
+<p>RAM自检操作在RAM自检的地方对GPIO口进行翻转操作，逻辑分析仪获取波形如下：</p>
+<p><img alt="alt text" src="../image-21.png" /></p>
+<p>由上图可知 16K 的 RAM 启动自检花费的时间为 1.1ms。</p>
+<h4 id="_23">时钟自检<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h4>
+<p>时钟自检操作在时钟自检的地方对 GPIO 口进行翻转操作，具体操作如下：</p>
+<p><img alt="alt text" src="../image-22.png" /></p>
+<p>由上图可知在启动时时钟自检花费的时间为 9.37ms。</p>
+<h3 id="_24">运行自检<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<p>运行自检耗时的测试方法与启动自检的方法一致，也是通过翻转 GPIO 来实现的。</p>
+<p><img alt="alt text" src="../image-23.png" /></p>
+<p>运行自检周期直接调用函数 STL_DoRunTimeChecks() 函数即可，在函数中包含了所有的运行自检的流程，下面我们来测试运行自检花费的时间。 <br />
+测试运行自检周期如下所示：</p>
+<p><img alt="alt text" src="../image-24.png" /></p>
+<p>由上图可知，官方例程设置自检周期的时间为 10.008ms。</p>
+<p>测试CPU寄存器运行自检所花费的时间如下所示：</p>
+<p><img alt="alt text" src="../image-25.png" /></p>
+<p>由上图可知 CPU 寄存器运行自检的时间为 10.18us。</p>
+<p>运行期间的测试逐块执行，因此其时间也取决于被测试块大小和测试的重复频率，同时开发环境也影响执行效率，使用 IAR 和 MDK 开发的执行时间也有差异，本次实验系统时钟设置 48MHz，基于 MDK5.27 版本的工程测试得出的数据。</p>
+<h2 id="_25">控制流程检查测试<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h2>
+<h3 id="_26">程序流程控制<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<p>程序流程控制是在认证中我们建议加入的一种检测手段，这是因为它能确保所有特定代码能正确执行并按照一定的流程执行。</p>
+<p>为了确保所有特定代码能正确执行并通过，代码流程中的所有关键点（组件测试块）能够按照程序设计思路正确执行，应定义独特的标签进行标记，从而确保不跳过任何块，并且所有流程均按照程序设计思路能够正常执行。</p>
+<p>其实现原理是在每次处理任何重要的测试块时，两个互补计数器的值（增加或减去独特的标签值）发生对称的四步变化，其中两个检查步骤安排在调用程序（主流程）层的调用块外。这确保了块从主流程层级被成功调用（在调用前及从调用程序返回后处理）。下两个步骤是在调用程序内执行，以确保块正确完成（在进入程序后及从程序返回前处理）。</p>
+<p>按控制流程顺序调用执行组件测试的例程，显示四步检查服务。因为所有的点都通过计算一组互补计数对来检查，所以该方法可降低CPU的负载。由于有些调用/返回编号及进入/退出点始终相同，在每个块完全通过后，储存在计数对内的值必须始终互补。检查计数对完整性时，对几个执行流程检查点进行评估并放入代码流程。如果任何检查点的计数器不互补或其不包含预期值，应调用故障保护例程。</p>
+<p>当程序计数器丢失或终止时，两个不同的看门狗可复位设备，它们在两个独立的时钟源运行。窗口看门狗由主振荡器驱动，可执行时隙监控，独立看门狗由内部低速RC振荡器驱动。程序控制流程可采用专用软件方法监控。</p>
+<p><img alt="alt text" src="../image-26.png" /></p>
+<p>在 MM32 的 ClassB 认证的函数库中的程序控制流程检查函数如下：
+<div class="highlight"><pre><span></span><code>ErrorStatus control_flow_check_point(uint32_t chck)
+{    ErrorStatus Result= SUCCESS;
+
+   if ((CtrlFlowCnt != (chck)) || ((CtrlFlowCnt ^ CtrlFlowCntInv) != 0xFFFFFFFFuL))
+    {
+      Result= ERROR;
+    }
+    return(Result);
+}
+</code></pre></div></p>
+<h3 id="_27">栈边界检测<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<p>该测试主要用来检测 MCU 在运行的过程中是否出现栈溢出的问题。</p>
+<p>根据 IEC60730-1 B 类认证标准，栈溢出检测不是强制性的。它们可在用于间接测试某些功能时添加，如果用户喜欢使用其它方法，也可将其禁用或跳过。</p>
+<p>其实现原理为：通常采用的做法是在 stack 创建之初就填充满固定的字符(比如0x5a5a5a5a)，如果发生了“上溢”，那么 stack 末端(最低地址处)的填充字符则有可能会被更改。</p>
+<p>在 MM32 自检库中也是采用这一个实现方式，在栈底设定特定的数值，在每次进行检测的时候检测栈底的数值，当栈底的数值发生变化的时候就判断栈溢出了。具体的流程图如下所示：</p>
+<p><img alt="alt text" src="../image-27.png" /></p>
+<p>在栈底地址填写数据：
+<div class="highlight"><pre><span></span><code>control_flow_call(STACK_OVERFLOW_TEST);
+
+aStackOverFlowPtrn[0] = 0xEEEEEEEEuL;
+aStackOverFlowPtrn[1] = 0xCCCCCCCCuL;
+aStackOverFlowPtrn[2] = 0xBBBBBBBBuL;
+aStackOverFlowPtrn[3] = 0xDDDDDDDDuL;
+
+control_flow_resume(STACK_OVERFLOW_TEST);
+</code></pre></div>
+堆栈溢出判断函数如下：
+<div class="highlight"><pre><span></span><code>/******************************************************************************/
+ErrorStatus STL_CheckStack(void)
+{
+    ErrorStatus result = SUCCESS;
+
+    CtrlFlowCnt += STACK_OVERFLOW_CALLEE;
+
+    if ( aStackOverFlowPtrn[0] != 0xEEEEEEEEuL )
+    {
+        result = ERROR;
+    }
+
+    if ( aStackOverFlowPtrn[1] != 0xCCCCCCCCuL )
+    {
+        result = ERROR;
+    }
+
+    if ( aStackOverFlowPtrn[2] != 0xBBBBBBBBuL )
+    {
+        result = ERROR;
+    }
+
+    if ( aStackOverFlowPtrn[3] != 0xDDDDDDDDuL )
+    {
+        result = ERROR;
+    }
+
+    CtrlFlowCntInv -= STACK_OVERFLOW_CALLEE;
+
+    return (result);
+}
+</code></pre></div></p>
+<h3 id="b">B类安全方案软体结构<a class="headerlink" href="#b" title="Permanent link">&para;</a></h3>
+<h4 id="_28">用户应用的集成<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h4>
+<p>在上面的几个章节中我们可以了解到，ClassB 类认证分为启动自检和运行自检，在系统复位完成以后然后进行 ClassB 相关的启动自检，启动自检完成以后用户可以进行相应的用户应用初始化操作，然后会进行到主循环进行运行自检以及客户任务的处理操作，具体的启动以及定期运行时自检结构框图如下：</p>
+<p><img alt="alt text" src="../image-28.png" /></p>
+<p>用户需要做 ClassB 认证时候，仅仅需要将 MM32 提供的官方例程中的启动自检与运行自检加入到相应的代码段即可。</p>
+<h4 id="_29">自检驱动接口文件<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h4>
+<p>用户在参考 MM32-ClassB 的例程的时候可以参考下面的表格来进行文件的移植操作。</p>
+<p><img alt="alt text" src="../image-29.png" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 ZhangBinbin/All Rights Reserved.
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://iamzhangbinbin.github.io/" target="_blank" rel="noopener" title="Wechat" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M385.2 167.6c6.4 0 12.6.3 18.8 1.1C387.4 90.3 303.3 32 207.7 32 100.5 32 13 104.8 13 197.4c0 53.4 29.3 97.5 77.9 131.6l-19.3 58.6 68-34.1c24.4 4.8 43.8 9.7 68.2 9.7 6.2 0 12.1-.3 18.3-.8-4-12.9-6.2-26.6-6.2-40.8-.1-84.9 72.9-154 165.3-154m-104.5-52.9c14.5 0 24.2 9.7 24.2 24.4 0 14.5-9.7 24.2-24.2 24.2-14.8 0-29.3-9.7-29.3-24.2.1-14.7 14.6-24.4 29.3-24.4m-136.4 48.6c-14.5 0-29.3-9.7-29.3-24.2 0-14.8 14.8-24.4 29.3-24.4 14.8 0 24.4 9.7 24.4 24.4 0 14.6-9.6 24.2-24.4 24.2M563 319.4c0-77.9-77.9-141.3-165.4-141.3-92.7 0-165.4 63.4-165.4 141.3S305 460.7 397.6 460.7c19.3 0 38.9-5.1 58.6-9.9l53.4 29.3-14.8-48.6C534 402.1 563 363.2 563 319.4m-219.1-24.5c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.8 0 24.4 9.7 24.4 19.3 0 10-9.7 19.6-24.4 19.6m107.1 0c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.5 0 24.4 9.7 24.4 19.3.1 10-9.9 19.6-24.4 19.6"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://iamzhangbinbin.github.io/" target="_blank" rel="noopener" title="telegram" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M248 8C111.033 8 0 119.033 0 256s111.033 248 248 248 248-111.033 248-248S384.967 8 248 8m114.952 168.66c-3.732 39.215-19.881 134.378-28.1 178.3-3.476 18.584-10.322 24.816-16.948 25.425-14.4 1.326-25.338-9.517-39.287-18.661-21.827-14.308-34.158-23.215-55.346-37.177-24.485-16.135-8.612-25 5.342-39.5 3.652-3.793 67.107-61.51 68.335-66.746.153-.655.3-3.1-1.154-4.384s-3.59-.849-5.135-.5q-3.283.746-104.608 69.142-14.845 10.194-26.894 9.934c-8.855-.191-25.888-5.006-38.551-9.123-15.531-5.048-27.875-7.717-26.8-16.291q.84-6.7 18.45-13.7 108.446-47.248 144.628-62.3c68.872-28.647 83.183-33.623 92.511-33.789 2.052-.034 6.639.474 9.61 2.885a10.45 10.45 0 0 1 3.53 6.716 43.8 43.8 0 0 1 .417 9.769"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://iamzhangbinbin.github.io/" target="_blank" rel="noopener" title="iamzhangbinbin.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9zm-24.8 373.8h39.1L151.1 88h-42z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://iamzhangbinbin.github.io/" target="_blank" rel="noopener" title="iamzhangbinbin.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<z466302@126.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M64 112c-8.8 0-16 7.2-16 16v22.1l172.5 141.6c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16zM48 212.2V384c0 8.8 7.2 16 16 16h384c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0zM0 128c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://iamzhangbinbin.github.io/" target="_blank" rel="noopener" title="iamzhangbinbin.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M488.6 104.1c16.7 18.1 24.4 39.7 23.3 65.7v202.4c-.4 26.4-9.2 48.1-26.5 65.1-17.2 17-39.1 25.9-65.5 26.7H92.02c-26.45-.8-48.21-9.8-65.28-27.2C9.682 419.4.767 396.5 0 368.2V169.8c.767-26 9.682-47.6 26.74-65.7C43.81 87.75 65.57 78.77 92.02 78h29.38L96.05 52.19c-5.75-5.73-8.63-13-8.63-21.79 0-8.8 2.88-16.06 8.63-21.797C101.8 2.868 109.1 0 117.9 0q13.2 0 21.9 8.603L213.1 78h88l74.5-69.397C381.7 2.868 389.2 0 398 0q13.2 0 21.9 8.603c5.7 5.737 8.6 12.997 8.6 21.797 0 8.79-2.9 16.06-8.6 21.79L394.6 78h29.3c26.4.77 48 9.75 64.7 26.1m-38.8 69.7c-.4-9.6-3.7-17.4-10.7-23.5-5.2-6.1-14-9.4-22.7-9.8H96.05c-9.59.4-17.45 3.7-23.58 9.8-6.14 6.1-9.4 13.9-9.78 23.5v194.4c0 9.2 3.26 17 9.78 23.5s14.38 9.8 23.58 9.8H416.4c9.2 0 17-3.3 23.3-9.8s9.7-14.3 10.1-23.5zm-264.3 42.7c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.2 6.3-14 9.5-23.6 9.5s-17.5-3.2-23.6-9.5-9.4-14-9.8-23.2v-33.3c.4-9.1 3.8-16.9 10.1-23.2s13.2-9.6 23.3-10c9.2.4 17 3.7 23.3 10m191.5 0c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2s-14 9.5-23.6 9.5-17.4-3.2-23.6-9.5c-7-6.3-9.4-14-9.7-23.2v-33.3c.3-9.1 3.7-16.9 10-23.2s14.1-9.6 23.3-10c9.2.4 17 3.7 23.3 10"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.prune", "navigation.indexes", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "search.share", "header.autohide", "announce.dismiss", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
