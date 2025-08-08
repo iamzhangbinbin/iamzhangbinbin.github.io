@@ -1,0 +1,1710 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="张彬彬的个人技术博客">
+      
+      
+        <meta name="author" content="张彬彬">
+      
+      
+        <link rel="canonical" href="https://iamzhangbinbin.github.io/USB%E5%85%A5%E9%97%A8/USB%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/USB%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">
+      
+      
+        <link rel="prev" href="../../USB%E5%8F%91%E5%B1%95%E7%AE%80%E5%8F%B2/USB%E5%8F%91%E5%B1%95%E7%AE%80%E5%8F%B2/">
+      
+      
+        <link rel="next" href="../../USB%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE/USB%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE/">
+      
+      
+      <link rel="icon" href="../../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>USB理论知识 - 张彬彬的杂货铺</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#usb" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="张彬彬的杂货铺" class="md-header__button md-logo" aria-label="张彬彬的杂货铺" data-md-component="logo">
+      
+  <img src="../../../img/zahuopu.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            张彬彬的杂货铺
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              USB理论知识
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="切换至日间模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至日间模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/iamzhangbinbin/iamzhangbinbin.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    I'mZhangBinbin
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../MCU%E5%BC%80%E5%8F%91%E6%94%AF%E6%8C%81/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  MCU开发支持
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../MM32%20Guide/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  MM32 Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Python%E7%AC%94%E8%AE%B0/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Python笔记
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E6%A0%87%E5%87%86%E4%B8%8E%E8%AE%A4%E8%AF%81/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  标准与认证
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  USB入门
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../CAN%E5%85%A5%E9%97%A8/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  CAN入门
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../ENET%E5%85%A5%E9%97%A8/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  ENET入门
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../blog/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  博客
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  About
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="张彬彬的杂货铺" class="md-nav__button md-logo" aria-label="张彬彬的杂货铺" data-md-component="logo">
+      
+  <img src="../../../img/zahuopu.png" alt="logo">
+
+    </a>
+    张彬彬的杂货铺
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/iamzhangbinbin/iamzhangbinbin.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    I'mZhangBinbin
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../MCU%E5%BC%80%E5%8F%91%E6%94%AF%E6%8C%81/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    MCU开发支持
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../MM32%20Guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    MM32 Guide
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Python%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Python笔记
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../%E6%A0%87%E5%87%86%E4%B8%8E%E8%AE%A4%E8%AF%81/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    标准与认证
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    USB入门
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            USB入门
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../USB%E5%8F%91%E5%B1%95%E7%AE%80%E5%8F%B2/USB%E5%8F%91%E5%B1%95%E7%AE%80%E5%8F%B2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    USB发展简史
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    USB理论知识
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    USB理论知识
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#host" class="md-nav__link">
+    <span class="md-ellipsis">
+      Host
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#device" class="md-nav__link">
+    <span class="md-ellipsis">
+      Device
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      传输类型
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      枚举
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      主控制器类型
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      集线器
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      拓扑结构
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      传输编码
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      总线状态
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      硬件接口
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usb_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      USB速度
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      识别设备的速度模式
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usb_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      USB电源
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usb_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      USB端点
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../USB%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE/USB%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    USB通信协议
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../USB%E6%8F%8F%E8%BF%B0%E7%AC%A6/USB%E6%8F%8F%E8%BF%B0%E7%AC%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    USB描述符
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../USB%E8%AE%BE%E5%A4%87%E7%B1%BB%E5%9E%8B/USB%E8%AE%BE%E5%A4%87%E7%B1%BB%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    USB设备类型
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../USB%E6%9E%9A%E4%B8%BE%E5%92%8C%E9%85%8D%E7%BD%AE/USB%E6%9E%9A%E4%B8%BE%E5%92%8C%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    USB枚举和配置
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../USB%E4%B8%80%E8%87%B4%E6%80%A7%E6%B5%8B%E8%AF%95/USB%E4%B8%80%E8%87%B4%E6%80%A7%E6%B5%8B%E8%AF%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    USB一致性测试
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%9F%BA%E4%BA%8EMini-F5277-OB%E7%A7%BB%E6%A4%8DTinyUSB%E5%8D%8F%E8%AE%AE%E6%A0%88/%E5%9F%BA%E4%BA%8EMini-F5277-OB%E7%A7%BB%E6%A4%8DTinyUSB%E5%8D%8F%E8%AE%AE%E6%A0%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TinyUSB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../CAN%E5%85%A5%E9%97%A8/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    CAN入门
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../ENET%E5%85%A5%E9%97%A8/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    ENET入门
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../blog/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    博客
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../.." class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="usb">USB理论知识<a class="headerlink" href="#usb" title="Permanent link">&para;</a></h1>
+<h2 id="host">Host<a class="headerlink" href="#host" title="Permanent link">&para;</a></h2>
+<p>USB 系统包括一台主机（一般是一台个人计算机（ PC））和多个通过分层星形拓扑连接的外围设备。该拓扑也可以包括集线器，从而能够提供更多与 USB 系统的连接点。主机本身包含两个组件，即主控制器和根集线器。主控制器是具有软件驱动器层的硬件芯片组，用于执行以下任务：</p>
+<ul>
+<li>检测 USB 设备的插入和拔出</li>
+<li>管理主机和设备间的数据流</li>
+<li>提供并管理所连接设备的电源</li>
+<li>监视总线上的活动</li>
+</ul>
+<p>主机可以有一个或多个主控制器。通过使用外部 USB 集线器，每个控制器最多可以连接 127 个设备。根集线器是连接到主控制器的内部集线器，并且作为 USB 系统中的第一个连接层。在 PC 上，目前存在多个端口。这些端口是 PC 中根集线器的一部分。为简便起见，请通过一个被称为主机的“黑盒子”抽象视图来了解根集线器和主控制器。</p>
+<h2 id="device">Device<a class="headerlink" href="#device" title="Permanent link">&para;</a></h2>
+<p>USB 设备包括一个或多个设备功能，例如鼠标、键盘或音频设备。主机为每个设备提供了一个地址，用于设备与主机间的数据通信。 USB 设备的通信通过管道实现。这些管道是主控制器到可寻址缓冲区（称为端点）间的连接路径。一个端点会保存收到来自主机的数据并保存将要发送给主机的数据。一个 USB 设备能够具有多个端点，并且每个端点都有相应的管道。</p>
+<p><img alt="alt text" src="../image.png" />!</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>有两类特殊的 USB 设备，分别是 USB 集线器设备(USB Hub)和 USB OTG 设备。</p>
+</div>
+<h2 id="_1">传输类型<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>USB 系统中的管道共有两种，分别为控制管道和数据管道。 USB 规范中定义了四种不同的数据传输类型。使用哪个管
+道由数据传输类型决定。</p>
+<ul>
+<li>控制传输： 用于将指令发送到设备上、进行查询并且配置设备。该传输使用了控制管道。</li>
+<li>中断传输： 用于发送少量的突发性数据，并且保证传输延迟最小。该传输使用了数据管道。</li>
+<li>批量传输： 利用了全部可用的 USB 带宽来传输大量数据，但传输速度或延迟得不到保证。该传输使用了数据管道。</li>
+<li>同步传输： 数据传输采用了得到保证的传输速率。随着传输延迟和总线带宽的保证，传输时间也得到保证。同步传输没有错误纠正功能，因此在重新发送有误的数据包过程中，不能停止传输。 该传输使用了数据管道。</li>
+</ul>
+<p>每个设备都有一个控制管道，用于控制发送给设备或从设备接收信息的状况。设备可以有任意个数据管道，通过中断、批量或同步传输类型进行数据传输。控制管道是 USB 系统中唯一一个双向管道，所有的数据管道均是单向的。</p>
+<p>每个端点均可通过设备地址（由主机分配）和端点编号（由设备分配）进行访问。信息被发送给设备时，会通过令牌数据包来识别设备地址和端点编号。在传输数据前，主机将发送该令牌数据包。</p>
+<h2 id="_2">枚举<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>USB 设备首次与主机相连时，将启动 USB 枚举过程。枚举是设备和主机间进行的信息交换过程，包含用于识别设备的信息。此外，枚举过程还分配设备地址、读取描述符（作为提供有关设备信息的数据结构），并分配和加载设备驱动程序。整个过程需要数秒时间。完成该过程后，设备可以向主机传输数据。 
+以下两个文件属于主机端，用于枚举和加载驱动程序过程。</p>
+<ul>
+<li>.INF :包含了安装设备时所需全部信息（驱动程序的名称和位置、 Windows 注册信息和驱动程序版本信息）的文本文件。</li>
+<li>.SYS :驱动程序需要该文件才可有效与 USB 设备进行通信。</li>
+</ul>
+<p><img alt="alt text" src="../image-1.png" /></p>
+<p>设备被枚举后， 主机将负责总线上的全部设备之间的数据通信流向。因此，如果没有主控制器的请求，所有设备均无法
+传输数据。</p>
+<h2 id="_3">主控制器类型<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>系统中只能有一个主机，并且与设备进行的通信是从主机的角度进行的。主机是“ 上行” 组件，设备则是“ 下行” 组件。</p>
+<p><img alt="alt text" src="../image-2.png" /></p>
+<p>可以将一个或多个设备连接至一个主机。每个设备均有一个地址，并且会对寻址它的主机指令做出响应。设备预计具有某种形式的功能，并不简单作为一个被动组件。设备具有一个上行端口。端口是设备上的 USB 物理连接点。</p>
+<p>数据从主机转移到外设的操作是 OUT 传输。数据从外设转移到主机的操作是 IN 传输。主机（尤其是主控制器）控制着所有通信并向设备发出指令。<br />
+共有三种常见的 USB 主控制器：</p>
+<ul>
+<li>通用主控制器接口（ UHCI）： 由 Intel 生产，适用于 USB 1.0 和 USB 1.1。使用 UHCI 时需要得到 Intel 的许可。该控制器支持低速模式和全速模式。</li>
+<li>开放主控制器接口（ OHCI）： 由 Compaq、 Microsoft 和 National Semiconductor 生产， 适用于 USB 1.0 和 1.1。该控制器支持低速模式和全速模式， 并且它的效率比 UHCI 更高， 因为可以执行更多硬件功能。</li>
+<li>扩展型主控制器接口（ EHCI）： 在 USB-IF 要求发布单一主控制器规范后，已经生产了该控制器，它适用于 USB2.0。 EHCI 仅支持高速传输，并且将低速和全速传输委托给 OHCI 或 UHCI 控制器执行。</li>
+</ul>
+<h2 id="_4">集线器<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>集线器是一个专用设备，允许主机同总线上的多个外设进行通信。与 USB 外设（例如鼠标）具有实际功能不同，集线器设备是透明的，并且作为直通连接使用。集线器也作为主机和设备间的通道。集线器具有多个连接点，从而可以将多个设备连接到一个主机上。一个集线器可以将与下行设备进行的通信重复使用到一个上行端口和最多七个下行端口。 但集线器并没有主机功能。</p>
+<p><img alt="alt text" src="../image-3.png" /></p>
+<h2 id="_5">拓扑结构<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>通过使用集线器最多能够将 127 个设备连接至主控制器上。连接设备的数目限制由 USB 协议决定，它限制设备地址为 7 位。另外，由于集线器的时间限制和电缆传播的延迟，因此最多只能将五个集线器链接在一起，它表示集线器和设备的链接限制。随着集线器的链接限制，层次系统也限制为七层。</p>
+<p><img alt="alt text" src="../image-4.png" /></p>
+<p>从另一个角度观察 USB 接口，即将其分为不同层次。总线接口层提供了物理连接、电气信号和数据包连接。该层由设备硬件处理，并通过设备的外部接口完成。设备层是 USB 系统软件的视图，用于执行 USB 操作，如发送和接收信息。该层的操作由设备的内部串行接口引擎完成。最后，功能层包括有关软件的事务。它是 USB 设备的一部分，用于处理所接收到的信息，或者收集数据并将其传输给主机。 下图表示的是该抽象接口。</p>
+<p><img alt="alt text" src="../image-5.png" /></p>
+<h2 id="_6">传输编码<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>VBUS 线为所有相连设备提供了恒定的 4.40 ~ 5.25 V 电源。当 USB 为设备提供 5.25 V 电源时，数据线（ D+和 D-）在 3.3 V 电压下工作。 USB 接口使用不归零反转（ NRZI）的差分传输，信号使用位填充方法进行编码并通过双绞线传输。   </p>
+<p>NRZI 编码是一种映射一个二进制信号的方法，以便通过某个介质（在这里是 USB 线缆）传输该信号。在该编码方案中，如果电压电平不变，则表示逻辑 1；如果电压电平变化，则表示逻辑 0，如图 9 所示。顶部是将要通过 USB 传送的数据。底部是编码的 NRZI 数据。</p>
+<p><img alt="alt text" src="../image-6.png" /></p>
+<p>通过在 7 个连续的逻辑 1 后面插入一个逻辑 0 可以实现位填充。位填充是为了通过保持锁相环（ PLL）对 USB 硬件进行同步化。如果该数据内有太多的逻辑 1，那么 NRZI 编码流中将没有足够用于实现同步化的转换。 USB 硬件上的接收器会自动检测额外位，并忽略它。该额外位填充是引起 USB 上的额外开销的原因。 下图显示的是一个带有位填充的 NRZI 数据的示例。请注意， “Data to Send” （将要发送的数据）流为 8 个逻辑 1。在该编码数据中，在第六个逻辑 1 后面插入了一个逻辑 0。这样，第七和第八个逻辑 1 将位于逻辑 0 后。</p>
+<p><img alt="alt text" src="../image-7.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>USB 的数据传输方式为： LSB在前，MSB在后。</p>
+</div>
+<h2 id="_7">总线状态<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>USB 通信过程经过了 D+ 和 D- 线上的各种不同信号状态。某些状态发送数据，而其他则作为特殊信号状态使用。下面内容介绍了这些状态：</p>
+<ul>
+<li>差分 0 和差分 1： 这两个状态用于通过 USB 进行的通用数据通信。当 D+ 线为高电平、 D- 线为低电平时，该状态为差分 1。当 D+ 线为低电平、 D- 线为高电平时，该状态为差分 0。 </li>
+<li>J 状态和 K 状态： 除了差分信号外， USB 规范还定义了其他两个差分状态： J 状态和 K 状态。它们的定义由设备速度决定。在全速和高速设备上， J 状态为差分 1 而 K 状态是差分 0。在低速设备上，该情况则相反。</li>
+<li>单端 0（ SE0）： 在 D+ 和 D- 均为低电平时所发生的状态。该状态表示一个复位、断连或数据包的结束。</li>
+<li>单端 1（ SE1）： 在 D+ 和 D- 均为高电平时发生的状态。不会故意生成该状态，并且不能在 USB 设计中出现。</li>
+<li>闲置： 必须在发送一个数据包的前后发生的状态。如果一个数据线为低电平，而另一个数据线为高电平，则表示闲置状态。高电平和低电平的定义由设备的速度决定。在全速设备上，闲置状态是指 D+ 为高电平、 D- 为低电平。在低速设备上，该情况则相反。</li>
+<li>恢复： 用于使设备从挂起状态唤醒。通过发送一个 K 状态实现该操作。</li>
+<li>数据包的开始（ SOP）： 当 D+ 和 D- 线从闲置状态转换到 K 状态时，将在开始低速或全速数据包前发生。</li>
+<li>数据包的结束（ EOP）： 在低速或全速数据包结束时发生。当 SE0 状态持续两位时间以及 J 状态持续 1 位时间时，将发生 EOP。</li>
+<li>复位： 在 SE0 状态持续 10 ms 时发生。在 SE0 至少持续 2.5 ms 后，该设备会复位，并开始进入复位状态。</li>
+<li>保持活动（ Keep Alive）： 在低速设备中使用的信号。低速设备缺少了一个帧起始数据包（用于防止挂起状态）。每次经过 1 ms，它们都会使用一个 EOP 来防止设备进入挂起状态。</li>
+</ul>
+<p><img alt="alt text" src="../image-8.png" /></p>
+<p><img alt="alt text" src="../image-9.png" /></p>
+<h2 id="_8">硬件接口<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>需要将两个主硬件模块连接到 USB 上：一个收发器（又被称为 PHY — 物理层），一个串行接口引擎（又被称为SIE） 。该收发器提供了 USB 连接器和芯片电路（用于控制 USB 通信）间的硬件接口。 SIE 是 USB 硬件的内核。它执行多种功能，如解码和编码 USB 数据、错误纠正、位填充和发信号。 SIE 可以采取不同形式。与收发器不同，它们不受 USB 规范的限制。实际上，有些设备使用基于软件的 SIE 以降低成本，但也有其他设备使用基于硬件的 SIE。</p>
+<p><img alt="alt text" src="../image-10.png" /></p>
+<h2 id="usb_1">USB速度<a class="headerlink" href="#usb_1" title="Permanent link">&para;</a></h2>
+<p>USB 规范已经为 USB 系统定义了以下四种速度模式： 低速（ Low-Speed） 、全速（ Full-Speed） 、高速（ Hi-Speed）和超高速（ SuperSpeed）。 </p>
+<p><img alt="alt text" src="../image-11.png" /></p>
+<p>新型主机一直能同低速设备进行通信。例如，高速主机能够与低速设备进行通信，但全速主机并不能同高速设备进行通信。</p>
+<p>低速、全速和高速设备的速率分别为 1.5 Mb/s、 12 Mb/s 和 480 Mb/s。但是，这些指的是总线速率，并不是数据速率。 实际的数据速率受总线加载速度、传输类型、开销、操作系统等因素的影响。数据传输则受以下内容的限制：</p>
+<ul>
+<li>低速设备<ul>
+<li>例如：键盘、鼠标和游戏等外设</li>
+<li>总线速率： 1.5 Mb/s</li>
+<li>最大的有效数据速率： 800 B/s</li>
+</ul>
+</li>
+<li>全速设备<ul>
+<li>例如：手机、音频设备和压缩视频</li>
+<li>总线速率： 12 Mb/s</li>
+<li>最大的有效数据速率： 1.2 MB/s</li>
+</ul>
+</li>
+<li>高速设备<ul>
+<li>例如：视频、影像和存储设备</li>
+<li>总线速率： 480 Mb/s</li>
+<li>最大的有效数据速率： 53 MB/s</li>
+</ul>
+</li>
+</ul>
+<h2 id="_9">识别设备的速度模式<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<ul>
+<li>对于设备(Device)而言，低速设备、全速设备、高速设备；</li>
+<li>对于主机(Host)而言，全速主机、高速主机两种。</li>
+</ul>
+<p>建立好了 USB 设备和主机间的连接后，需要使用 D+或 D-信号线上的上拉电阻来检测设备的速度。 D+信号线上的 1.5kΩ 大小的上拉电阻表示所连接的是一个全速设备， D-线上 1.5 kΩ 大小的上拉电阻表示所连接的是一个低速设备。</p>
+<p>高速设备都是作为全速设备进行初始化，因此它们在 D+信号线上也使用了一个 1.5 kΩ 大小的上拉电阻。设备连接好后， 会在枚举的复位阶段中发出 J 状态和 K 状态序列。如果集线器支持高速设备，则不需要使用上拉电阻。</p>
+<p>USB 进行枚举时需要使用上拉电阻。否则， USB 会认为总线上没有连接任意设备。部分设备要求在 D+/D-信号线上使用一个外部上拉电阻。</p>
+<p><img alt="alt text" src="../image-12.png" /></p>
+<p>DUSB 2.0 设备经常被误解为高速 USB 设备。所有高速设备都符合 USB 2.0 规范，这是因为 USB 2.0 规范支持高速模式。 USB 2.0 规范还包含了全速和低速设备。</p>
+<p>这些速度也影响到有关 <strong>位时间</strong> 的 USB 信号（如数据包结束（ EOP）信号）。低速和全速 USB 设备使用了频率为48 MHz 的时钟执行 SIE 操作，并执行使用其他时钟源的 USB 操作。该 48 MHz 时钟和总线速度决定了 USB 位时间：</p>
+<ul>
+<li>全速： 时钟频率/总线速度 = 48 MHz / 12 Mb/s 时， USB 位时间为 4 个时钟周期。</li>
+<li>低速： 时钟频率/总线速度 = 48 MHz / 1.5 Mb/s 时， USB 位时间为 32 个时钟周期。</li>
+</ul>
+<h2 id="usb_2">USB电源<a class="headerlink" href="#usb_2" title="Permanent link">&para;</a></h2>
+<p>作为 USB 电源时， USB 设备可被划分为两种设备类型：总线供电和自供电。</p>
+<p>总线供电是 USB 设计的一个优势。由于设备通过总线供电，因此不需要使用笨重的内部或外部电源，它仍能够维持自身操作。总线可由主机或集线器供电。使用某个总线供电的设备时，用户将设备配置为某种状态前必须考虑其功耗。即设备枚举完成后，必须在第一次将设备连接到总线到主机将 SET_CONFIGURATION 命令传输给设备的这段时间内检查其功耗。设备被配置前不能消耗超过 100 mA 的电流（即 USB 规范中为低速、全速或高速设备定义为一个负载单位）。在配置过程中，设备要求一个预算功耗。总线供电的设备共有以下两种：高功耗和低功耗设备。低功耗设备最多消耗 100 mA 的电流，高功耗设备最多消耗 500 mA 的电流。消耗的电流超过 500 mA 的设备要自供电。</p>
+<p><img alt="alt text" src="../image-13.png" /></p>
+<p>自供电设备通过使用外部电源（如直流电源适配器或电池）为自己供电。自供电设备在进行设计的过程中需要考虑到一些注意事项。 USB 规范要求自供电设备一直监控自己的 VBUS 线。 VBUS 不存在的时间内，设备必须断开提供给 D+/D-线上的上拉电阻的电源，从而防止向主机或集线器供电。 否则，会导致 USB 合规性测试发生失败。但是自供电集线器能够从总线获得最多 100 mA 的电流。</p>
+<p><img alt="alt text" src="../image-14.png" /></p>
+<p>设备还能结合两种电源模式，并成为一个总线供电和自供电的设备。常见的例子是设备使用电池。设备通常是自供电的；但使用 VBUS 给电池充电，并且在电池电量发生变化时给设备供电。在技术方面，该设备是一个自供电设备，如USB 描述符中显示，但该设备仍要求来自主机的预算电源。同自供电设备相似，这些混合设计中仍需要监控 VBUS 大小，并且仍会断开提供给 D+/D-线上的上拉电阻的电源。在本应用中，需要实现一部分电源管理系统类型，以监控电池的电压、充电状态，并控制电池电源和外部电源间的切换。</p>
+<p><img alt="alt text" src="../image-15.png" /></p>
+<p>此外，无论设备的供电方式如何，所有 USB 设备都必须考虑到它们的暂停电流。设备的暂停电流是指在主机处于挂起模式（又称待机模式）时由 VBUS 提供的电流。如果总线在 3 ms 时间内没有进行任意操作，设备会进入挂起模式。即使没有进行任意数据传输操作，主机仍会发出“ 帧开始” （ SOF）令牌，以防止设备进入挂起模式。但低速设备却没有 SOF 数据包，因此这种设备是一个例外。总线上不进行低速数据的传输时，低速设备每经过 1 ms 都会发送“ 数据包结束” （ EOP）信号，将其作为“ 保持活动” 信号。总线休闲时，设备必须进入挂起模式，并消耗不大于 2.5 mA 的电流。为满足该要求，设计师必须保证设备进入挂起状态前已经关闭了各个 LED 和其他电源库。一旦检测到总线上发生任何操作， USB 设备都会退出挂起状态。如果设备具有远程唤醒功能，它可以向主机发送恢复请求，然后等待主机确认该请求，而不是等待主机进行恢复。更多有关停止电流的信息，请参考 USB 规范中第 11.4.3 节的内容。</p>
+<p>设计师需要了解各种同 USB 电源相对应的 USB 状态。这些状态通常出现在 USB 文档中，并适用于 USB 设备的枚举操作。</p>
+<p>USB设备在枚举完成之前，控制器会有一系列的状态变化。这些状态分别是：连接状态(attached)、供电状态(powered)、默认状态(default)、地址状态(address)、配置状态(configures)、挂起状态(suspended)。这些状态都可以根据具体的IC设计情况，配置寄存器，让USB控制器产生事件中断。</p>
+<ul>
+<li>连接状态(attached)： 当将某个设备插入到主机/集线器，但主机/集线器不给 VBUS 线供电时，会出现这种状态。它通常在集线器检测到一个过流事件时出现。虽然仍连接着设备，但主机移除了供给它的电源。</li>
+<li>供电状态(powered)： 某个设备被连接到 USB 上并得到供电，但仍未接收到一个复位请求。</li>
+<li>默认状态(default)： 某个设备被连接到 USB 上、得到供电，并且由主机进行了复位。这时，设备没有任何设备地址。 设备会响应地址 0。</li>
+<li>地址状态(address)： 某个设备被连接到 USB、得到供电、被复位，并且有一个唯一的地址。但是设备仍未得到配置。</li>
+<li>配置状态(configures)： 设备已经连接到 USB、得到供电、被复位、具有唯一的地址、得到配置，但尚未进入挂起状态。此时，总线供电设备能够消耗超过 100 mA 的电流。</li>
+<li>挂起状态(suspended)： 如上面所述，设备已经建立好了连接，并且得到配置，但在 3 ms 时间内不会进行任意总线操作。</li>
+</ul>
+<p>USB 规范（ USB 规范中的图 9-1）具有一个框图，描述了这些电源模式的相关性和切换性。</p>
+<p><img alt="alt text" src="../image-16.png" /></p>
+<p>对于低速、全速和高速 USB 设备， USB 的功耗会以 2 mA 的单位进行枚举。例如，需要消耗 100 mA 电流的全速设备在进行枚举时将发送数值 50。</p>
+<p>开发 USB 设计时，请考虑您的设备消耗总线的电流。根集线器由主机 PC 的电源供电。如果主机被连接到交流电源上，则 USB 规范要求主机为集线器上的每一个端口提供 500 mA 的电流。这样能将总线供电设备上的电流消耗限制在500 mA。如果主机 PC 由电池供电，它可以为集线器上的每一端口提供 100 mA 或 500 mA 的电流。将设备插入到总线供电的集线器时，该设备必须是低功耗设备，并且消耗电流不能超过 100 mA。总线供电的集线器共有 500 mA 的电流可供给所有所连接的设备使用。</p>
+<h2 id="usb_3">USB端点<a class="headerlink" href="#usb_3" title="Permanent link">&para;</a></h2>
+<p>根据 USB 规范，设备端点是 USB 设备中一个独特的可寻址部分，它作为主机和设备间通信流的信息源或库。枚举过程中，设备向默认地址做出响应。该事件在主机读取端点描述符等其他描述符信息之前发生。在该过程中，需要使用一套专用的端点用于与设备进行通信。这些专用的端点（统称为控制端点或端点 0）被定义为端点 0 IN 和端点 0 OUT。虽然端点 0 IN 和端点 0 OUT 是两个不同的端点，但对开发者来说，它们的构建和运行方式是一样的。每一个 USB 设备都需要支持端点 0。因此，该端点不需要使用独立的描述符。</p>
+<p>除了端点 0 外，特定设备所支持的端点数量将由各自的设计要求决定。简单的设计（如鼠标）可能仅要一个 IN 端点。复杂的设计可能需要多个数据端点。 USB 规范对高速和全速设备的端点数量进行了限制，即每个方向最多使用 16 个端点（ 16 个 IN、 16 个 OUT，总共为 32 个），其中不包含控制端点 0 IN 和 0 OUT 在内。低速设备仅能使用两个端点。</p>
+<p>USB 类设备可对端点数量设定更严格的限制。例如，低速人机界面设备（ HID）设计的端点可能不超过两个 — 通常有一个 IN 端点和一个 OUT 端点。数据端点本身具有双向特性。只有对它们进行配置后才支持单向传输（具有单向特性）。例如，端点 1 可作为 IN 或 OUT 端点使用。设备的描述符将正式使其成为一个 IN 端点。</p>
+<p>各端点使用循环冗余校验（ CRC）来检测传输中发生的错误。 CRC 是一个用于检测错误的计算值。 USB 规范中对实际的计算公式进行了解释，这些计算由 USB 硬件进行，这样可确保能够发出正确的响应。数据操作的接收方对数据进行CRC 检查。如果两者匹配，那么接收方将发出一个 ACK。如果两者匹配失败，便不会发出任何握手数据包。在这种情况下，发送方将重新发送数据。</p>
+<p>USB 规范定义了四种端点，并根据类型以及所支持的设备速度限制了数据包的尺寸。根据设计要求，开发者使用端点描述符指出端点类型以及数据包最大尺寸。四种端点和各自的特性如下：</p>
+<ul>
+<li>控制端点 — 这些端点支持控制传输（即所有设备支持的传输）。控制传输通过总线发送和接收设备的信息。它的优点是可以保证传输准确。它能够立即检测到错误的发生，并重新发送数据。 控制传输在低速和全速设备上使用 10% 的保留带宽（在高速设备上为 20%）并提供 USB 系统级控制。</li>
+<li>中断端点 — 这些端点支持中断传输。这种传输非常适合需要使用高度可靠的方式来传输少量数据的设备。它通常用于HID 设计。这种传输的名称可引起误会。实际上，它并不是一个中断，但使用了一个轮询率。进行该传输时，主机将在预计时间间隔内检查数据。通过及时检测错误并重新传输数据，该传输可确保数据操作的准确性。在低速和全速设备上，中断传输使用带宽的 90%，而在高速设备上，所用的带宽为 80%。同步端点与其共享该带宽。<br />
+中断端点的数据包最大尺寸与设备的速度相关。高速设备支持最大为 1024 字节的数据包。全速设备支持最大为 64 字节的数据包。低速设备支持最大为 8 字节的数据包。</li>
+<li>批量端点 — 这些端点支持批量传输，即是在高度可变的时间内传输大量数据并且可用任何带宽空间的传输。 它们是USB 设备的最通用传输类型。因为用于批量传输的带宽并不是固定的，该传输的传送时间也是可变的。传送时间取决于总线上的可用带宽，由于该因素，便不能预期实际的传送时间。通过及时检测错误并重新传输数据，该传输可确保数据操作的准确性。批量传输非常适合对时间没有严格要求的大量数据传输。<br />
+批量端点的数据包最大尺寸与设备速度相关。高速设备支持最大为 512 字节的数据包。全速设备支持最大为 64 字节的数据包。低速设备不支持批量传输。</li>
+<li>同步端点 — 这些端点支持同步传输，即具有预定带宽的连续性实时传输。由于同步传输没有错误恢复机制和握手数据包，它们需要支持容忍错误的数据流。错误由 CRC 字段检测，但不会被修改。因此，同步传输可保证传输速度，但以数据的准确性作为代价。流式音乐或视频即是使用同步端点的应用示例，因为我们的耳朵和眼睛通常忽略偶尔被错过的数据。在低速和全速设备上，同步传输使用带宽的 90%（在高速设备上，所用的带宽为 80%），中断传输与其共享该带宽。<br />
+高速设备支持最大为 1024 字节的数据包。全速设备支持最大为 1023 字节的数据包。低速设备不支持同步传输。有关同步传输，请注意一些重点内容。 为了保证数据传输，您通常需要使用三个缓冲区，一个正在传输数据、一个已加载数据和一个正在进行加载数据。</li>
+</ul>
+<p>端点传输类型的特性如下图：</p>
+<p><img alt="alt text" src="../image-17.png" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 ZhangBinbin/All Rights Reserved.
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://iamzhangbinbin.github.io/" target="_blank" rel="noopener" title="Wechat" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M385.2 167.6c6.4 0 12.6.3 18.8 1.1C387.4 90.3 303.3 32 207.7 32 100.5 32 13 104.8 13 197.4c0 53.4 29.3 97.5 77.9 131.6l-19.3 58.6 68-34.1c24.4 4.8 43.8 9.7 68.2 9.7 6.2 0 12.1-.3 18.3-.8-4-12.9-6.2-26.6-6.2-40.8-.1-84.9 72.9-154 165.3-154m-104.5-52.9c14.5 0 24.2 9.7 24.2 24.4 0 14.5-9.7 24.2-24.2 24.2-14.8 0-29.3-9.7-29.3-24.2.1-14.7 14.6-24.4 29.3-24.4m-136.4 48.6c-14.5 0-29.3-9.7-29.3-24.2 0-14.8 14.8-24.4 29.3-24.4 14.8 0 24.4 9.7 24.4 24.4 0 14.6-9.6 24.2-24.4 24.2M563 319.4c0-77.9-77.9-141.3-165.4-141.3-92.7 0-165.4 63.4-165.4 141.3S305 460.7 397.6 460.7c19.3 0 38.9-5.1 58.6-9.9l53.4 29.3-14.8-48.6C534 402.1 563 363.2 563 319.4m-219.1-24.5c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.8 0 24.4 9.7 24.4 19.3 0 10-9.7 19.6-24.4 19.6m107.1 0c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.5 0 24.4 9.7 24.4 19.3.1 10-9.9 19.6-24.4 19.6"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://iamzhangbinbin.github.io/" target="_blank" rel="noopener" title="telegram" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M248 8C111.033 8 0 119.033 0 256s111.033 248 248 248 248-111.033 248-248S384.967 8 248 8m114.952 168.66c-3.732 39.215-19.881 134.378-28.1 178.3-3.476 18.584-10.322 24.816-16.948 25.425-14.4 1.326-25.338-9.517-39.287-18.661-21.827-14.308-34.158-23.215-55.346-37.177-24.485-16.135-8.612-25 5.342-39.5 3.652-3.793 67.107-61.51 68.335-66.746.153-.655.3-3.1-1.154-4.384s-3.59-.849-5.135-.5q-3.283.746-104.608 69.142-14.845 10.194-26.894 9.934c-8.855-.191-25.888-5.006-38.551-9.123-15.531-5.048-27.875-7.717-26.8-16.291q.84-6.7 18.45-13.7 108.446-47.248 144.628-62.3c68.872-28.647 83.183-33.623 92.511-33.789 2.052-.034 6.639.474 9.61 2.885a10.45 10.45 0 0 1 3.53 6.716 43.8 43.8 0 0 1 .417 9.769"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://iamzhangbinbin.github.io/" target="_blank" rel="noopener" title="iamzhangbinbin.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9zm-24.8 373.8h39.1L151.1 88h-42z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://iamzhangbinbin.github.io/" target="_blank" rel="noopener" title="iamzhangbinbin.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<z466302@126.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M64 112c-8.8 0-16 7.2-16 16v22.1l172.5 141.6c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16zM48 212.2V384c0 8.8 7.2 16 16 16h384c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0zM0 128c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://iamzhangbinbin.github.io/" target="_blank" rel="noopener" title="iamzhangbinbin.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M488.6 104.1c16.7 18.1 24.4 39.7 23.3 65.7v202.4c-.4 26.4-9.2 48.1-26.5 65.1-17.2 17-39.1 25.9-65.5 26.7H92.02c-26.45-.8-48.21-9.8-65.28-27.2C9.682 419.4.767 396.5 0 368.2V169.8c.767-26 9.682-47.6 26.74-65.7C43.81 87.75 65.57 78.77 92.02 78h29.38L96.05 52.19c-5.75-5.73-8.63-13-8.63-21.79 0-8.8 2.88-16.06 8.63-21.797C101.8 2.868 109.1 0 117.9 0q13.2 0 21.9 8.603L213.1 78h88l74.5-69.397C381.7 2.868 389.2 0 398 0q13.2 0 21.9 8.603c5.7 5.737 8.6 12.997 8.6 21.797 0 8.79-2.9 16.06-8.6 21.79L394.6 78h29.3c26.4.77 48 9.75 64.7 26.1m-38.8 69.7c-.4-9.6-3.7-17.4-10.7-23.5-5.2-6.1-14-9.4-22.7-9.8H96.05c-9.59.4-17.45 3.7-23.58 9.8-6.14 6.1-9.4 13.9-9.78 23.5v194.4c0 9.2 3.26 17 9.78 23.5s14.38 9.8 23.58 9.8H416.4c9.2 0 17-3.3 23.3-9.8s9.7-14.3 10.1-23.5zm-264.3 42.7c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.2 6.3-14 9.5-23.6 9.5s-17.5-3.2-23.6-9.5-9.4-14-9.8-23.2v-33.3c.4-9.1 3.8-16.9 10.1-23.2s13.2-9.6 23.3-10c9.2.4 17 3.7 23.3 10m191.5 0c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2s-14 9.5-23.6 9.5-17.4-3.2-23.6-9.5c-7-6.3-9.4-14-9.7-23.2v-33.3c.3-9.1 3.7-16.9 10-23.2s14.1-9.6 23.3-10c9.2.4 17 3.7 23.3 10"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.prune", "navigation.indexes", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "search.share", "header.autohide", "announce.dismiss", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

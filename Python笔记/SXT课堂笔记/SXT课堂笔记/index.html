@@ -2693,13 +2693,49 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="类编码风格">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#_147" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      面向对象三大特征介绍
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_148" class="md-nav__link">
+    <span class="md-ellipsis">
+      继承
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="继承">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_149" class="md-nav__link">
+    <span class="md-ellipsis">
+      语法格式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_150" class="md-nav__link">
+    <span class="md-ellipsis">
+      类成员的继承和重写
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_151" class="md-nav__link">
+    <span class="md-ellipsis">
+      查看类的继承层次结构
     </span>
   </a>
   
@@ -2707,6 +2743,129 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#object" class="md-nav__link">
+    <span class="md-ellipsis">
+      object 根类
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="object 根类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dir" class="md-nav__link">
+    <span class="md-ellipsis">
+      dir()查看对象属性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__str__" class="md-nav__link">
+    <span class="md-ellipsis">
+      重写__str__()方法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_152" class="md-nav__link">
+    <span class="md-ellipsis">
+      多重继承
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mro" class="md-nav__link">
+    <span class="md-ellipsis">
+      MRO()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#super" class="md-nav__link">
+    <span class="md-ellipsis">
+      super()获得父类定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_153" class="md-nav__link">
+    <span class="md-ellipsis">
+      多态
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_154" class="md-nav__link">
+    <span class="md-ellipsis">
+      特殊方法和运算符重载
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_155" class="md-nav__link">
+    <span class="md-ellipsis">
+      特殊属性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_156" class="md-nav__link">
+    <span class="md-ellipsis">
+      对象的浅拷贝和深拷贝
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_157" class="md-nav__link">
+    <span class="md-ellipsis">
+      组合
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_" class="md-nav__link">
+    <span class="md-ellipsis">
+      设计模式_工厂模式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__1" class="md-nav__link">
+    <span class="md-ellipsis">
+      设计模式_单例模式
+    </span>
+  </a>
   
 </li>
         
@@ -2823,6 +2982,20 @@
       
         
           
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
         
       
         
@@ -6297,7 +6470,660 @@ emp1.salary = -200
 <li>每个类，应紧跟“文档字符串”，说明这个类的作用。</li>
 <li>可以用空行组织代码，但不能滥用。在类中，使用一个空行隔开方法；模块中，使用两个空行隔开多个类。</li>
 </ol>
-<h4 id="_147"><a class="headerlink" href="#_147" title="Permanent link">&para;</a></h4>
+<h3 id="_147">面向对象三大特征介绍<a class="headerlink" href="#_147" title="Permanent link">&para;</a></h3>
+<p>Python 是面向对象的语言，也支持面向对象编程的三大特性：继承、封装（隐藏）、多态。</p>
+<ul>
+<li>封装（隐藏）
+隐藏对象的属性和实现细节，只对外提供必要的方法。相当于将“细节封装起来”，只对外暴露“相关调用方法”。<br />
+通过前面学习的“私有属性、私有方法”的方式，实现“封装”。Python 追求简洁的语法，没有严格的语法级别的“访问控制符”，更多的是依靠程序员自觉实现。</li>
+<li>继承
+继承可以让子类具有父类的特性，提高了代码的重用性。<br />
+从设计上是一种增量进化，原有父类设计不变的情况下，可以增加新的功能，或者改进已有的算法。</li>
+<li>多态
+多态是指同一个方法调用由于对象不同会产生不同的行为。生活中这样的例子比比皆是：同样是休息方法，人不同休息方法不同。张三休息是睡觉，李四休息是玩游戏，程序员休息是“敲几行代码”。</li>
+</ul>
+<h3 id="_148">继承<a class="headerlink" href="#_148" title="Permanent link">&para;</a></h3>
+<p>继承是面向对象程序设计的重要特征，也是实现“代码复用”的重要手段。</p>
+<p>如果一个新类继承自一个设计好的类，就直接具备了已有类的特征，就大大降低了工作难度。已有的类，我们称为“父类或者基类”，新的类，我们称为“子类或者派生类”。</p>
+<h4 id="_149">语法格式<a class="headerlink" href="#_149" title="Permanent link">&para;</a></h4>
+<p><div class="highlight"><pre><span></span><code>Python 支持多重继承，一个子类可以继承多个父类。继承的语法格式如下：
+class 子类类名(父类 1[，父类 2，...])：
+    类体
+</code></pre></div>
+如果在类定义中没有指定父类，则默认父类是 object 类。也就是说，object 是所有类的父类，里面定义了一些所有类共有的默认实现，比如：__new__()。</p>
+<p>定义子类时，必须在其构造函数中调用父类的构造函数。调用格式如下：</p>
+<p>父类名.__init__(self, 参数列表)
+<div class="highlight"><pre><span></span><code>class Person:
+    def __init__(self,name,age):
+        self.name = name
+        self.__age = age
+
+    def say_age(self):
+        print(self.name,&quot;的年龄是：&quot;,self.__age)
+
+class Student(Person):
+    def __init__(self,name,age,score):
+        self.score = score
+        Person.__init__(self,name,age) #构造函数中包含调用父类构造函数。根据需要，不是必须。 子类并不会自动调用父类的__init__()，我们必须显式的调用它。
+
+s1 = Student(&quot;张三&quot;,15,85)
+s1.say_age()
+print(dir(s1))
+</code></pre></div>
+运行结果：
+<div class="highlight"><pre><span></span><code>张三 的年龄是： 15
+[&#39;_Person__age&#39;, &#39;__class__&#39;, &#39;__delattr__&#39;, &#39;__dict__&#39;, &#39;__dir__&#39;, &#39;__doc__&#39;, &#39;__eq__&#39;,
+&#39;__format__&#39;, &#39;__ge__&#39;, &#39;__getattribute__&#39;, &#39;__gt__&#39;, &#39;__hash__&#39;, &#39;__init__&#39;,
+&#39;__init_subclass__&#39;, &#39;__le__&#39;, &#39;__lt__&#39;, &#39;__module__&#39;, &#39;__ne__&#39;, &#39;__new__&#39;, &#39;__reduce__&#39;,
+&#39;__reduce_ex__&#39;, &#39;__repr__&#39;, &#39;__setattr__&#39;, &#39;__sizeof__&#39;, &#39;__str__&#39;, &#39;__subclasshook__&#39;,
+&#39;__weakref__&#39;, &#39;name&#39;, &#39;say_age&#39;, &#39;score&#39;]
+</code></pre></div></p>
+<h4 id="_150">类成员的继承和重写<a class="headerlink" href="#_150" title="Permanent link">&para;</a></h4>
+<ol>
+<li>成员继承：子类继承了父类除构造方法之外的所有成员。</li>
+<li>方法重写：子类可以重新定义父类中的方法，这样就会覆盖父类的方法，也称为“重写”</li>
+</ol>
+<p>【操作】继承和重写的案例
+<div class="highlight"><pre><span></span><code>class Person:
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
+
+    def say_age(self):
+        print(self.name,&quot;的年龄是：&quot;,self.age)
+
+    def say_name(self):
+        print(&quot;我是&quot;,self.name)
+
+class Student(Person):
+    def __init__(self,name,age,score):
+        self.score = score
+        Person.__init__(self,name,age) #构造函数中包含调用父类构造函数
+
+    def say_score(self):
+        print(self.name,&quot;的分数是：&quot;,self.score)
+
+    def say_name(self): #重写父类的方法
+        print(&quot;报告老师，我是&quot;,self.name)
+
+s1 = Student(&quot;张三&quot;,15,85)
+s1.say_score()
+s1.say_name()
+s1.say_age()
+</code></pre></div>
+执行结果：
+<div class="highlight"><pre><span></span><code>张三 的分数是： 85
+报告老师，我是 张三
+张三 的年龄是： 15
+</code></pre></div></p>
+<h4 id="_151">查看类的继承层次结构<a class="headerlink" href="#_151" title="Permanent link">&para;</a></h4>
+<p>通过类的方法 mro()或者类的属性__mro__可以输出这个类的继承层次结构。  <br />
+【操作】 查看类的继承层次结构
+<div class="highlight"><pre><span></span><code>class A:pass
+class B(A):pass
+class C(B):pass
+
+print(C.mro())
+</code></pre></div>
+执行结果：
+<div class="highlight"><pre><span></span><code>[&lt;class &#39;__main__.C&#39;&gt;, &lt;class &#39;__main__.B&#39;&gt;, &lt;class &#39;__main__.A&#39;&gt;, &lt;class &#39;object&#39;&gt;]
+</code></pre></div></p>
+<h3 id="object">object 根类<a class="headerlink" href="#object" title="Permanent link">&para;</a></h3>
+<p>object 类是所有类的父类，因此所有的类都有 object 类的属性和方法。</p>
+<h4 id="dir">dir()查看对象属性<a class="headerlink" href="#dir" title="Permanent link">&para;</a></h4>
+<p>为了深入学习对象，我们先学习内置函数 dir()，他可以让我们方便的看到指定对象所有的属性。</p>
+<p>【测试】查看对象所有属性以及和 object 进行比对
+<div class="highlight"><pre><span></span><code>class Person:
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
+
+    def say_age(self):
+        print(self.name,&quot;的年龄是：&quot;,self.age)
+
+obj = object()
+print(dir(obj))
+
+s2 = Person(&quot;高淇&quot;,18)
+print(dir(s2))
+</code></pre></div>
+执行结果：
+<div class="highlight"><pre><span></span><code>[&#39;__class__&#39;, &#39;__delattr__&#39;, &#39;__dir__&#39;, &#39;__doc__&#39;, &#39;__eq__&#39;, &#39;__format__&#39;, &#39;__ge__&#39;,
+&#39;__getattribute__&#39;, &#39;__gt__&#39;, &#39;__hash__&#39;, &#39;__init__&#39;, &#39;__init_subclass__&#39;, &#39;__le__&#39;, &#39;__lt__&#39;,
+&#39;__ne__&#39;, &#39;__new__&#39;, &#39;__reduce__&#39;, &#39;__reduce_ex__&#39;, &#39;__repr__&#39;, &#39;__setattr__&#39;, &#39;__sizeof__&#39;,
+&#39;__str__&#39;, &#39;__subclasshook__&#39;]
+[&#39;__class__&#39;, &#39;__delattr__&#39;, &#39;__dict__&#39;, &#39;__dir__&#39;, &#39;__doc__&#39;, &#39;__eq__&#39;, &#39;__format__&#39;, &#39;__ge__&#39;,
+&#39;__getattribute__&#39;, &#39;__gt__&#39;, &#39;__hash__&#39;, &#39;__init__&#39;, &#39;__init_subclass__&#39;, &#39;__le__&#39;, &#39;__lt__&#39;,
+&#39;__module__&#39;, &#39;__ne__&#39;, &#39;__new__&#39;, &#39;__reduce__&#39;, &#39;__reduce_ex__&#39;, &#39;__repr__&#39;, &#39;__setattr__&#39;,
+&#39;__sizeof__&#39;, &#39;__str__&#39;, &#39;__subclasshook__&#39;, &#39;__weakref__&#39;, &#39;age&#39;, &#39;name&#39;, &#39;say_age&#39;]
+</code></pre></div>
+从上面我们可以发现这样几个要点：</p>
+<ol>
+<li>Person 对象增加了六个属性：
+<div class="highlight"><pre><span></span><code>__dict__ __module__ __weakref__ age name say_age
+</code></pre></div></li>
+<li>object 的所有属性，Person 类作为 object 的子类，显然包含了所有的属性。</li>
+<li>我们打印 age、name、say_age，发现 say_age 虽然是方法，实际上也是属性。只不过，这个属性的类型是“method”而已。
+<div class="highlight"><pre><span></span><code>age &lt;class &#39;int&#39;&gt;
+name &lt;class &#39;str&#39;&gt;
+say_age &lt;class &#39;method&#39;&gt;
+</code></pre></div></li>
+</ol>
+<h4 id="__str__">重写__str__()方法<a class="headerlink" href="#__str__" title="Permanent link">&para;</a></h4>
+<p>object 有一个__str__()方法，用于返回一个对于“对象的描述”，对应于内置函数 str() 经常用于 print()方法，帮助我们查看对象的信息。__str__()可以重写。
+<div class="highlight"><pre><span></span><code>class Person:
+    def __init__(self,name,age):
+        self.name = name
+        self.__age = age
+
+    def __str__(self):
+        &#39;&#39;&#39;将对象转化成一个字符串，一般用于 print 方法&#39;&#39;&#39;
+        return &quot;名字是：{0},年龄是{1}&quot;.format(self.name,self.__age)
+
+p = Person(&quot;高淇&quot;,18)
+print(p)
+</code></pre></div>
+运行结果：
+<div class="highlight"><pre><span></span><code>名字是：高淇,年龄是 18
+</code></pre></div></p>
+<h3 id="_152">多重继承<a class="headerlink" href="#_152" title="Permanent link">&para;</a></h3>
+<p>Python 支持多重继承，一个子类可以有多个“直接父类”。这样，就具备了“多个父类”的特点。但是由于，这样会被“类的整体层次”搞的异常复杂，尽量避免使用。
+<div class="highlight"><pre><span></span><code>#多重继承
+class A:
+    def aa(self):
+        print(&quot;aa&quot;)
+
+class B:
+    def bb(self):
+        print(&quot;bb&quot;)
+
+class C(B,A):
+    def cc(self):
+        print(&quot;cc&quot;)
+
+c = C()
+c.cc()
+c.bb()
+c.aa()
+</code></pre></div>
+运算结果：
+<div class="highlight"><pre><span></span><code>cc
+bb
+aa
+</code></pre></div></p>
+<h3 id="mro">MRO()<a class="headerlink" href="#mro" title="Permanent link">&para;</a></h3>
+<p>Python 支持多继承，如果父类中有相同名字的方法，在子类没有指定父类名时，解释器将“从左向右”按顺序搜索。</p>
+<p>MRO（Method Resolution Order）：方法解析顺序。 我们可以通过 mro()方法获得“类的层次结构”，方法解析顺序也是按照这个“类的层次结构”寻找的。
+<div class="highlight"><pre><span></span><code>#多重继承
+class A:
+    def aa(self):
+        print(&quot;aa&quot;)
+
+    def say(self):
+        print(&quot;say AAA!&quot;)
+
+class B:
+    def bb(self):
+        print(&quot;bb&quot;)
+
+    def say(self):
+        print(&quot;say BBB!&quot;)
+
+class C(B,A):
+    def cc(self):
+        print(&quot;cc&quot;)
+
+c = C()
+print(C.mro()) #打印类的层次结构
+c.say() #解释器寻找方法是“从左到右”的方式寻找，此时会执行 B 类中的 say()
+</code></pre></div></p>
+<h3 id="super">super()获得父类定义<a class="headerlink" href="#super" title="Permanent link">&para;</a></h3>
+<p>在子类中，如果想要获得父类的方法时，我们可以通过 super()来做。 </p>
+<p>super()代表父类的定义，不是父类对象。
+<div class="highlight"><pre><span></span><code>#super()
+
+class A:
+    def say(self):
+        print(&quot;A: &quot;,self)
+        print(&quot;say AAA&quot;)
+
+class B(A):
+    def say(self):
+        #A.say(self) 调用父类的 say 方法
+        super().say() #通过 super()调用父类的方法
+        print(&quot;say BBB&quot;)
+
+b = B()
+b.say()
+</code></pre></div>
+运行结果：
+<div class="highlight"><pre><span></span><code>A: &lt;__main__.B object at 0x007A5690&gt;
+say AAA
+say BBB
+</code></pre></div></p>
+<h3 id="_153">多态<a class="headerlink" href="#_153" title="Permanent link">&para;</a></h3>
+<p>多态（polymorphism）是指同一个方法调用由于对象不同可能会产生不同的行为。在现实生活中，我们有很多例子。比如：同样是调用人的休息方法，张三的休息是睡觉，李四的休息是玩游戏，高淇老师是敲代码。同样是吃饭的方法，中国人用筷子吃饭，英国人用刀叉吃饭，印度人用手吃饭。</p>
+<p>关于多态要注意以下 2 点：</p>
+<ol>
+<li>多态是方法的多态，属性没有多态。</li>
+<li>多态的存在有 2 个必要条件：继承、方法重写。
+<div class="highlight"><pre><span></span><code>#多态
+class Animal:
+    def shout(self):
+        print(&quot;动物叫了一声&quot;)
+
+class Dog(Animal):
+    def shout(self):
+        print(&quot;小狗，汪汪汪&quot;)
+
+class Cat(Animal):
+    def shout(self):
+        print(&quot;小猫，喵喵喵&quot;)
+
+def animalShout(a):
+    if isinstance(a,Animal):
+        a.shout() #传入的对象不同，shout 方法对应的实际行为也不同。
+
+animalShout(Dog())
+animalShout(Cat())
+</code></pre></div>
+运行结果：
+<div class="highlight"><pre><span></span><code>小狗，汪汪汪
+小猫，喵喵喵
+</code></pre></div></li>
+</ol>
+<h3 id="_154">特殊方法和运算符重载<a class="headerlink" href="#_154" title="Permanent link">&para;</a></h3>
+<p>Python 的运算符实际上是通过调用对象的特殊方法实现的。比如：
+<div class="highlight"><pre><span></span><code>a = 20
+b = 30
+c = a+b
+d = a.__add__(b)
+print(&quot;c=&quot;,c)
+print(&quot;d=&quot;,d)
+</code></pre></div>
+运算结果：
+<div class="highlight"><pre><span></span><code>c= 50
+d= 50
+</code></pre></div>
+常见的特殊方法统计如下：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>__init__</td>
+<td>构造方法</td>
+<td>对象创建：p = Person()</td>
+</tr>
+<tr>
+<td>__del__</td>
+<td>析构方法</td>
+<td>对象回收</td>
+</tr>
+<tr>
+<td>__repr__,__str__</td>
+<td>打印，转换 print(a)</td>
+<td></td>
+</tr>
+<tr>
+<td>__call__</td>
+<td>函数调用</td>
+<td>a()</td>
+</tr>
+<tr>
+<td>__getattr__</td>
+<td>点号运算</td>
+<td>a.xxx</td>
+</tr>
+<tr>
+<td>__setattr__</td>
+<td>属性赋值</td>
+<td>a.xxx = value</td>
+</tr>
+<tr>
+<td>__getitem__</td>
+<td>索引运算</td>
+<td>a[key]</td>
+</tr>
+<tr>
+<td>__setitem__</td>
+<td>索引赋值</td>
+<td>a[key]=value</td>
+</tr>
+<tr>
+<td>__len__</td>
+<td>长度</td>
+<td>len(a)</td>
+</tr>
+</tbody>
+</table>
+<p>每个运算符实际上都对应了相应的方法，统计如下：</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>特殊方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>运算符+</td>
+<td>__add__</td>
+<td>加法</td>
+</tr>
+<tr>
+<td>运算符-</td>
+<td>__sub__</td>
+<td>减法</td>
+</tr>
+<tr>
+<td>&lt;,&lt;=,==</td>
+<td>__lt__,__le__，__eq__</td>
+<td>比较运算符</td>
+</tr>
+<tr>
+<td>&gt;,&gt;=,!=</td>
+<td>__gt__,__ge__,__ne__</td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;&lt;,&gt;&gt;</td>
+<td>__lshift__,__rshift__</td>
+<td>左移、右移</td>
+</tr>
+<tr>
+<td>*,/,%,//</td>
+<td>__mul__,__truediv__,__mod__,__floordiv__</td>
+<td>乘、浮点除、模运算（取余）、整数除</td>
+</tr>
+<tr>
+<td>**</td>
+<td>__pow__</td>
+<td>指数运算</td>
+</tr>
+</tbody>
+</table>
+<p>我们可以重写上面的特殊方法，即实现了“运算符的重载”。
+<div class="highlight"><pre><span></span><code>#测试运算符的重载
+class Person:
+    def __init__(self,name):
+        self.name = name
+
+    def __add__(self, other):
+        if isinstance(other,Person):
+            return &quot;{0}--{1}&quot;.format(self.name,other.name)
+        else:
+            return &quot;不是同类对象， 不能相加&quot;
+
+    def __mul__(self, other):
+        if isinstance(other,int):
+            return self.name*other
+        else:
+            return &quot;不是同类对象， 不能相乘&quot;
+
+p1 = Person(&quot;高淇&quot;)
+p2 = Person(&quot;高希希&quot;)
+
+x = p1 + p2
+print(x)
+
+print(p1*3)
+</code></pre></div>
+运算结果：
+<div class="highlight"><pre><span></span><code>高淇--高希希
+高淇高淇高淇
+</code></pre></div></p>
+<h3 id="_155">特殊属性<a class="headerlink" href="#_155" title="Permanent link">&para;</a></h3>
+<p>Python 对象中包含了很多双下划线开始和结束的属性，这些是特殊属性，有特殊用法。这里我们列出常见的特殊属性：</p>
+<p><img alt="alt text" src="../image-36.png" /></p>
+<p><div class="highlight"><pre><span></span><code>#测试特殊属性
+class A:
+    pass
+
+class B:
+    pass
+
+class C(B,A):
+    def __init__(self,nn):
+        self.nn = nn
+
+    def cc(self):
+        print(&quot;cc&quot;)
+
+c = C(3)
+
+print(dir(c))
+print(c.__dict__)
+print(c.__class__)
+print(C.__bases__)
+print(C.mro())
+print(A.__subclasses__())
+</code></pre></div>
+运行结果：
+<div class="highlight"><pre><span></span><code>[&#39;__class__&#39;, &#39;__delattr__&#39;, &#39;__dict__&#39;, &#39;__dir__&#39;, &#39;__doc__&#39;, &#39;__eq__&#39;, &#39;__format__&#39;, &#39;__ge__&#39;,
+&#39;__getattribute__&#39;, &#39;__gt__&#39;, &#39;__hash__&#39;, &#39;__init__&#39;, &#39;__init_subclass__&#39;, &#39;__le__&#39;, &#39;__lt__&#39;,
+&#39;__module__&#39;, &#39;__ne__&#39;, &#39;__new__&#39;, &#39;__reduce__&#39;, &#39;__reduce_ex__&#39;, &#39;__repr__&#39;, &#39;__setattr__&#39;,
+&#39;__sizeof__&#39;, &#39;__str__&#39;, &#39;__subclasshook__&#39;, &#39;__weakref__&#39;, &#39;cc&#39;, &#39;nn&#39;]
+{&#39;nn&#39;: 3}
+&lt;class &#39;__main__.C&#39;&gt;
+(&lt;class &#39;__main__.B&#39;&gt;, &lt;class &#39;__main__.A&#39;&gt;)
+[&lt;class &#39;__main__.C&#39;&gt;, &lt;class &#39;__main__.B&#39;&gt;, &lt;class &#39;__main__.A&#39;&gt;, &lt;class &#39;object&#39;&gt;]
+[&lt;class &#39;__main__.C&#39;&gt;]
+</code></pre></div></p>
+<h3 id="_156">对象的浅拷贝和深拷贝<a class="headerlink" href="#_156" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>变量的赋值操作<br />
+只是形成两个变量，实际还是指向同一个对象。</p>
+</li>
+<li>
+<p>浅拷贝<br />
+Python 拷贝一般都是浅拷贝。拷贝时，对象包含的子对象内容不拷贝。因此，源对象和拷贝对象会引用同一个子对象。</p>
+</li>
+<li>
+<p>深拷贝<br />
+使用 copy 模块的 deepcopy 函数，递归拷贝对象中包含的子对象。源对象和拷贝对象所有的子对象也不同。</p>
+</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code>#测试对象的引用赋值、浅拷贝、深拷贝
+import copy
+
+class MobilePhone:
+    def __init__(self,cpu,screen):
+        self.cpu = cpu
+        self.screen = screen
+
+class CPU:
+    def calculate(self):
+        print(&quot;计算，算个 12345&quot;)
+        print(&quot;CPU 对象:&quot;,self)
+
+class Screen:
+    def show(self):
+        print(&quot;显示一个好看的画面，亮瞎你的钛合金大眼&quot;)
+        print(&quot;屏幕对象：&quot;,self)
+
+c = CPU()
+s = Screen()
+m = MobilePhone(c,s)
+
+m.cpu.calculate()
+
+n = m #两个变量，但是指向了同一个对象
+print(m,n)
+
+m2 = copy.copy(m) #m2 是新拷贝的另一个手机对象
+print(m,m2)
+
+m.cpu.calculate()
+m2.cpu.calculate() #m2 和 m 拥有了一样的 cpu 对象和 screen 对象
+
+m3 = copy.deepcopy(m)
+m3.cpu.calculate() #m3 和 m 拥有不一样的 cpu 对象和 screen 对象
+</code></pre></div>
+运算结果：
+<div class="highlight"><pre><span></span><code>计算，算个 12345
+CPU 对象: &lt;__main__.CPU object at 0x00685690&gt;
+&lt;__main__.MobilePhone object at 0x00685B50&gt; &lt;__main__.MobilePhone object at 0x00685B50&gt;
+&lt;__main__.MobilePhone object at 0x00685B50&gt; &lt;__main__.MobilePhone object at 0x0069B490&gt;
+计算，算个 12345
+CPU 对象: &lt;__main__.CPU object at 0x00685690&gt;
+计算，算个 12345
+CPU 对象: &lt;__main__.CPU object at 0x00685690&gt;
+计算，算个 12345
+CPU 对象: &lt;__main__.CPU object at 0x006A5DB0&gt;
+</code></pre></div></p>
+<h3 id="_157">组合<a class="headerlink" href="#_157" title="Permanent link">&para;</a></h3>
+<p>“is-a”关系，我们可以使用“继承”。从而实现子类拥有的父类的方法和属性。“is-a”关系指的是类似这样的关系：狗是动物，dog is animal。狗类就应该继承动物类。</p>
+<p>“has-a”关系，我们可以使用“组合”，也能实现一个类拥有另一个类的方法和属性。”has-a”关系指的是这样的关系：手机拥有 CPU。 MobilePhone has a CPU。
+<div class="highlight"><pre><span></span><code>#组合测试
+class MobilePhone:
+    def __init__(self,cpu,screen):
+        self.cpu = cpu
+        self.screen = screen
+
+class CPU:
+    def calculate(self):
+        print(&quot;计算，算个 12345&quot;)
+
+class Screen:
+    def show(self):
+        print(&quot;显示一个好看的画面，亮瞎你的钛合金大眼&quot;)
+
+c = CPU()
+s = Screen()
+m = MobilePhone(c,s)
+m.cpu.calculate() #通过组合，我们也能调用 cpu 对象的方法。相当于手机对象间接拥有了“cpu 的方法”
+m.screen.show()
+</code></pre></div>
+运算结果：
+<div class="highlight"><pre><span></span><code>计算，算个 12345
+显示一个好看的画面，亮瞎你的钛合金大眼
+</code></pre></div></p>
+<h3 id="_">设计模式_工厂模式<a class="headerlink" href="#_" title="Permanent link">&para;</a></h3>
+<p>设计模式是面向对象语言特有的内容，是我们在面临某一类问题时候固定的做法，设计模式有很多种，比较流行的是：GOF（Goup Of Four）23 种设计模式。当然，我们没有必要全部学习，学习几个常用的即可。</p>
+<p>对于初学者，我们学习两个最常用的模式：工厂模式和单例模式。</p>
+<p>工厂模式实现了创建者和调用者的分离，使用专门的工厂类将选择实现类、创建对象进行统一的管理和控制。
+<div class="highlight"><pre><span></span><code>#工厂模式
+class CarFactory:
+    def createCar(self,brand):
+        if brand == &quot;奔驰&quot;:
+            return Benz()
+        elif brand == &quot;宝马&quot;:
+            return BMW()
+        elif brand == &#39;比亚迪&#39;:
+            return BYD()
+        else:
+            return &quot;未知品牌，无法创建&quot;
+
+class Benz:
+    pass
+
+class BMW:
+    pass
+
+class BYD:
+    pass
+
+factory = CarFactory()
+c1 = factory.createCar(&quot;奔驰&quot;)
+c2 = factory.createCar(&quot;宝马&quot;)
+print(c1)
+print(c2)
+</code></pre></div>
+运行结果：
+<div class="highlight"><pre><span></span><code>&lt;__main__.Benz object at 0x021C5770&gt;
+&lt;__main__.BMW object at 0x021C5790&gt;
+</code></pre></div></p>
+<h3 id="__1">设计模式_单例模式<a class="headerlink" href="#__1" title="Permanent link">&para;</a></h3>
+<p>单例模式（Singleton Pattern）的核心作用是确保一个类只有一个实例，并且提供一个访问该实例的全局访问点。</p>
+<p>单例模式只生成一个实例对象，减少了对系统资源的开销。当一个对象的产生需要比较多的资源，如读取配置文件、产生其他依赖对象时，可以产生一个“单例对象”，然后永久驻留内存中，从而极大的降低开销。</p>
+<p>单例模式有多种实现的方式，我们这里推荐重写__new__()的方法。
+<div class="highlight"><pre><span></span><code>#单例模式
+class MySingleton:
+    __obj = None
+    __init_flag = True
+
+    def __new__(cls, *args, **kwargs):
+        if cls.__obj == None:
+            cls.__obj = object.__new__(cls)
+            return cls.__obj
+
+    def __init__(self,name):
+        if MySingleton.__init_flag:
+            print(&quot;init....&quot;)
+            self.name = name
+            MySingleton.__init_flag = False
+
+a = MySingleton(&quot;aa&quot;)
+print(a)
+b = MySingleton(&quot;bb&quot;)
+print(b)
+</code></pre></div>
+运算结果：
+<div class="highlight"><pre><span></span><code>init....
+&lt;__main__.MySingleton object at 0x01E15610&gt;
+&lt;__main__.MySingleton object at 0x01E15610&gt;
+</code></pre></div></p>
+<p>设计模式称之为“模式”，就是一些固定的套路。我们很容易用到其他场景上，比如前面讲的工厂模式，我们需要将工厂类定义成“单例”，只需要简单的套用即可实现：
+<div class="highlight"><pre><span></span><code>#测试工厂模式和单例模式的整合使用
+class CarFactory:
+    __obj = None #类属性
+    __init_flag = True
+
+    def create_car(self,brand):
+        if brand ==&quot;奔驰&quot;:
+            return Benz()
+        elif brand ==&quot;宝马&quot;:
+            return BMW()
+        elif brand == &quot;比亚迪&quot;:
+            return BYD()
+        else:
+            return &quot;未知品牌，无法创建&quot;
+
+    def __new__(cls, *args, **kwargs):
+        if cls.__obj ==None:
+            cls.__obj = object.__new__(cls)
+
+        return cls.__obj
+
+    def __init__(self):
+        if CarFactory.__init_flag:
+            print(&quot;init CarFactory....&quot;)
+            CarFactory.__init_flag = False
+
+class Benz:
+    pass
+
+class BMW:
+    pass
+
+class BYD:
+    pass
+
+factory = CarFactory()
+c1 = factory.create_car(&quot;奔驰&quot;)
+c2 = factory.create_car(&quot;比亚迪&quot;)
+print(c1)
+print(c2)
+
+factory2 = CarFactory()
+print(factory)
+print(factory2)
+</code></pre></div>
+运算结果：
+<div class="highlight"><pre><span></span><code>init CarFactory....
+&lt;__main__.Benz object at 0x01E36E90&gt;
+&lt;__main__.BYD object at 0x01E36C30&gt;
+&lt;__main__.CarFactory object at 0x01E36730&gt;
+&lt;__main__.CarFactory object at 0x01E36730&gt;
+</code></pre></div></p>
 
 
 
