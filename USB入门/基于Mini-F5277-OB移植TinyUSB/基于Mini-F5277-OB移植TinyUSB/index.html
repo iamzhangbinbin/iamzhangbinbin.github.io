@@ -554,6 +554,8 @@
       
         
       
+        
+      
     
     
     
@@ -664,6 +666,8 @@
       
         
           
+        
+      
         
       
         
@@ -1195,15 +1199,6 @@
         
           <li class="md-nav__item">
   <a href="#usb_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      USB 端点管理
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#usb_5" class="md-nav__link">
     <span class="md-ellipsis">
       USB驱动使能
     </span>
@@ -1790,7 +1785,7 @@ static USB_EndPointManage_Type usb_epmng_tbl[16u][2u] = {0u}; /* EndPointManage 
 <li>中断处理</li>
 </ul>
 <h3 id="_10">双向队列实现<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
-<p>USB 总线会像多个端点传输不同的内容，但 USB 总线只有一条，因此需要将传输任务放在一个队列中，按照队列的顺序传输数据 ；在传输过程中，可能会有分段传输，传输失败等情况，可能要将传输任务重新放在队列的头部，而不是末尾，因此，这个队列不仅能将传输任务放在队列尾部，也能将传输任务放在头部，就像堆栈那样，因此，需要实现一个双向队列。同普通的队列一样，双向队列需要一个队列buffer，以及管理队列 buffer 的字段，然后每次读写队列时，不能直接操作这个 buffer，而是只能使用给定的 push 和 pop 方法操作。实现操作如下：</p>
+<p>USB 总线会像多个端点传输不同的内容，但 USB 总线只有一条，因此需要将传输任务放在一个队列中，按照队列的顺序传输数据 ；在传输过程中，可能会有分段传输，传输失败等情况，可能要将传输任务重新放在队列的头部，而不是末尾，因此，这个队列不仅能将传输任务放在队列尾部，也能将传输任务放在头部，就像堆栈那样，因此，需要实现一个双向队列。同普通的队列一样，双向队列需要一个队列 buffer，以及管理队列 buffer 的字段，然后每次读写队列时，不能直接操作这个 buffer，而是只能使用给定的 push 和 pop 方法操作。实现操作如下：</p>
 <p><strong>buffer 和管理字段：</strong></p>
 <div class="highlight"><pre><span></span><code><span class="cm">/* xfer task deque node. */</span>
 <span class="k">typedef</span><span class="w"> </span><span class="k">struct</span>
@@ -1888,11 +1883,13 @@ static USB_EndPointManage_Type usb_epmng_tbl[16u][2u] = {0u}; /* EndPointManage 
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="_11">数据库实现<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
-<p>所谓数据库，只是用于存放各设备各端点信息的地方。每次发送传输数据的时候，需要知道端点的buffer 大小等信息，所以需要在数据库中查询端点信息。需要支持inset操作，delete操作，update 操作和select操作，即增删改查：</p>
-<p>insert 操作，指将一条数据条目插入到数据表中，该条目是数据表中原来没有的内容</p>
-<p>delete 操作，指删除数据条目或数据表</p>
-<p>update 操作，指将一条数据条目更新到原有的条目中，主要更新原有条目的字段内容</p>
-<p>select 操作，根据关键字查找数据表中的条目</p>
+<p>所谓数据库，只是用于存放各设备各端点信息的地方。每次发送传输数据的时候，需要知道端点的 buffer 大小等信息，所以需要在数据库中查询端点信息。需要支持 inset 操作，delete 操作，update 操作和select 操作，即增删改查：</p>
+<ul>
+<li>insert 操作，指将一条数据条目插入到数据表中，该条目是数据表中原来没有的内容</li>
+<li>delete 操作，指删除数据条目或数据表</li>
+<li>update 操作，指将一条数据条目更新到原有的条目中，主要更新原有条目的字段内容</li>
+<li>select 操作，根据关键字查找数据表中的条目</li>
+</ul>
 <p><strong>buffer 和管理字段：</strong></p>
 <div class="highlight"><pre><span></span><code><span class="cm">/* endpoint status table. */</span>
 <span class="k">static</span><span class="w"> </span><span class="n">ep_status_t</span><span class="w"> </span><span class="n">ep_tbl</span><span class="p">[</span><span class="n">TUH_HCD_PORT_MAX_EP_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/* the table that record the ep_status. */</span>
@@ -1940,16 +1937,13 @@ static USB_EndPointManage_Type usb_epmng_tbl[16u][2u] = {0u}; /* EndPointManage 
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="usb_3">USB 缓冲描述表定义<a class="headerlink" href="#usb_3" title="Permanent link">&para;</a></h3>
-<p>在<code>tuh_dcd_port.c</code> 文件中定义USB 数据缓冲区（在USB驱动中定义USB_BufDespTable_Type结构体类型），在USB驱动初始化和USB协议栈任务处理时使用。
-USB的配置由两部分组成：一部分是实实在在的 USB 寄存器配置，一部分是 SRAM 以 512 字节对齐的 512 字节大小的缓冲区描述表。</p>
+<p>USB 的配置由两部分组成：一部分是实实在在的 USB 寄存器配置，一部分是 SRAM 以 512 字节对齐的 512 字节大小的缓冲区描述表。</p>
 <p>那么如何得到一块 512 Bytes 对齐的内存？这里举出三种方法：</p>
-<blockquote>
 <ol>
 <li>在 linker 中声明出一段 512 字节对齐的 512 字节大小的空间。</li>
 <li>使用 "__ALIGNED(512)" 或 "__attribute__((__aligned__(512)))" 等指令让编译器处理。</li>
 <li>声明一段 1K 大小的空间，然后在其中找到 512 字节对齐的位置。</li>
 </ol>
-</blockquote>
 <p>这里我们采用了第2种方法进行了实现：</p>
 <div class="highlight"><pre><span></span><code>/* usb buf descriptor table. */
 __attribute__ ((aligned(512))) static USB_BufDespTable_Type usb_bdt = {0u};
@@ -1963,91 +1957,87 @@ __attribute__ ((aligned(4))) static uint8_t usb_xfer_buf[TUH_HCD_PORT_XFER_BUF_S
 <p>在初始化 USB 的时候，需要将缓冲区描述表的起始地址写入到 USB 寄存器中（USB_FS_BDTPAGE1，USB_FS_BDTPAGE2，USB_FS_BDTPAGE3），随后，这块缓冲区描述表就 “成为” 了 USB 寄存器中的一部分，当我们想要传输数据的时候，就会把要传输数据的缓冲区地址，缓冲区大小等信息写入到这个缓冲区描述表中，待传输数据完成后，缓冲区描述表中记录的内容也会发生变化，对这块缓冲区描述表的操作，就如同在 USB 寄存器上进行操作一般。</p>
 <p>USB 数据的传输实际上是依靠 DMA 搬运实现的，但值得注意的是，USB 使用的 DMA 并不是 MCU 中的 DMA 外设，而是 USB 自带的 DMA，并且除了使用 USB 自带的 DMA 搬运的方式传输数据外，USB 并没有提供其他传输数据的方法。由于采用 DMA 搬运的方法传输数据，在使用 USB 功能的时候，需要注意一些会影响 DMA 工作的地方：例如，打开 DCACHE 后，对 SRAM 的访问并非直接写入到 SRAM 中，而是先暂时放入到内核的 CACHE 中，会造成 DMA 无法正常工作，所以，在使用 USB 功能的时候，应关闭 DCACHE 功能（或者使用 MPU 对 USB 使用到的内存加以保护）；再例如，有些 RAM 仅能被 CPU 访问，如 DTCM，这部分空间无法让 DMA 正常工作，因此也要避免将缓冲区描述表和要传输的数据存放在此类区域。</p>
 <p>缓冲区描述表控制着十六个端点的传输功能，每个端点有两个传输方向，分别是 IN 和 OUT（如果每个传输方向算一个端点的话，USB_0 一共有 32 个端点）每个传输方向有两个缓冲区描述符组成，在传输数据的时候，两个缓冲区描述符交替工作，从而实现乒乓操作的过程，加快数据传输的速度。当然，双缓冲的操作较为复杂，增加了 USB 的操作难度，双缓冲也可配置为单缓冲，简化使用方法。</p>
-<p><img alt="" src="../image/figure_usb_bd.png" /></p>
-<center> 图x 缓冲区描述符</center>
-<p>如图x所示，每个缓冲区描述符由两个四字节数据组成，第一个四字节数据记录了要传输数据的大小，data toggle，缓冲区描述符的拥有者等字段信息，第二个四字节数据则记录了要传输数据的起始位置。具体的字段信息，可参考各 MCU 的 UM。</p>
-<h3 id="usb_4">USB 端点管理<a class="headerlink" href="#usb_4" title="Permanent link">&para;</a></h3>
-<p>在<code>tud_dcd_port.c</code>文件中定义<code>USB_EndPointManage_Type</code>结构体类型。</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">xfer_buf</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">max_packet_size</span><span class="p">;</span><span class="w">   </span><span class="cm">/* EndPoint max packet size. */</span>
-<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">length</span><span class="p">;</span><span class="w">            </span><span class="cm">/* EndPoint xfer data length. */</span>
-<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">remaining</span><span class="p">;</span><span class="w">         </span><span class="cm">/* EndPoint xfer data remaining. */</span>
-<span class="w">    </span><span class="kt">bool</span><span class="w">  </span><span class="n">odd_even</span><span class="p">;</span><span class="w">          </span><span class="cm">/* EndPoint BD OddEven status. */</span>
-<span class="w">    </span><span class="kt">bool</span><span class="w">  </span><span class="n">data_n</span><span class="p">;</span><span class="w">            </span><span class="cm">/* next packet is DATA0 or DATA1. */</span>
-<span class="w">    </span><span class="kt">bool</span><span class="w">  </span><span class="n">xfer_done</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">USB_EndPointManage_Type</span><span class="p">;</span>
-</code></pre></div>
-<h3 id="usb_5">USB驱动使能<a class="headerlink" href="#usb_5" title="Permanent link">&para;</a></h3>
-<p>在<code>tuh_dcd_port.c</code>中的<code>dcd_init()</code>函数实现。</p>
+<p><img alt="" src="../figure_usb_bd.png" /></p>
+<p>如上图所示，每个缓冲区描述符由两个四字节数据组成，第一个四字节数据记录了要传输数据的大小，data toggle，缓冲区描述符的拥有者等字段信息，第二个四字节数据则记录了要传输数据的起始位置。具体的字段信息，可参考各 MCU 的 UM。</p>
+<h3 id="usb_4">USB驱动使能<a class="headerlink" href="#usb_4" title="Permanent link">&para;</a></h3>
+<p>在 hcd_mm32f5270.c 中由 hcd_init() 函数实现。</p>
 <div class="highlight"><pre><span></span><code><span class="cm">/* Initialize controller to host mode. */</span>
 <span class="kt">bool</span><span class="w"> </span><span class="nf">hcd_init</span><span class="p">(</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">rhport</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">rhport</span><span class="p">;</span>
 
 <span class="w">    </span><span class="cm">/* init usb host module. */</span>
-<span class="w">    </span><span class="n">USB_Host_Init_Type</span><span class="w"> </span><span class="n">usb_init</span><span class="p">;</span>
+<span class="w">    </span><span class="n">USBFS_Host_Init_Type</span><span class="w"> </span><span class="n">usb_init</span><span class="p">;</span>
 <span class="w">    </span><span class="n">usb_init</span><span class="p">.</span><span class="n">BufDespTable_Addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">uint32_t</span><span class="p">)(</span><span class="o">&amp;</span><span class="n">usb_bdt</span><span class="p">);</span>
 <span class="w">    </span><span class="n">usb_init</span><span class="p">.</span><span class="n">SofThreshold</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="n">BOARD_USB_SOFTHRESHOLD</span><span class="p">;</span>
 <span class="w">    </span><span class="n">usb_init</span><span class="p">.</span><span class="n">NakRetry</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
-<span class="w">    </span><span class="n">USB_InitHost</span><span class="p">(</span><span class="n">BOARD_USB_PORT</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">usb_init</span><span class="p">);</span>
+<span class="w">    </span><span class="n">USBFS_InitHost</span><span class="p">(</span><span class="n">BOARD_USB_PORT</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">usb_init</span><span class="p">);</span>
 
-<span class="w">    </span><span class="n">USB_EnableOddEvenReset</span><span class="p">(</span><span class="n">BOARD_USB_PORT</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span><span class="w"> </span><span class="cm">/* only use even buf desp, this example will not usb odd buf desp xfer data. */</span>
-<span class="w">    </span><span class="n">USB_SetDeviceAddr</span><span class="p">(</span><span class="n">BOARD_USB_PORT</span><span class="p">,</span><span class="w"> </span><span class="mh">0x00</span><span class="p">);</span><span class="w"> </span><span class="cm">/* set usb addr is 0x00, to xfer data when device attached. */</span>
+<span class="w">    </span><span class="n">USBFS_OddEvenResetCmd</span><span class="p">(</span><span class="n">BOARD_USB_PORT</span><span class="p">,</span><span class="w"> </span><span class="n">ENABLE</span><span class="p">);</span><span class="w"> </span><span class="cm">/* only use even buf desp, this example will not usb odd buf desp xfer data. */</span>
+<span class="w">    </span><span class="n">USBFS_SetDeviceAddr</span><span class="p">(</span><span class="n">BOARD_USB_PORT</span><span class="p">,</span><span class="w"> </span><span class="mh">0x00</span><span class="p">);</span><span class="w"> </span><span class="cm">/* set usb addr is 0x00, to xfer data when device attached. */</span>
 
 <span class="w">    </span><span class="cm">/* enable interrupt, but not use NVIC_EnableIRQ(). */</span>
 <span class="w">    </span><span class="n">NVIC_ClearPendingIRQ</span><span class="p">(</span><span class="n">BOARD_USB_IRQn</span><span class="p">);</span>
-<span class="w">    </span><span class="n">USB_EnableInterrupts</span><span class="p">(</span><span class="n">BOARD_USB_PORT</span><span class="p">,</span><span class="w"> </span><span class="n">USB_INT_ATTACH</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">USB_INT_ERROR</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
-<span class="w">    </span><span class="n">USB_EnableErrInterrupts</span><span class="p">(</span><span class="n">BOARD_USB_PORT</span><span class="p">,</span><span class="w"> </span><span class="mh">0xFF</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+<span class="w">    </span><span class="n">USBFS_ITConfig</span><span class="p">(</span><span class="n">BOARD_USB_PORT</span><span class="p">,</span><span class="w"> </span><span class="n">USBFS_IT_ATTACH</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">USBFS_IT_ERROR</span><span class="p">,</span><span class="w"> </span><span class="n">ENABLE</span><span class="p">);</span>
+<span class="w">    </span><span class="n">USBFS_ErrITConfig</span><span class="p">(</span><span class="n">BOARD_USB_PORT</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">USBFS_IT_ERR_PID</span><span class="w"> </span>\
+<span class="w">                                </span><span class="o">|</span><span class="w"> </span><span class="n">USBFS_IT_ERR_EOF</span><span class="w">   </span>\
+<span class="w">                                </span><span class="o">|</span><span class="w"> </span><span class="n">USBFS_IT_ERR_CRC16</span><span class="w"> </span>\
+<span class="w">                                </span><span class="o">|</span><span class="w"> </span><span class="n">USBFS_IT_ERR_DFN8</span><span class="w">  </span>\
+<span class="w">                                </span><span class="o">|</span><span class="w"> </span><span class="n">USBFS_IT_ERR_BTO</span><span class="w">   </span>\
+<span class="w">                                </span><span class="o">|</span><span class="w"> </span><span class="n">USBFS_IT_ERR_DMA</span><span class="w">   </span>\
+<span class="w">                                </span><span class="o">|</span><span class="w"> </span><span class="n">USBFS_IT_ERR_BTS</span><span class="p">),</span><span class="w"> </span><span class="n">ENABLE</span><span class="p">);</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="usb-host">USB Host中断<a class="headerlink" href="#usb-host" title="Permanent link">&para;</a></h3>
-<p>USB Host 中断的使能在<code>tuh_dcd_port.c</code>中的<code>hcd_init()</code>函数中已经实现。相较于 USB Device 中断的使能，USB Host 中断只开启了 <code>USB_INT_ATTACH</code>中断和<code>USB_INT_ERROR</code>中断。在<code>tud_dcd_port.c</code>中的<code>BOARD_USB_IRQHandler()</code>函数实现 USB Host 设备的中断服务函数。</p>
-<div class="highlight"><pre><span></span><code>/*
- * USB interrupt handler.
- */
-void BOARD_USB_IRQHandler(void)
-{
-    uint32_t flag = USB_GetInterruptStatus(BOARD_USB_PORT);
-    flag &amp;= USB_GetEnabledInterrupts(BOARD_USB_PORT);
+<p>在 hcd_mm32f5270.c 中由 BOARD_USB_IRQHandler() 函数实现 USB Host 设备的中断服务函数。</p>
+<div class="highlight"><pre><span></span><code><span class="cm">/*</span>
+<span class="cm"> * USB interrupt handler.</span>
+<span class="cm"> */</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">BOARD_USB_IRQHandler</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">USBFS_GetEnabledITStatus</span><span class="p">(</span><span class="n">BOARD_USB_PORT</span><span class="p">);</span>
 
-    /* device attached. */
-    if (0u != (flag &amp; USB_INT_ATTACH))
-    {
-        process_attach();
-    }
+<span class="w">    </span><span class="cm">/* device attached. */</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">0u</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="p">(</span><span class="n">flag</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">USBFS_IT_ATTACH</span><span class="p">))</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">process_attach</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
 
-    /* sof token, prepare to xfer packet. */
-    if (0u != (flag &amp; USB_INT_SOFTOK))
-    {
-        process_softok();
-    }
+<span class="w">    </span><span class="cm">/* sof token, prepare to xfer packet. */</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">0u</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="p">(</span><span class="n">flag</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">USBFS_IT_SOFTOK</span><span class="p">))</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">process_softok</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
 
-    /* xfer a token done. */
-    if (0u != (flag &amp; USB_INT_TOKENDONE))
-    {
-        process_token_done();
-    }
+<span class="w">    </span><span class="cm">/* xfer a token done. */</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">0u</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="p">(</span><span class="n">flag</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">USBFS_IT_TOKENDONE</span><span class="p">))</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">process_token_done</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
 
-    /* device detached. */
-    if (0u != (flag &amp; USB_INT_RESET))
-    {
-        tuh_task(); /* clear all event. */
-        process_detach(); /* do detache process. */
-    }
+<span class="w">    </span><span class="cm">/* device detached. */</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">0u</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="p">(</span><span class="n">flag</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">USBFS_IT_RESET</span><span class="p">))</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">tuh_task</span><span class="p">();</span><span class="w"> </span><span class="cm">/* clear all event. */</span>
+<span class="w">        </span><span class="n">process_detach</span><span class="p">();</span><span class="w"> </span><span class="cm">/* do detache process. */</span>
+<span class="w">    </span><span class="p">}</span>
 
-    if (0u != (flag &amp; USB_INT_ERROR))
-    {
-        tuh_task(); /* clear all event. */
-        process_detach(); /* do detache process. */
-        uint32_t err = USB_GetErrInterruptStatus(BOARD_USB_PORT);
-        USB_ClearErrInterruptStatus(BOARD_USB_PORT, err); /* clear err interrut. */
-    }
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">0u</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="p">(</span><span class="n">flag</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">USBFS_IT_ERROR</span><span class="p">))</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">tuh_task</span><span class="p">();</span><span class="w"> </span><span class="cm">/* clear all event. */</span>
+<span class="w">        </span><span class="n">process_detach</span><span class="p">();</span><span class="w"> </span><span class="cm">/* do detache process. */</span>
+<span class="w">        </span><span class="n">USBFS_ClearErrITPendingBit</span><span class="p">(</span><span class="n">BOARD_USB_PORT</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">USBFS_IT_ERR_PID</span><span class="w"> </span>\
+<span class="w">                                </span><span class="o">|</span><span class="w"> </span><span class="n">USBFS_IT_ERR_EOF</span><span class="w">   </span>\
+<span class="w">                                </span><span class="o">|</span><span class="w"> </span><span class="n">USBFS_IT_ERR_CRC16</span><span class="w"> </span>\
+<span class="w">                                </span><span class="o">|</span><span class="w"> </span><span class="n">USBFS_IT_ERR_DFN8</span><span class="w">  </span>\
+<span class="w">                                </span><span class="o">|</span><span class="w"> </span><span class="n">USBFS_IT_ERR_BTO</span><span class="w">   </span>\
+<span class="w">                                </span><span class="o">|</span><span class="w"> </span><span class="n">USBFS_IT_ERR_DMA</span><span class="w">   </span>\
+<span class="w">                                </span><span class="o">|</span><span class="w"> </span><span class="n">USBFS_IT_ERR_BTS</span><span class="p">));</span><span class="w"> </span><span class="cm">/* clear all err interrut. */</span>
+<span class="w">    </span><span class="p">}</span>
 
-    USB_ClearInterruptStatus(BOARD_USB_PORT, flag);
-}
+<span class="w">    </span><span class="n">USBFS_ClearITPendingBit</span><span class="p">(</span><span class="n">BOARD_USB_PORT</span><span class="p">,</span><span class="w"> </span><span class="n">flag</span><span class="p">);</span>
+<span class="p">}</span>
 </code></pre></div>
 <h2 id="tinyusb_1">TinyUSB样例介绍<a class="headerlink" href="#tinyusb_1" title="Permanent link">&para;</a></h2>
 <ul>
