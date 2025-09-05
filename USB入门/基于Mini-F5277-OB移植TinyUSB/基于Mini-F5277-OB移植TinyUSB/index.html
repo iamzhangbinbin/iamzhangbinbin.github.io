@@ -1014,18 +1014,51 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#mm32-usb" class="md-nav__link">
+    <span class="md-ellipsis">
+      MM32 USB外设
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MM32 USB外设">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      简介
+      外设一
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      外设二
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      开发板简介
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#mcu" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      获取MCU库函数与例程
+      开发板配套例程
     </span>
   </a>
   
@@ -1034,14 +1067,14 @@
         <li class="md-nav__item">
   <a href="#tinyusb" class="md-nav__link">
     <span class="md-ellipsis">
-      获取TinyUSB协议栈
+      TinyUSB协议栈
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       项目移植目录结构
     </span>
@@ -1051,7 +1084,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       源文件目录
     </span>
@@ -1074,7 +1107,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       项目移植文件准备
     </span>
@@ -1092,7 +1125,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       代码移植
     </span>
@@ -1111,7 +1144,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       打印调试信息
     </span>
@@ -1120,7 +1153,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       初始化控制器
     </span>
@@ -1138,7 +1171,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       定义全局变量
     </span>
@@ -1161,7 +1194,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       主机代码移植
     </span>
@@ -1171,7 +1204,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     <span class="md-ellipsis">
       双向队列实现
     </span>
@@ -1180,7 +1213,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     <span class="md-ellipsis">
       数据库实现
     </span>
@@ -1511,12 +1544,48 @@
 
 
 <h1 id="mini-f5277-obtinyusb">基于Mini-F5277-OB移植TinyUSB<a class="headerlink" href="#mini-f5277-obtinyusb" title="Permanent link">&para;</a></h1>
-<h2 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>本文将基于 Mini-F5277-OB 开发板，讲解从零开始移植 TinyUSB 协议栈的全过程。</p>
-<p><strong>Mini-F5277-OB 开发板</strong></p>
-<p>Mini-F5277-OB 开发板，搭载了 MM32F5270 系列中 MM32F5277E7PV 型号的 MCU，为32位 Arm China STAR-MC1 架构，内置 256KB Flash，192KB SRAM，并带有 USB 全速设备控制器，支持 12Mbps 的传输速率。其中 USB_FS 控制器内置 USB 全速 PHY。详情见：<a href="https://www.mindmotion.com.cn/support/development_tools/evaluation_boards/miniboard/mm32f5277e7pv/">灵动微电子官网 Mini-F5277-OB 开发板</a>。</p>
+<h2 id="mm32-usb">MM32 USB外设<a class="headerlink" href="#mm32-usb" title="Permanent link">&para;</a></h2>
+<p>MM32 目前有两种类型的 USB 外设，外设一以 MM32F5270、MM32F3270 系列芯片为代表，外设二以 MM32F0270、MM32F0130 系列芯片为代表。</p>
+<h3 id="_1">外设一<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>该 USB 外设由两部分组成：一部分是实实在在的 USB 寄存器，另一部分是在 SRAM 中以 512 字节对齐的 512 字节大小的缓冲区描述表。</p>
+<details class="question" open="open">
+<summary>如何得到一块 512 字节对齐的内存？</summary>
+<p>这里举出三种方法：  </p>
+<ul>
+<li>在 linker 中声明出一段 512 字节对齐的 512 字节大小的空间。</li>
+<li>使用 "__ALIGNED(512)" 或 "__attribute__((__aligned__(512)))"  等指令让编译器处理。</li>
+<li>声明一段 1K 大小的空间，然后在其中找到 512 字节对齐的位置。</li>
+</ul>
+</details>
+<p>在初始化 USB 的时候，需要将缓冲区描述表的起始地址写入到 USB 寄存器中（USB_FS_BDTPAGE1，USB_FS_BDTPAGE2，USB_FS_BDTPAGE3），随后，这块缓冲区描述表就 “成为” 了 USB 寄存器中的一部分，当我们想要传输数据的时候，就会把要传输数据的缓冲区地址，缓冲区大小等信息写入到这个缓冲区描述表中，待传输数据完成后，缓冲区描述表中记录的内容也会发生变化，对这块缓冲区描述表的操作，就如同在 USB 寄存器上进行操作一般。</p>
+<p>USB 数据的传输实际上是依靠 DMA 搬运实现的，但值得注意的是，USB 使用的 DMA 并不是 MCU 中的 DMA 外设，而是 USB 自带的 DMA，并且除了使用 USB 自带的 DMA 搬运的方式传输数据外，USB 并没有提供其他传输数据的方法。由于采用 DMA 搬运的方法传输数据，在使用 USB 功能的时候，需要注意一些会影响 DMA 工作的地方：例如，打开 DCACHE 后，对 SRAM 的访问并非直接写入到 SRAM 中，而是先暂时放入到内核的 CACHE 中，会造成 DMA 无法正常工作，所以，在使用 USB 功能的时候，应关闭 DCACHE 功能（或者使用 MPU 对 USB 使用到的内存加以保护）；再例如，有些 RAM 仅能被 CPU 访问，如 DTCM，这部分空间无法让 DMA 正常工作，因此也要避免将缓冲区描述表和要传输的数据存放在此类区域。</p>
+<p>缓冲区描述表控制着十六个端点的传输功能，每个端点有两个传输方向，分别是 IN 和 OUT（如果每个传输方向算一个端点的话，该 USB 外设一共有 32 个端点）每个传输方向又有两个缓冲区描述符组成，在传输数据的时候，两个缓冲区描述符交替工作，从而实现乒乓操作的过程，加快数据传输的速度。当然，双缓冲的操作较为复杂，增加了 USB 的操作难度，双缓冲也可配置为单缓冲，简化使用方法。</p>
+<p><img alt="alt text" src="../image-3.png" /></p>
+<p>如上图所示，每个缓冲区描述符由两个四字节数据组成。第一个四字节数据记录了要传输数据的大小，data toggle，缓冲区描述符的拥有者等字段信息。第二个四字节数据则记录了要传输数据的起始位置。具体的字段信息，可参考各 MCU 的 UM。</p>
+<p><img alt="alt text" src="../image-4.png" /></p>
+<p>再看下寄存器列表，列表最前面有许多 OTG 开头的寄存器，这些寄存器在仅使用 Host 或 Device 功能的时候，是几乎用不到的，除了一个寄存器——USB_FS_OTGCTRL。</p>
+<p>这个寄存器中包含了对 USB 上下拉电阻的控制，当使用 Host 功能时，我们需要将 D+ D- 上的下拉电阻使能，并关闭所有上拉电阻，当使用 Device 功能的时候，我们需要将 D+ 的上拉电阻使能，使其能够被 Host 识别为一个全速设备。经过实验，当 USB 仅用于 Device 模式的时候，可以不进行配置，但用于 Host 模式的时候，如果没有外部下拉电阻的情况下，Host 无法识别到 Device 拔出，或者在通信过程中，总是产生错误中断。</p>
+<p>接下来是中断使能，中断状态，错误中断使能，错误中断状态，这几个中断相关的寄存器。USB 的工作几乎离不开中断（当然，我可以不打开 USB 的中断开关，而是在主函数中轮询 USB 的中断状态，这样算是从某种程度上离开了中断），通过中断得知数据是否传输完成，Device 是否连接到 Host等，也就是通过中断，让 USB 整个系统开始转起来的。</p>
+<p>往下是 USB 全局控制相关的寄存器，比如说缓冲区描述表的存放位置，Frame Number，使能USB，配置工作模式等功能的寄存器。</p>
+<p>往下有整整齐齐的 16 个端点控制寄存器，可以从 UM 手册中看到，它们的寄存器描述是一致的，16 个控制寄存器，控制着 USB 的 16 个端点，不同于缓冲区描述符控制着 16 个端点的数据传输，这 16 个端点控制寄存器控制着端点是否工作。</p>
+<p>再往下，是一个使能 USB PHY 的寄存器，在低功耗模式下会用到。</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>MM32F0160 系列芯片的 USB 外设是在上述 USB 外设的基础上，裁剪掉 OTG 功能，裁剪掉 Host 功能后的 USB 外设，支持的端点数量也有所减少。<br />
+由于删去了 OTG 相关的寄存器，上下拉电阻的使能功能也同时删去，因此在使用过程中，无需考虑上下拉电阻的配置。其他的用法和前面所述的一样。</p>
+</div>
+<h3 id="_2">外设二<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>该 USB 外设除了端点 0 外，仅支持 4 个通用端点，且每个端点只能要么用于数据的发送，要么用于数据的接收。虽然该 USB 缺少了相当多的功能，但使用起来却更加简单：该 USB 不需要缓冲区描述符，不需要关心 data toggle，甚至不需要关心如何将 Host 分配的地址写入到 USB 中。</p>
+<p>该 USB 每个端点都具有一个 64 字节大小的 FIFO，当我们需要发送数据的时候，只需将要发送的数据写入到该 FIFO 中即可，当我们需要接收数据的时候，也是只需从该 FIFO 中读取数据即可。但这样便产生了一个问题：当我们希望向 Host 发送数据，正在往 FIFO 中填写数据的时候好巧不巧，Host 又向该端点发送了数据，此时 FIFO 中的数据便会错乱，造成数据传输出错；这里可以理解为每个端点只能用于半双工通信，为解决此类问题，在使用该 USB 外设的时候，就要避免同时将一个端点既用于数据的发送和又用于接收，即把只能半双工通信的端点以单工通信的方式使用，例如 CDC 应用中，需要一个发送数据的端点和一个接收数据的端点，在 USB 外设一中，这两个端点可以使用同一个端点号，如端点1，而在 USB 外设二中，就必须一个选用端点1，另一个选用端点2。</p>
+<p>但端点 0 是个特殊情况，设备枚举的时候，必须将端点 0 既用于数据的发送，又用于数据的接收。端点 0 只用于控制传输，而控制传输最开始是要发送一个 SETUP 指令，USB 收到 SETUP 指令后，会将 SETUP 指令的 8 个字节数据单独放置在其他 8 个寄存器中，不占用端点 0 的 FIFO，当我们收到 SETUP 指令后，才可以再发送或接收数据，并且此时数据的发送和接收顺序是确定好的，只会以半双工的方式工作，不用担心产生传输冲突。</p>
+<p>需要注意的是，该 USB 外设不支持同步传输，因此做不了如摄像头，音响等设备，不过做一些简单的应用如 USB 转串口，键盘鼠标等应用还是可以的，甚至可以做一个带有串口的 DAPLINK。</p>
+<h2 id="_3">开发板简介<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Mini-F5277-OB 开发板，搭载了 MM32F5270 系列中 MM32F5277E7PV 型号的 MCU，为 32 位 Arm China STAR-MC1 架构，内置 256KB Flash，192KB SRAM，并带有 USB 全速设备控制器，支持 12Mbps 的传输速率。其中 USB_FS 控制器内置 USB 全速 PHY。详情见：<a href="https://www.mindmotion.com.cn/support/development_tools/evaluation_boards/miniboard/mm32f5277e7pv/">灵动微电子官网 Mini-F5277-OB 开发板</a>。</p>
 <p><img alt="Mini-F5277-OB" src="../Mini-F5277-OB.png" /></p>
-<p><strong>TinyUSB 协议栈</strong></p>
+<h2 id="_4">开发板配套例程<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>Mini-F5277-OB 开发板的驱动样例及原理图位于：<a href="https://www.mindmotion.com.cn/support/development_tools/evaluation_boards/miniboard/mm32f5277e7pv">https://www.mindmotion.com.cn/support/development_tools/evaluation_boards/miniboard/mm32f5277e7pv</a>，下载 “MM32F5270 库函数与例程”，这里我们用到了软件包中的 device 文件夹，其中包含 MCU 的启动文件和驱动文件。</p>
+<h2 id="tinyusb">TinyUSB协议栈<a class="headerlink" href="#tinyusb" title="Permanent link">&para;</a></h2>
 <p><a href="https://docs.tinyusb.org/en/latest/index.html">TinyUSB</a> 是一个应用于嵌入式系统的开源跨平台 USB Host / Device 协议栈，其优点为：</p>
 <ul>
 <li>
@@ -1533,12 +1602,9 @@
 <p><img alt="tinyusb_stack" src="../tinyusb_stack.png" /></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>由上图可知，TinyUSB协议栈中的Host 与 Device 是相互独立的两个协议。</p>
+<p>由上图可知，TinyUSB 协议栈中的 Host 与 Device 是相互独立的两个协议。</p>
 </div>
-<h2 id="mcu">获取MCU库函数与例程<a class="headerlink" href="#mcu" title="Permanent link">&para;</a></h2>
-<p>Mini-F5277-OB 开发板的驱动样例及原理图位于：<a href="https://www.mindmotion.com.cn/support/development_tools/evaluation_boards/miniboard/mm32f5277e7pv">https://www.mindmotion.com.cn/support/development_tools/evaluation_boards/miniboard/mm32f5277e7pv</a>，下载 “MM32F5270 库函数与例程”，这里我们用到了软件包中的 device 文件夹，其中包含 MCU 的启动文件和驱动文件。</p>
-<h2 id="tinyusb">获取TinyUSB协议栈<a class="headerlink" href="#tinyusb" title="Permanent link">&para;</a></h2>
-<p>本次移植是基于 <a href="https://github.com/hathach/tinyusb/archive/refs/tags/0.16.0.zip">TinyUSB V0.16.0</a> 进行移植，这里我们用到了软件包 <code>tinyusb\src</code> 作为协议栈源码、 <code>tinyusb\examples</code> 文件夹中 USB 样例代码和 <code>tinyusb\hw\bsp</code>文件夹中的支持的开发板源文件。 </p>
+<p>本次移植是基于 <a href="https://github.com/hathach/tinyusb/archive/refs/tags/0.16.0.zip">TinyUSB V0.16.0</a> 进行移植，这里我们用到了软件包 <code>tinyusb\src</code> 作为协议栈源码、 <code>tinyusb\examples</code> 文件夹中 USB 样例代码和 <code>src\portable\template</code>文件夹中的模板文件。 </p>
 <div class="highlight"><pre><span></span><code>.
 ├── docs            # Documentation
 ├── examples        # Examples with make and cmake build system
@@ -1550,8 +1616,8 @@
 ├── test            # Tests: unit test, fuzzing, hardware test
 └── tools           # Files used internally
 </code></pre></div>
-<h2 id="_2">项目移植目录结构<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<h3 id="_3">源文件目录<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h2 id="_5">项目移植目录结构<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="_6">源文件目录<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>.
 |-- 3rdPartySoftwarePorting
 |   `-- TinyUSB
@@ -1583,7 +1649,7 @@
 </ul>
 <h3 id="keil">keil工程目录<a class="headerlink" href="#keil" title="Permanent link">&para;</a></h3>
 <p><img alt="alt text" src="../image.png" /></p>
-<h2 id="_4">项目移植文件准备<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_7">项目移植文件准备<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <ul>
 <li>在工程中新建 TinyUSB 分组，并包含引用以下文件至 TinyUSB 组内。以下文件均在获取的 TinyUSB 源码中。
 <div class="highlight"><pre><span></span><code>usbd.c
@@ -1609,7 +1675,7 @@ tusb_fifo.c
 <h2 id="keil_1">keil工程配置<a class="headerlink" href="#keil_1" title="Permanent link">&para;</a></h2>
 <p><img alt="alt text" src="../image-1.png" /></p>
 <p><img alt="alt text" src="../image-2.png" /></p>
-<h2 id="_5">代码移植<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_8">代码移植<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <p>dcd_mm32f5270.c 文件作为接口文件，代码的移植大部分在此文件中进行。</p>
 <h3 id="usb">适配USB时钟<a class="headerlink" href="#usb" title="Permanent link">&para;</a></h3>
 <p>在 board_init() 函数中适配 USB 的工作时钟，F5270 使用 PLL2 为 USB 的工作时钟。该函数中还初始化了按键的引脚。
@@ -1662,11 +1728,11 @@ tusb_fifo.c
     GPIO_Init(GPIOB, &amp;gpio_init);
 }
 </code></pre></div></p>
-<h3 id="_6">打印调试信息<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h3 id="_9">打印调试信息<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <p>对刚接触 TinyUSB 协议栈的程序员，打印调试信息可以帮忙分析协议栈的工作流程。可以在 tusb_config.h 定义 Debug 级别为 2。
 <div class="highlight"><pre><span></span><code>#define CFG_TUSB_DEBUG        2
 </code></pre></div></p>
-<h3 id="_7">初始化控制器<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<h3 id="_10">初始化控制器<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <p>调用固件库函数初始化控制器，并清除挂起的 USB 中断。
 <div class="highlight"><pre><span></span><code>void dcd_init(uint8_t rhport)
 {
@@ -1741,7 +1807,7 @@ void BOARD_USB_IRQHandler(void)
     dcd_int_handler(BOARD_TUD_RHPORT);
 }
 </code></pre></div>
-<h3 id="_8">定义全局变量<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h3 id="_11">定义全局变量<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <p>在 dcd_mm32f5270.c 文件中定义如下内容</p>
 <div class="highlight"><pre><span></span><code>/* OTG_FS BufferDescriptorTable Buffer. */
 static __ALIGNED(512u) USB_BufDespTable_Type usb_bd_tbl = {0u}; /*usb_bufdesp_table */
@@ -1776,7 +1842,7 @@ static USB_EndPointManage_Type usb_epmng_tbl[16u][2u] = {0u}; /* EndPointManage 
 <span class="w">    </span><span class="kt">bool</span><span class="w">  </span><span class="n">xfer_done</span><span class="p">;</span>
 <span class="p">}</span><span class="w"> </span><span class="n">USB_EndPointManage_Type</span><span class="p">;</span>
 </code></pre></div></p>
-<h2 id="_9">主机代码移植<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h2 id="_12">主机代码移植<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
 <p>MM32F5270 USB 支持 Host 功能，TinyUSB 协议栈中也包含了 Host 部分，在适配 Host 过程中，使用到了双向队列和数据库的概念。USB Host 移植接口在<code>hcd_mm32f5270.c</code>文件中实现，主要分为如下步骤：</p>
 <ul>
 <li>双向队列实现</li>
@@ -1784,7 +1850,7 @@ static USB_EndPointManage_Type usb_epmng_tbl[16u][2u] = {0u}; /* EndPointManage 
 <li>接口实现</li>
 <li>中断处理</li>
 </ul>
-<h3 id="_10">双向队列实现<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<h3 id="_13">双向队列实现<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
 <p>USB 总线会像多个端点传输不同的内容，但 USB 总线只有一条，因此需要将传输任务放在一个队列中，按照队列的顺序传输数据 ；在传输过程中，可能会有分段传输，传输失败等情况，可能要将传输任务重新放在队列的头部，而不是末尾，因此，这个队列不仅能将传输任务放在队列尾部，也能将传输任务放在头部，就像堆栈那样，因此，需要实现一个双向队列。同普通的队列一样，双向队列需要一个队列 buffer，以及管理队列 buffer 的字段，然后每次读写队列时，不能直接操作这个 buffer，而是只能使用给定的 push 和 pop 方法操作。实现操作如下：</p>
 <p><strong>buffer 和管理字段：</strong></p>
 <div class="highlight"><pre><span></span><code><span class="cm">/* xfer task deque node. */</span>
@@ -1882,7 +1948,7 @@ static USB_EndPointManage_Type usb_epmng_tbl[16u][2u] = {0u}; /* EndPointManage 
 <span class="w">    </span><span class="n">xfer_task_cnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0u</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="_11">数据库实现<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<h3 id="_14">数据库实现<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
 <p>所谓数据库，只是用于存放各设备各端点信息的地方。每次发送传输数据的时候，需要知道端点的 buffer 大小等信息，所以需要在数据库中查询端点信息。需要支持 inset 操作，delete 操作，update 操作和select 操作，即增删改查：</p>
 <ul>
 <li>insert 操作，指将一条数据条目插入到数据表中，该条目是数据表中原来没有的内容</li>
