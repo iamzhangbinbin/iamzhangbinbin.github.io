@@ -1265,6 +1265,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#mm32-usart-lin" class="md-nav__link">
+    <span class="md-ellipsis">
+      MM32 USART LIN 代码
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2102,6 +2111,335 @@ P1 = ¬(ID1 ⊕ ID3 ⊕ ID4 ⊕ ID5)</p>
 <h4 id="_24">兼容性<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h4>
 <p>协议控制器可以用广泛使用的 UART/SCI 来实现。</p>
 <p>总线收发器的主要指标符合 ISO 9141 的要求。</p>
+<h2 id="mm32-usart-lin">MM32 USART LIN 代码<a class="headerlink" href="#mm32-usart-lin" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>#define MODE_MASTER_SEND_FRAME  0
+#define MODE_MASTER_SEND_HEAD   1
+#define MODE_SLAVE              0
+
+uint8_t LIN_UART_RxBuffer[99];
+uint8_t LIN_UART_RxLength = 0;
+
+uint8_t LIN_MASTER_RxBuffer[20];
+uint8_t LIN_MASTER_RxLength = 0;
+uint8_t LIN_MASTER_RxFinish = 0;
+
+void USART_LIN_Configure(uint32_t Baudrate)
+{
+    GPIO_InitTypeDef GPIO_InitStruct;
+    USART_InitTypeDef USART_InitStruct;
+    NVIC_InitTypeDef  NVIC_InitStruct;
+
+    RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE);
+
+    USART_LINCmd(USART1, ENABLE); 
+
+    /* PC12 as TX, PD2 as RX, Connect to the lin bus with the phy */
+    GPIO_PinAFConfig(GPIOA, GPIO_PinSource9, GPIO_AF_1);
+    GPIO_PinAFConfig(GPIOA, GPIO_PinSource10, GPIO_AF_1);
+
+    USART_StructInit(&amp;USART_InitStruct);
+    USART_InitStruct.USART_BaudRate   = Baudrate;
+    USART_InitStruct.USART_WordLength = USART_WordLength_8b;
+    USART_InitStruct.USART_StopBits   = USART_StopBits_1;
+    USART_InitStruct.USART_Parity     = USART_Parity_No;
+    USART_InitStruct.USART_Mode       = USART_Mode_Rx | USART_Mode_Tx;
+    USART_InitStruct.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+    USART_Init(USART1, &amp;USART_InitStruct);
+
+    GPIO_StructInit(&amp;GPIO_InitStruct);
+    GPIO_InitStruct.GPIO_Pin   = GPIO_Pin_9;
+    GPIO_InitStruct.GPIO_Speed = GPIO_Speed_High;
+    GPIO_InitStruct.GPIO_Mode  = GPIO_Mode_AF_PP;
+    GPIO_Init(GPIOA, &amp;GPIO_InitStruct);
+
+    GPIO_StructInit(&amp;GPIO_InitStruct);
+    GPIO_InitStruct.GPIO_Pin   = GPIO_Pin_10;
+    GPIO_InitStruct.GPIO_Mode  = GPIO_Mode_FLOATING;
+    GPIO_Init(GPIOA, &amp;GPIO_InitStruct);
+
+    USART_Cmd(USART1, ENABLE);
+
+    USART_ITConfig(USART1, USART_IT_RXNE , ENABLE);
+    USART_ITConfig(USART1, USART_IT_LBDIE, ENABLE);
+    USART_ITConfig(USART1, USART_IT_PE, ENABLE);
+    USART_ITConfig(USART1, USART_IT_ERR, ENABLE);
+
+    NVIC_InitStruct.NVIC_IRQChannel = USART1_IRQn;
+    NVIC_InitStruct.NVIC_IRQChannelPriority = 0;
+    NVIC_InitStruct.NVIC_IRQChannelCmd = ENABLE;
+    NVIC_Init(&amp;NVIC_InitStruct);
+}
+
+
+void LIN_MASTER_SendData(uint8_t data)
+{
+
+    USART_SendData(USART1, data);
+
+    while(USART_GetFlagStatus(USART1, USART_FLAG_TC) == RESET)
+    {
+    }
+}
+
+uint8_t LIN_FrameIDToPID(uint8_t frame_id)
+{
+    uint8_t p0 = 0, p1 = 0, pid = 0xFF;
+    uint8_t i = 0;
+
+    uint8_t id_bit[6] = {0, 0, 0, 0, 0, 0};
+
+    if(frame_id &lt; 0x40)
+    {
+        pid = frame_id;
+
+        for(i = 0; i &lt; 6; i++)
+        {
+            if(frame_id &amp; (0x01 &lt;&lt; i))
+            {
+                id_bit[i] = 1;
+            }
+            else
+            {
+                id_bit[i] = 0;
+            }
+        }
+
+        p0 =  (id_bit[0] ^ id_bit[1] ^ id_bit[2] ^ id_bit[4]) &amp; 0x01;
+        p1 = ~(id_bit[1] ^ id_bit[3] ^ id_bit[4] ^ id_bit[5]) &amp; 0x01;
+
+        if(p0)
+        {
+            pid |= 0x40;
+        }
+
+        if(p1)
+        {
+            pid |= 0x80;
+        }
+
+    }
+
+    return pid;
+}
+
+uint8_t LIN_PIDToFrameID(uint8_t pid)
+{
+    uint8_t p0 = 0, p1 = 0, frame_id = 0xFF;
+    uint8_t i = 0;
+
+    uint8_t pid_bit[8] = {0, 0, 0, 0, 0, 0, 0, 0};
+
+    for(i = 0; i &lt; 8; i++)
+    {
+        if(pid &amp; (0x01 &lt;&lt; i))
+        {
+            pid_bit[i] = 1;
+        }
+        else
+        {
+            pid_bit[i] = 0;
+        }
+    }
+
+    p0 =  (pid_bit[0] ^ pid_bit[1] ^ pid_bit[2] ^ pid_bit[4]) &amp; 0x01;
+    p1 = ~(pid_bit[1] ^ pid_bit[3] ^ pid_bit[4] ^ pid_bit[5]) &amp; 0x01;
+
+    if((p0 == pid_bit[6]) &amp;&amp; (p1 == pid_bit[7]))
+    {
+        frame_id = pid &amp; 0x3F;
+    }
+
+    return frame_id;
+}
+
+uint8_t LIN_ClassicChecksum(uint8_t *buff, uint8_t length)
+{
+    uint16_t check_sum = 0;
+    uint8_t i = 0;
+    for(i = 0; i &lt; length; i++)
+    {
+        check_sum += buff[i];
+
+        if(check_sum &gt; 0xFF) check_sum %= 0xFF;
+    }
+
+    return ~(uint8_t)(check_sum &amp; 0x00FF);
+}
+
+uint8_t LIN_EnhancedChecksum(uint8_t pid, uint8_t *buff, uint8_t length)
+{
+    uint16_t check_sum = pid;
+    uint8_t i = 0;
+
+    for(i = 0; i &lt; length; i++)
+    {
+        check_sum += buff[i];
+
+        if(check_sum &gt; 0xFF)
+        {
+            check_sum %= 0xFF;
+        }
+    }
+
+    return ~(uint8_t)(check_sum &amp; 0x00FF);
+}
+
+void LIN_MASTER_Break(void)
+{
+    uint32_t i = 0;
+
+    USART_SendBreak(USART1);
+
+    for(i=0;i&lt;10000;i++)
+    {
+
+    }   
+
+    while(USART1-&gt;CR1 &amp; (1&lt;0))
+    {
+
+    }
+}
+
+void LIN_MASTER_SyncByte(void)
+{
+    LIN_MASTER_SendData(0x55);
+}
+
+void LIN_MASTER_SendHeader(uint8_t pid)
+{
+    LIN_MASTER_Break();
+
+    LIN_MASTER_SyncByte();
+
+    LIN_MASTER_SendData(pid);
+}
+
+void LIN_Master_SendFrame(uint8_t frame_id, uint8_t *buff, uint8_t length)
+{
+    uint8_t pid         = LIN_FrameIDToPID(frame_id);
+    uint8_t check_sum   = 0;
+    uint8_t i = 0;
+
+    if((frame_id == 0x3C) || (frame_id == 0x3D))
+    {
+        check_sum = LIN_ClassicChecksum(buff, length);
+    }
+    else
+    {
+        check_sum = LIN_EnhancedChecksum(pid, buff, length);
+    }
+
+    LIN_MASTER_SendHeader(pid);
+
+    for(i = 0; i &lt; length; i++)
+    {
+        LIN_MASTER_SendData(buff[i]);
+    }
+
+    LIN_MASTER_SendData(check_sum);
+}
+
+void LIN_slave_SendFrame(uint8_t frame_id, uint8_t length)
+{
+    uint8_t Buffer[3] = {0x56, 0x78, 0x90};
+    uint8_t i = 0;
+
+    uint8_t pid         = LIN_FrameIDToPID(frame_id);
+    uint8_t check_sum   = 0;
+
+    if((frame_id == 0x3C) || (frame_id == 0x3D))
+    {
+        check_sum = LIN_ClassicChecksum(Buffer, length);
+    }
+    else
+    {
+        check_sum = LIN_EnhancedChecksum(pid, Buffer, length);
+    }
+
+
+    for(i = 0; i &lt; length; i++)
+    {
+        LIN_MASTER_SendData(Buffer[i]);
+    }
+
+    LIN_MASTER_SendData(check_sum);
+}
+
+bool LIN_MASTER_Test(uint8_t frame_id, uint8_t mode)
+{
+    uint8_t Buffer[2] = {0x0F, 0x55};
+
+    if(frame_id &lt; 0x40)
+    {
+        if(mode == MODE_MASTER_SEND_FRAME)
+        {
+            LIN_Master_SendFrame(frame_id, Buffer, sizeof(Buffer));
+        }
+        else if (mode == MODE_MASTER_SEND_HEAD)
+        {
+            LIN_MASTER_SendHeader(LIN_FrameIDToPID(frame_id));
+        }   
+    }
+    else
+    {
+        return 0;
+    }
+
+    return 1;
+}
+
+void USART1_IRQHandler(void)
+{
+    if ((RESET != USART_GetITStatus(USART1, USART_IT_PE)) ||
+        (RESET != USART_GetITStatus(USART1, USART_IT_ERR)))
+    {
+        USART_ReceiveData(USART1);
+    }
+
+    if(USART_GetFlagStatus(USART1, USART_FLAG_RXNE))
+    {
+        LIN_UART_RxBuffer[LIN_UART_RxLength++] = USART1-&gt;DR &amp; 0x00FF;
+
+        if(LIN_UART_RxLength == 100)
+        {
+            LIN_UART_RxLength = 0;
+        }
+
+        if((LIN_UART_RxBuffer[1] == 0x7d) &amp;&amp; (MODE_SLAVE == 1))
+        {
+            LIN_UART_RxBuffer[1] = 0;
+            LIN_slave_SendFrame(0x3d,3);
+        }
+
+        USART_ClearFlag(USART1, USART_FLAG_RXNE);
+    }
+
+    if(USART_GetFlagStatus(USART1, USART_FLAG_LBD))
+    {
+        LIN_UART_RxLength = 0;
+        USART_ClearFlag(USART1, USART_FLAG_LBD);
+    }
+}
+
+void USART_LinCommunication_Sample(void)
+{
+
+  //  printf(&quot;\r\nTest %s&quot;, __FUNCTION__);
+
+    USART_LIN_Configure(20000);
+
+    while (1)  
+    {   
+        if(MODE_SLAVE == 0) 
+        {
+            LIN_MASTER_Test(0x3D, MODE_MASTER_SEND_FRAME);
+            PLATFORM_DelayMS(500);
+        }
+    }
+}
+</code></pre></div>
 
 
 
