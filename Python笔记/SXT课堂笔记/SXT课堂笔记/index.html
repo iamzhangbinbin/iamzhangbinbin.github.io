@@ -578,8 +578,6 @@
       
         
       
-        
-      
     
     
     
@@ -4506,7 +4504,7 @@ python3 中 range()返回的是一个 range 对象，而不是列表。我们需
 <h4 id="del">del 删除<a class="headerlink" href="#del" title="Permanent link">&para;</a></h4>
 <p>删除列表指定位置的元素。
 <div class="highlight"><pre><span></span><code>&gt;&gt;&gt; a = [100,200,888,300,400]
-&gt;&gt;&gt; del a[1]
+&gt;&gt;&gt; del a[2]
 &gt;&gt;&gt; a
 [100,200,300,400]
 </code></pre></div>
@@ -4664,7 +4662,7 @@ list2 = [] + list1
 &gt;&gt;&gt; list(c)
 []
 </code></pre></div>
-我们打印输出 c 发现提示是：list_reverseiterator。也就是一个迭代对象。同时，我们使用list&copy;进行输出，发现只能使用一次。第一次输出了元素，第二次为空。那是因为迭代对象在第一次时已经遍历结束了，第二次不能再使用。<br />
+我们打印输出 c 发现提示是：list_reverseiterator。也就是一个迭代对象。同时，我们使用list( c )进行输出，发现只能使用一次。第一次输出了元素，第二次为空。那是因为迭代对象在第一次时已经遍历结束了，第二次不能再使用。<br />
 注：关于迭代对象的使用，后续章节会进行详细讲解。</p>
 <h3 id="_75">列表相关的其他内置函数汇总<a class="headerlink" href="#_75" title="Permanent link">&para;</a></h3>
 <h4 id="max-min">max 和 min<a class="headerlink" href="#max-min" title="Permanent link">&para;</a></h4>
