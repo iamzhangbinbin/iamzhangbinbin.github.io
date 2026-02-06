@@ -1,0 +1,1757 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="张彬彬的个人技术博客">
+      
+      
+        <meta name="author" content="张彬彬">
+      
+      
+        <link rel="canonical" href="https://iamzhangbinbin.github.io/CAN%E5%85%A5%E9%97%A8/MM32%20FlexCAN%E4%BB%8B%E7%BB%8D/MM32%20FlexCAN%E4%BB%8B%E7%BB%8D/">
+      
+      
+        <link rel="prev" href="../../CAN%20FD%E5%8D%8F%E8%AE%AE/CAN%20FD%E5%8D%8F%E8%AE%AE/">
+      
+      
+        <link rel="next" href="../../MM32%20FlexCAN%E9%A9%B1%E5%8A%A8%E4%B8%8E%E4%BE%8B%E7%A8%8B/MM32%20FlexCAN%E9%A9%B1%E5%8A%A8%E4%B8%8E%E4%BE%8B%E7%A8%8B/">
+      
+      
+      <link rel="icon" href="../../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>MM32 FlexCAN介绍 - 张彬彬的杂货铺</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mm32-flexcan" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="张彬彬的杂货铺" class="md-header__button md-logo" aria-label="张彬彬的杂货铺" data-md-component="logo">
+      
+  <img src="../../../img/zahuopu.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            张彬彬的杂货铺
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MM32 FlexCAN介绍
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="切换至日间模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至日间模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/iamzhangbinbin/iamzhangbinbin.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    I'mZhangBinbin
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../MCU%E5%BC%80%E5%8F%91%E6%94%AF%E6%8C%81/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  MCU开发支持
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../MM32%20Guide/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  MM32 Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Python%E7%AC%94%E8%AE%B0/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Python笔记
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%A7%BB%E6%A4%8D/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  开源软件移植
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E6%A0%87%E5%87%86%E4%B8%8E%E8%AE%A4%E8%AF%81/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  标准与认证
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../USB%E5%85%A5%E9%97%A8/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  USB入门
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  CAN入门
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../ENET%E5%85%A5%E9%97%A8/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  ENET入门
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../blog/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  博客
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  About
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="张彬彬的杂货铺" class="md-nav__button md-logo" aria-label="张彬彬的杂货铺" data-md-component="logo">
+      
+  <img src="../../../img/zahuopu.png" alt="logo">
+
+    </a>
+    张彬彬的杂货铺
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/iamzhangbinbin/iamzhangbinbin.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    I'mZhangBinbin
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../MCU%E5%BC%80%E5%8F%91%E6%94%AF%E6%8C%81/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    MCU开发支持
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../MM32%20Guide/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    MM32 Guide
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../Python%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Python笔记
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%A7%BB%E6%A4%8D/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    开源软件移植
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../%E6%A0%87%E5%87%86%E4%B8%8E%E8%AE%A4%E8%AF%81/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    标准与认证
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../USB%E5%85%A5%E9%97%A8/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    USB入门
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    CAN入门
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            CAN入门
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CAN%E6%8A%80%E6%9C%AF%E7%9A%84%E5%8E%86%E5%8F%B2/CAN%E6%8A%80%E6%9C%AF%E7%9A%84%E5%8E%86%E5%8F%B2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CAN技术的历史
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CAN%E5%8F%8A%E5%85%B6%E5%8D%8F%E8%AE%AE%E7%AE%80%E4%BB%8B/CAN%E5%8F%8A%E5%85%B6%E5%8D%8F%E8%AE%AE%E7%AE%80%E4%BB%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CAN及其协议简介
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CAN%20FD%E5%8D%8F%E8%AE%AE/CAN%20FD%E5%8D%8F%E8%AE%AE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CAN FD协议
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    MM32 FlexCAN介绍
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    MM32 FlexCAN介绍
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      概述
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      主要特征
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      功能框图
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      报文缓冲区结构
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canmb" class="md-nav__link">
+    <span class="md-ellipsis">
+      CAN总线与MB对映关系
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rx-fifo" class="md-nav__link">
+    <span class="md-ellipsis">
+      传统型 Rx FIFO
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rx-fifo_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      增强型 Rx FIFO
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      过滤机制
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="过滤机制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#x" class="md-nav__link">
+    <span class="md-ellipsis">
+      标准x邮箱的过滤器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rx-fifo_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      传统型 RX FIFO的过滤器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rx-fifo_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      增强型 RX FIFO的过滤器
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      匹配机制
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MM32%20FlexCAN%E9%A9%B1%E5%8A%A8%E4%B8%8E%E4%BE%8B%E7%A8%8B/MM32%20FlexCAN%E9%A9%B1%E5%8A%A8%E4%B8%8E%E4%BE%8B%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MM32 FlexCAN驱动与例程
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%9F%BA%E4%BA%8EMM32G5330%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/%E5%9F%BA%E4%BA%8EMM32G5330%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CANopenNode移植
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../ENET%E5%85%A5%E9%97%A8/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    ENET入门
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../blog/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    博客
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../.." class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="mm32-flexcan">MM32 FlexCAN介绍<a class="headerlink" href="#mm32-flexcan" title="Permanent link">&para;</a></h1>
+<h2 id="_1">概述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>FlexCAN 模块是一个通信控制器，遵循 ISO 11898-1 标准、 CAN FD 和 CAN 2.0B 协议规范。 CAN 协议主要被设计用作车载串行总线，在以下方面满足规范要求：</p>
+<ul>
+<li>实时处理</li>
+<li>车辆在电磁干扰环境下的可靠操作</li>
+<li>成本效益</li>
+<li>带宽要求</li>
+</ul>
+<p>该模块支持标准和扩展帧，支持最大 64 字节有效负载，传输速率高达 8Mbps，并且具有非常灵活的用于传输和接收的邮箱系统。邮箱系统由 32 个报文缓冲区（MB）组成。报文缓冲区用于存储配置、控制数据、时间戳、报文 ID 以及数据。和 MB 相对应的内存空间可以通过配置支持传统型 FIFO 接收机制，该机制能够结合 ID 过滤表（高达 104 个扩展 ID 或 208 个标准 ID 或 416 个 8 位 ID）检测接收帧，并为高达 32 个 ID 表元素提供了私有掩码寄存器。</p>
+<p>FlexCAN 支持 FIFO（经典 CAN 帧使用传统型 Rx FIFO； CAN FD 帧使用增强型 Rx FIFO）和邮箱同时接收。对于邮箱接收，通过匹配算法可以将接收到的帧只存储到具有相同 ID 的 MB 中。掩码机制能够将 MB 中设置的 ID 与一系列接收帧的 ID 进行匹配。传输时，仲裁算法基于报文的 ID（提供本地优先级可选）或 MB 的编号来决定待传输 MB 的优先级。</p>
+<h2 id="_2">主要特征<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>完全支持 CAN FD 和 CAN 2.0B 协议：  <ul>
+<li>标准帧  </li>
+<li>扩展帧</li>
+<li>0 ~ 64 字节数据长度</li>
+<li>可编程比特率，最高 8Mbps</li>
+<li>基于内容的寻址方式</li>
+</ul>
+</li>
+<li>符合 ISO 11898-1 标准</li>
+<li>每个邮箱都可配置为接收或发送，均支持标准和扩展报文</li>
+<li>每个邮箱都有私有接收掩码寄存器</li>
+<li>全功能的传统型和增强型 Rx FIFO，存储容量各多达 6 帧，自动进行内部指针处理且支持 DMA</li>
+<li>传输中止功能</li>
+<li>支持只听模式</li>
+<li>可编程的回环模式，支持自测试</li>
+<li>可编程的传输优先级机制：最低 ID、最小邮箱编号或最高优先级</li>
+<li>基于 16 位自由运行计时器的时间戳机制</li>
+<li>全局网络时间（由特定的报文进行同步）</li>
+<li>中断掩码</li>
+<li>高优先级仲裁机制，延迟时间短</li>
+<li>远程帧可以由软件处理或自动处理</li>
+<li>Tx 邮箱状态（最低优先级缓冲区或空缓冲区）</li>
+<li>ID 接收过滤命中指示（IDHIT）寄存器</li>
+<li>发送报文的 CRC 状态</li>
+<li>传统型 Rx FIFO 全局掩码寄存器</li>
+<li>匹配过程中邮箱或 Rx FIFO 优先级可选</li>
+<li>高效的 Rx FIFO ID 过滤功能，传统型 Rx FIFO 支持 104 个 ID 过滤表元素；增强型 Rx FIFO 支持 2 个 ID 过滤元素</li>
+<li>PE 时钟源可编程为外设时钟或振荡器时钟</li>
+<li>收发器延迟补偿（TDC）功能</li>
+</ul>
+<h2 id="_3">功能框图<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p><img alt="alt text" src="../image.png" /></p>
+<ul>
+<li>协议引擎（PE）子模块管理 CAN 总线上的串行通信：<ul>
+<li>请求存取 RAM 接收和传输帧</li>
+<li>验收接收到的报文</li>
+<li>进行错误处理</li>
+<li>检测 CAN FD 报文</li>
+</ul>
+</li>
+<li>控制器主机接口（CHI）子模块负责选择接收和传输的报文缓冲区，以及对报文的仲裁和 ID 匹配算法。</li>
+<li>总线接口单元（BIU）子模块控制内部接口总线的访问，建立与 CPU 和其他模块的连接。时钟、地址和数据总线、中断输出、 DMA 都通过 BIU 进行访问。</li>
+</ul>
+<h2 id="_4">报文缓冲区结构<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>FlexCAN 模块使用时报文缓冲区（Message Buffer，MB）结构如下图所示：</p>
+<p>FlexCAN 外设地址空间的 0x0080 – 0x027F之间的地址，被映射到RAM中，用于存放MB的数据结构，每个MB占用连续的16个字节，总共32个MB。 这些MB将用于存放即将向CAN总线发送的帧数据内容，软件需要先把数据填充到MB中再启动发送工程；或者从CAN总线上捕获的CAN数据内容，之后软件就可以从MB中读到接收帧的信息。
+<img alt="alt text" src="../image-1.png" /><br />
+<img alt="alt text" src="../image-2.png" />  </p>
+<p>FlexCAN 所使用的报文缓冲区结构，包括 CAN 2.0B 的两种帧格式：扩展帧（29 位 ID）和标准帧（11 位 ID）。每个报文缓冲区（MB）由 16、 24、 40 或 72 字节组成，其中包括 8、 16、 32 或 64 字节的数据。 </p>
+<p><img alt="alt text" src="../image-3.png" /></p>
+<p>EDL 扩展数据长度： <br />
+该位用于区分CAN格式帧和CAN FD格式帧。对于配置为RANSWER的代码字段1010b的消息缓冲区，不能设置EDL位。</p>
+<p>BRS 位速率选择位： <br />
+该位定义了是否在CAN FD格式帧内切换码率。</p>
+<p>ESI 错误状态指示： <br />
+该位表示发送节点是错误主动还是错误被动。</p>
+<p>CODE (Message Buffer Code)报文缓冲区码： <br />
+CPU和FlexCAN外设都可能向这个字段写命令。当CPU向CODE字段中写数，用于向FlexCAN外设配置发送和接收的过程；当FlexCAN外设向CODE字段中写数，用于告知CPU当前发送或接收过程已经完成或者正在进行的状态。关于具体的各种命令以及对应的操作和状态，可进一步参见芯片手册中的说明。这里给出一个总结表格。</p>
+<p>当用作接收邮箱时CODE 的值与邮箱状态对应关系如下： <br />
+<img alt="alt text" src="../image-11.png" />   </p>
+<p>当邮箱用作发送邮箱时 CODE 的值与邮箱状态对应关系如下所示： <br />
+<img alt="alt text" src="../image-12.png" /></p>
+<p>SRR (Substitute Remote Request)： <br />
+仅用于扩展帧。当表示扩展帧时，必须置1。<br />
+远程发送请求替代位。当固定隐性位时，SRR 只能用于扩展帧格式，该位必须由用户将其设置为1来传输，并且和从 CAN 总线上接收到的值一起被存储起来。它可以以隐性位或显性位的形式接收，如果 FlexCAN 以显性位接收，那么认为它是仲裁丢失。当 SRR=1 时，采用隐性位，强制用来以扩展帧模式传输；当 SRR=0 时，采用显性位，对于传输扩展模式是不可用的。</p>
+<p>IDE (ID Extended Bit) ID扩展位： <br />
+标记是否为扩展帧，1表示扩展帧，0表示标准帧。<br />
+该位用来表示是标准帧还是扩展帧。当 IDE=1 时，为扩展帧；当 IDE=0 时，为标准帧。</p>
+<p>RTR (Remote Transmission Request) 远程发送请求位： <br />
+该位影响远程帧的行为，是接收过滤器的一部分。如果 FlexCAN 传输1或者0，认为它是仲裁丢失。如果该位以0（显性）传输，在接收时为1（隐性），那么 FlexCAN 模块将会认为这是个错误。如果接收到的值与发送值相同，则认为是一次成功的传输。当 RTR=1 时，如果 MB 为发送 MB，那么表示当前的 MB 可能有一个等待发送的远程请求帧；如果 MB 为接收 MB，那么接收到的远程请求帧将会被存储起来；当 RTR=0 时，表示当前的 MB 有一个数据帧等待传输，在接收 MB 中，它可能会被当成匹配过程。<br />
+设定或表示当前MB中是否为远程请求帧，1表示远程帧，0表示数据帧。</p>
+<p>DLC (Length of Data in Bytes) 数据的字节长度： <br />
+发送和接收帧中的数据长度，0表示没有。有效值为1到8。当接收通信帧时，FlexCAN协议引擎会从接收到的帧中提取有效数据填充到数据字段，并复制接收帧的DLC值到MB的DLC字段中。当发送通信帧时，在总线上发送通信帧的字节流时，若DLC小于8，则实际数据负载的字节流长度亦会对应缩短，而不会填充空位。当RTR=1，即发送远程帧时，此时发送数据字段中无有效内容，将会忽略DLC中的值（等价于DLC=0）。   <br />
+该字段为发送或接收数据的长度。在接收阶段，该字段由 FLexCAN 模块写入，是从接收帧的 DLC（Data Length Code） 字段复制而得到的。在传输阶段，该字段由 MCU 写入，并且会传输与 DLC 值相同的帧长度。当 RTR=1 时，被传输的帧为远程帧且不包括数据字段，不考虑 DLC 字段。下表说明了 DLC 与可用数据字节的对应关系。</p>
+<p><img alt="alt text" src="../image-4.png" /></p>
+<p>TIMESTAMP (Free-Running Counter Time Stamp) 时间戳位： <br />
+接收帧时本机填入时间戳，用于本机处理多个MB中的接收帧时判断先后时序。这个字段将由FlexCAN的协议引擎自动填充，从CAN_TIMER寄存器中复制过来。</p>
+<p>为自由运行计数器时间戳。这16位是自由运行计数器的备份，用于在当标识符字段的开始出现在 CAN 总线时捕捉传输或者接收帧。</p>
+<p>PRIO (Local Priority) 本地优先级： <br />
+对本机多个MB的发送帧执行仲裁（而不是总线上的设备，CAN总线对设备没有优先级的概念），使用唯一的发送引擎按优先级逐个发送。这个字段的值不会被发送到CAN总线上，可以被附加到常规的ID后面，作为一个配置项，当CAN_MCR[LPRIO_EN]=1时生效，仅作用于发送过程中的多个MB之前进行排序。</p>
+<p>该位只有当 CAN_MCR[LPRION_EN] 位置1时才有用，并且只对传输报文缓冲区有效。这些位不会被传输，他们经常被附加到 ID 来定义传输的优先级。</p>
+<p>ID (Frame Identifier) 帧标识符： <br />
+在标准帧的格式中，只用到收发通信帧的高11位（28b – 18b），后续的低18位被忽略。当使用扩展帧时，整个29位的字段全部用于表示通信帧的ID。标准帧和扩展帧的区别就在于ID字段的位数，扩展帧使用更多位的ID，可以在总线系统中表示更多的通信帧类型。</p>
+<p>在标准帧格式中，只有11位，高位比特（28到18）用来标识接收或者发送的帧，低18位将会被忽略；在扩展帧格式内，所有的位都用来标识传输或者接收的数据帧。</p>
+<p>DATA Byte 0-7(Data Field) 数据字段： <br />
+通信帧的有效数据负载。最多8字节，同DLC字段描述的数据字节数对应。当为发送帧时，由CPU写入数据到本字段，供FlexCAN引擎发送到总线上；当为接收帧时，FlexCAN的协议引擎会在总线上捕获到数据帧后，自动复制值到本字段，供CPU读取。   </p>
+<p>最多64字节可用于数据帧。对于接收到的数据帧，以被接收时的格式进行存放。DATA BYTEn 只有当 n 小于 DLC 的值时才有效。对于传输数据帧，该字段用来表示发送的数据帧的长度。</p>
+<h2 id="canmb">CAN总线与MB对映关系<a class="headerlink" href="#canmb" title="Permanent link">&para;</a></h2>
+<p>CAN总线标准帧同MB消息缓冲区的对映关系如下图所示：</p>
+<p><img alt="alt text" src="../image-5.png" /></p>
+<p>CAN总线扩展帧同MB消息缓冲区的对映关系，相对于标准帧，多了SRR的字段，但仍同MB消息缓冲区有一一对映的关系，如下图所示：</p>
+<p><img alt="alt text" src="../image-6.png" /></p>
+<h2 id="rx-fifo">传统型 Rx FIFO<a class="headerlink" href="#rx-fifo" title="Permanent link">&para;</a></h2>
+<p>相对于默认的将每个MB作为一个单独的通道，一帧一帧地接收并处理数据，FIFO模式可以将几个MB的存储空间组织成一个FIFO，FIFO可以缓存更多的帧，在CPU提供同等算力的情况下，提升节点设备的处理CAN总线通信帧的动态吞吐率。</p>
+<p>当配置CAN_MCR[RFEN]=1时，启用Rx FIFO模式，此时，原MB列表的部分MB存储区域（MB0 – MB5，模块内偏移地址为0x80 – 0xDC的内存区域）将合并成Rx FIFO，由FIFO引擎管理。其中，原MB0的作为CPU访问Rx FIFO的接口，CPU始终可以从原MB0的位置读到最早进入FIFO的帧信息。此时，Rx FIFO的区域为只读模式，复位缺省值为0x00。</p>
+<p>一个额外的内存空间，从 0xE0 开始，可扩展至 0x27C（通常被 MB6 ~ 31 占用），取决于CAN_CTRL2.RFFN 的设置，包括 ID 过滤表（可配置 8 ~ 104 个表元素），该表指定了传统型 Rx FIFO
+接收帧的过滤条件。</p>
+<p>复位时，可变的 ID 过滤表内存空间默认为 0xE0，仅可扩展至 0xFC，对应于 RFFN = 0 时的 MB6-7。</p>
+<p><img alt="alt text" src="../image-7.png" /></p>
+<p>其中，每个ID过滤器表项（ID Filter Table element）占用32位字的空间，可以被分成1个32位、2个16位或4个8位的匹配接收掩码（IDAF，Identifier Acceptance Filters），这需要在CAN_MCR[IDAM]寄存器中设置。下图展示了这种可能使用多种格式分割ID过滤器表项的格式，但要特别注意，一旦选定一种格式，所有的ID过滤器表项都会使用同一种格式。</p>
+<p><img alt="alt text" src="../image-8.png" /></p>
+<p>其中，各配置字段的含义如下：  </p>
+<p>RTR (Remote Frame)：<br />
+指定能否捕获匹配ID的远程帧。1指定可以捕获，0指定不捕获。</p>
+<p>IDE (Extended Frame)：<br />
+指定能否捕获匹配ID的扩展帧。1指定可以捕获，0指定不捕获扩展帧，仅捕获标准帧。</p>
+<p>RXIDA/B/C (Rx Frame Identifier with Format A/B/C)：<br />
+指定匹配的ID模式，当不满足完整的帧ID时，仅匹配帧的高位。</p>
+<p>FIFO中MB结构中多出来的IDHIT (Identifier Acceptance Filter Hit Indicator)：<br />
+表示当前的MB匹配到了哪个ID过滤器。</p>
+<h2 id="rx-fifo_1">增强型 Rx FIFO<a class="headerlink" href="#rx-fifo_1" title="Permanent link">&para;</a></h2>
+<p>增强型 Rx FIFO 通过置位 CAN_ERFCR.ERFEN 使能。 0x2000 ~ 0x204C 包含了增强型 Rx FIFO 的输出，作为报文缓冲区被 CPU 读取。此输出包含已接收但尚未读取的最旧的报文。下图显示了增强型 Rx FIFO 的数据结构。</p>
+<p><img alt="alt text" src="../image-9.png" /></p>
+<p>注： ID HIT 偏移地址随 DLC 动态改变，如下表所示。</p>
+<p><img alt="alt text" src="../image-10.png" /></p>
+<h2 id="_5">过滤机制<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>FlexCAN提供了强大的过滤机制来对总线上的报文进行过滤，只有通过过滤的报文才能成功的被接收。过滤机制的原理就是通过设置过滤器的ID（29bit），RTR（1bit），IDE（1bit），通过这三个特征来进行过滤，这3个特征加在一起31bit。而这个过滤机制也是得分成几种情况：</p>
+<h3 id="x">标准x邮箱的过滤器<a class="headerlink" href="#x" title="Permanent link">&para;</a></h3>
+<p>这种情况下，过滤器就是每个接收邮箱MB的中的ID,RTR,IDE，之后又根据Individual MASK有无激活分成两种情况。</p>
+<ul>
+<li>未激活状态下，那么除了14号，15号邮箱之外有自己的个人MASK，其余的接收邮箱则共用一个Global MASK。</li>
+<li>激活状态下，所有的接收邮箱都会有自己的Individual MASK。</li>
+</ul>
+<h3 id="rx-fifo_2">传统型 RX FIFO的过滤器<a class="headerlink" href="#rx-fifo_2" title="Permanent link">&para;</a></h3>
+<p>Legacy RX FIFO的过滤器其实就是上面所说的ID过滤器表项，每一个ID过滤器表项占32bits，它根据配置会有A,B,C三种形式，这三种形式不能共存。</p>
+<p>A形式就是一个完整的RTR+IDE+Standard ID，B形式就是两个完整的RTR+IDE+Standard ID或者一个完整的RTR+IDE+extended ID，而C形式就是4个ID片。那么它的MASK在哪里呢，这里比较特殊，如下图所示：</p>
+<p><img alt="alt text" src="../image-13.png" /></p>
+<p>可以看到在这种情况下，每个Filter表元素的MASK是变化的，举个例子，如果我们设置了128个Filter表元素，那么前32个Filter表元素有自己的Individual MASK，其余的Filter表元素则共用一个Global MASK。</p>
+<h3 id="rx-fifo_3">增强型 RX FIFO的过滤器<a class="headerlink" href="#rx-fifo_3" title="Permanent link">&para;</a></h3>
+<p>Enhanced RX FIFO的过滤器则通过ERFFELn寄存器来实现的，总共有128个ERFFELn寄存器，而这128个寄存器则可以配置成两种类型，分别为Standard ID类型和Extended ID类型，这两种类型可以同时存在，两种类型又都有三种模式。</p>
+<p>Standard ID类型中，每个过滤器占用32bit，即占用一个ERFFELn寄存器，三种模式分别如下：</p>
+<p>①传统Filter+MASK组合</p>
+<p><img alt="alt text" src="../image-14.png" /></p>
+<p>需满足条件：</p>
+<ol>
+<li>CAN message is base frame format (IDE = 0)</li>
+<li>(ID[n] = STD ID filter [n]) or (STD ID Mask[n] =0)</li>
+<li>(RTR = RTR Filter) or (RTR MASK = 0)</li>
+</ol>
+<p>②一个ID Fliter范围</p>
+<p><img alt="alt text" src="../image-15.png" /></p>
+<p>需满足条件：</p>
+<ol>
+<li>CAN message is base frame format (IDE = 0)</li>
+<li>(ID ≥ STD ID Filter1) &amp; ( ID ≤ STD ID Filter2)</li>
+<li>(RTR = RTR filter) or (RTR MASK = 0)</li>
+</ol>
+<p>③两个固定的ID Fliter</p>
+<p><img alt="alt text" src="../image-16.png" /></p>
+<p>需满足条件：</p>
+<ol>
+<li>CAN message is base frame format (IDE = 0)</li>
+<li>(ID[n] = STD ID Filter1[n]) or (ID[n] = STD ID Filter2[n])</li>
+<li>(RTR = RTR Filter1) or (RTR = RTR Filter2)</li>
+</ol>
+<p>至于Extended ID区域则是相同的，唯一的不同就是每个过滤器会占用64bit，即占用两个ERFFELn寄存器，这里就不多做介绍了。</p>
+<h2 id="_6">匹配机制<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>前面介绍了FlexCAN强大的过滤机制，那么我们再来看看在这个强大过滤机制下的匹配机制。</p>
+<p>匹配的基本过程就是根据MB的序号，从小到大一个一个匹配，直到匹配成功，并将数据移入MB。这里举几个现象，就非常清楚了。</p>
+<ol>
+<li>如果2个邮箱有相同的Filter配置且都是空邮箱，那么小序号邮箱匹配成功。</li>
+<li>如果2个邮箱有相同的Filter配置且其中一个为空邮箱一个为满邮箱，则空邮箱匹配成功。</li>
+<li>如果4个邮箱（MB0,MB1,MB2,MB3）有相同的Filter配置且都不为空，那么如果新的消息来了则会覆盖MB0或者MB3，即覆盖第一个或者最后一个(可设置)。</li>
+<li>如果同时使能了RX_FIFO和接收型标准x邮箱，则可以通过设置来决定先匹配FIFO还是先匹配接收型标准x邮箱。</li>
+<li>在非FIFO情况下，可以将多个接收型标准x邮箱的Filter设置相同，来实现一个接收队列，在很短时间内接收多个报文。</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 ZhangBinbin/All Rights Reserved.
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://iamzhangbinbin.github.io/" target="_blank" rel="noopener" title="Wechat" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M385.2 167.6c6.4 0 12.6.3 18.8 1.1C387.4 90.3 303.3 32 207.7 32 100.5 32 13 104.8 13 197.4c0 53.4 29.3 97.5 77.9 131.6l-19.3 58.6 68-34.1c24.4 4.8 43.8 9.7 68.2 9.7 6.2 0 12.1-.3 18.3-.8-4-12.9-6.2-26.6-6.2-40.8-.1-84.9 72.9-154 165.3-154m-104.5-52.9c14.5 0 24.2 9.7 24.2 24.4 0 14.5-9.7 24.2-24.2 24.2-14.8 0-29.3-9.7-29.3-24.2.1-14.7 14.6-24.4 29.3-24.4m-136.4 48.6c-14.5 0-29.3-9.7-29.3-24.2 0-14.8 14.8-24.4 29.3-24.4 14.8 0 24.4 9.7 24.4 24.4 0 14.6-9.6 24.2-24.4 24.2M563 319.4c0-77.9-77.9-141.3-165.4-141.3-92.7 0-165.4 63.4-165.4 141.3S305 460.7 397.6 460.7c19.3 0 38.9-5.1 58.6-9.9l53.4 29.3-14.8-48.6C534 402.1 563 363.2 563 319.4m-219.1-24.5c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.8 0 24.4 9.7 24.4 19.3 0 10-9.7 19.6-24.4 19.6m107.1 0c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.5 0 24.4 9.7 24.4 19.3.1 10-9.9 19.6-24.4 19.6"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://iamzhangbinbin.github.io/" target="_blank" rel="noopener" title="telegram" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M248 8C111.033 8 0 119.033 0 256s111.033 248 248 248 248-111.033 248-248S384.967 8 248 8m114.952 168.66c-3.732 39.215-19.881 134.378-28.1 178.3-3.476 18.584-10.322 24.816-16.948 25.425-14.4 1.326-25.338-9.517-39.287-18.661-21.827-14.308-34.158-23.215-55.346-37.177-24.485-16.135-8.612-25 5.342-39.5 3.652-3.793 67.107-61.51 68.335-66.746.153-.655.3-3.1-1.154-4.384s-3.59-.849-5.135-.5q-3.283.746-104.608 69.142-14.845 10.194-26.894 9.934c-8.855-.191-25.888-5.006-38.551-9.123-15.531-5.048-27.875-7.717-26.8-16.291q.84-6.7 18.45-13.7 108.446-47.248 144.628-62.3c68.872-28.647 83.183-33.623 92.511-33.789 2.052-.034 6.639.474 9.61 2.885a10.45 10.45 0 0 1 3.53 6.716 43.8 43.8 0 0 1 .417 9.769"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://iamzhangbinbin.github.io/" target="_blank" rel="noopener" title="iamzhangbinbin.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9zm-24.8 373.8h39.1L151.1 88h-42z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://iamzhangbinbin.github.io/" target="_blank" rel="noopener" title="iamzhangbinbin.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<z466302@126.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M64 112c-8.8 0-16 7.2-16 16v22.1l172.5 141.6c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16zM48 212.2V384c0 8.8 7.2 16 16 16h384c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0zM0 128c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://iamzhangbinbin.github.io/" target="_blank" rel="noopener" title="iamzhangbinbin.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M488.6 104.1c16.7 18.1 24.4 39.7 23.3 65.7v202.4c-.4 26.4-9.2 48.1-26.5 65.1-17.2 17-39.1 25.9-65.5 26.7H92.02c-26.45-.8-48.21-9.8-65.28-27.2C9.682 419.4.767 396.5 0 368.2V169.8c.767-26 9.682-47.6 26.74-65.7C43.81 87.75 65.57 78.77 92.02 78h29.38L96.05 52.19c-5.75-5.73-8.63-13-8.63-21.79 0-8.8 2.88-16.06 8.63-21.797C101.8 2.868 109.1 0 117.9 0q13.2 0 21.9 8.603L213.1 78h88l74.5-69.397C381.7 2.868 389.2 0 398 0q13.2 0 21.9 8.603c5.7 5.737 8.6 12.997 8.6 21.797 0 8.79-2.9 16.06-8.6 21.79L394.6 78h29.3c26.4.77 48 9.75 64.7 26.1m-38.8 69.7c-.4-9.6-3.7-17.4-10.7-23.5-5.2-6.1-14-9.4-22.7-9.8H96.05c-9.59.4-17.45 3.7-23.58 9.8-6.14 6.1-9.4 13.9-9.78 23.5v194.4c0 9.2 3.26 17 9.78 23.5s14.38 9.8 23.58 9.8H416.4c9.2 0 17-3.3 23.3-9.8s9.7-14.3 10.1-23.5zm-264.3 42.7c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.2 6.3-14 9.5-23.6 9.5s-17.5-3.2-23.6-9.5-9.4-14-9.8-23.2v-33.3c.4-9.1 3.8-16.9 10.1-23.2s13.2-9.6 23.3-10c9.2.4 17 3.7 23.3 10m191.5 0c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2s-14 9.5-23.6 9.5-17.4-3.2-23.6-9.5c-7-6.3-9.4-14-9.7-23.2v-33.3c.3-9.1 3.7-16.9 10-23.2s14.1-9.6 23.3-10c9.2.4 17 3.7 23.3 10"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.prune", "navigation.indexes", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "search.share", "header.autohide", "announce.dismiss", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
