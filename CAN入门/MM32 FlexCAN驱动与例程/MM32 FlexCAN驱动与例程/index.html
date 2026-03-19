@@ -18,7 +18,7 @@
         <link rel="prev" href="../../MM32%20FlexCAN%E4%BB%8B%E7%BB%8D/MM32%20FlexCAN%E4%BB%8B%E7%BB%8D/">
       
       
-        <link rel="next" href="../../%E5%9F%BA%E4%BA%8EMM32G5330%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/%E5%9F%BA%E4%BA%8EMM32G5330%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/">
+        <link rel="next" href="../../CANopenNode%E7%A7%BB%E6%A4%8D/CANopenNode%E7%A7%BB%E6%A4%8D/">
       
       
       <link rel="icon" href="../../../img/favicon.ico">
@@ -636,6 +636,8 @@
       
         
       
+        
+      
     
     
     
@@ -1115,6 +1117,51 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#flexcan_polling" class="md-nav__link">
+    <span class="md-ellipsis">
+      例程 FlexCAN_Polling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flexcan_interrupt" class="md-nav__link">
+    <span class="md-ellipsis">
+      例程 FlexCAN_Interrupt
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flexcan_fifo_interrupt" class="md-nav__link">
+    <span class="md-ellipsis">
+      例程 FlexCAN_FIFO_Interrupt
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flexcan_fd_interrupt" class="md-nav__link">
+    <span class="md-ellipsis">
+      例程 FlexCAN_FD_Interrupt
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flexcan_fd_fifo_interrupt" class="md-nav__link">
+    <span class="md-ellipsis">
+      例程 FlexCAN_FD_FIFO_Interrupt
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1131,7 +1178,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E5%9F%BA%E4%BA%8EMM32G5330%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/%E5%9F%BA%E4%BA%8EMM32G5330%E7%A7%BB%E6%A4%8DCANopenNode%E5%8D%8F%E8%AE%AE%E6%A0%88/" class="md-nav__link">
+      <a href="../../CANopenNode%E7%A7%BB%E6%A4%8D/CANopenNode%E7%A7%BB%E6%A4%8D/" class="md-nav__link">
         
   
   
@@ -1705,6 +1752,403 @@ struct _flexcan_handle
 };
 </code></pre></div></p>
 <h2 id="hal_flexcanc">驱动文件 hal_flexcan.c<a class="headerlink" href="#hal_flexcanc" title="Permanent link">&para;</a></h2>
+<p>hal_flexcan.c 中实现了以下原型声明的函数定义。主要是发送接收、带FD的发送接收、中断传输与查询传输、以及FIFO的设置。</p>
+<div class="highlight"><pre><span></span><code>int32_t FLEXCAN_WriteTxMb(FLEXCAN_TypeDef *flex_can, uint8_t mbIdx, const flexcan_frame_t *pTxFrame);
+int32_t FLEXCAN_ReadRxMb(FLEXCAN_TypeDef *flex_can, uint8_t mbIdx, flexcan_frame_t *pRxFrame);
+int32_t FLEXCAN_WriteFDTxMb(FLEXCAN_TypeDef *flex_can, uint8_t mbIdx, const flexcan_fd_frame_t *pTxFrame);
+int32_t FLEXCAN_ReadFDRxMb(FLEXCAN_TypeDef *flex_can, uint8_t mbIdx, flexcan_fd_frame_t *pRxFrame);
+int32_t FLEXCAN_ReadRxFifo(FLEXCAN_TypeDef *flex_can, flexcan_frame_t *pRxFrame);
+int32_t FLEXCAN_TransferFDSendBlocking(FLEXCAN_TypeDef *flex_can, uint8_t mbIdx, flexcan_fd_frame_t *pTxFrame);
+int32_t FLEXCAN_TransferFDReceiveBlocking(FLEXCAN_TypeDef *flex_can, uint8_t mbIdx, flexcan_fd_frame_t *pRxFrame);
+int32_t FLEXCAN_TransferFDReceiveNonBlocking(FLEXCAN_TypeDef *flex_can, flexcan_handle_t *handle, flexcan_mb_transfer_t *pMbXfer);
+int32_t FLEXCAN_TransferFDSendNonBlocking(FLEXCAN_TypeDef *flex_can, flexcan_handle_t *handle, flexcan_mb_transfer_t *pMbXfer);
+void FLEXCAN_TransferFDAbortReceive(FLEXCAN_TypeDef *flex_can, flexcan_handle_t *handle, uint8_t mbIdx);
+int32_t FLEXCAN_TransferSendBlocking(FLEXCAN_TypeDef *flex_can, uint8_t mbIdx, flexcan_frame_t *pTxFrame);
+int32_t FLEXCAN_TransferReceiveBlocking(FLEXCAN_TypeDef *flex_can, uint8_t mbIdx, flexcan_frame_t *pRxFrame);
+int32_t FLEXCAN_TransferReceiveFifoBlocking(FLEXCAN_TypeDef *flex_can, flexcan_frame_t *pRxFrame);
+void FLEXCAN_TransferCreateHandle(FLEXCAN_TypeDef *flex_can, flexcan_handle_t *handle, flexcan_transfer_callback_t callback, void *userData);
+int32_t FLEXCAN_TransferSendNonBlocking(FLEXCAN_TypeDef *flex_can, flexcan_handle_t *handle, flexcan_mb_transfer_t *pMbXfer);
+int32_t FLEXCAN_TransferReceiveNonBlocking(FLEXCAN_TypeDef *flex_can, flexcan_handle_t *handle, flexcan_mb_transfer_t *pMbXfer);
+int32_t FLEXCAN_TransferReceiveFifoNonBlocking(FLEXCAN_TypeDef *flex_can, flexcan_handle_t *handle, flexcan_fifo_transfer_t *pFifoXfer);
+uint32_t FLEXCAN_GetTimeStamp(flexcan_handle_t *handle, uint8_t mbIdx);
+void FLEXCAN_TransferAbortSend(FLEXCAN_TypeDef *flex_can, flexcan_handle_t *handle, uint8_t mbIdx);
+void FLEXCAN_TransferAbortReceive(FLEXCAN_TypeDef *flex_can, flexcan_handle_t *handle, uint8_t mbIdx);
+void FLEXCAN_TransferAbortReceiveFifo(FLEXCAN_TypeDef *flex_can, flexcan_handle_t *handle);
+void FLEXCAN_TransferHandleIRQ(FLEXCAN_TypeDef *flex_can, flexcan_handle_t *handle);
+ErrorStatus FLEXCAN_FDCalculateImprovedTimingValues(uint32_t baudRate, uint32_t baudRateFD, uint32_t sourceClock_Hz, flexcan_timing_config_t *pTimingConfig);
+void FLEXCAN_FDTxMbConfig(FLEXCAN_TypeDef *flex_can, uint8_t mbIdx, FunctionalState enable);
+void FLEXCAN_FDRxMbConfig(FLEXCAN_TypeDef *flex_can, uint8_t mbIdx, const flexcan_rx_mb_config_t *pRxMbConfig, FunctionalState state);
+void FLEXCAN_SetFDTimingConfig(FLEXCAN_TypeDef *flex_can, const flexcan_timing_config_t *pConfig);
+void FLEXCAN_FDInit(FLEXCAN_TypeDef *flex_can, const flexcan_config_t *pConfig, flexcan_mb_size_t dataSize, FunctionalState brs);
+void FLEXCAN_SetBaudRate(FLEXCAN_TypeDef *flex_can, flexcan_timing_config_t timingConfig);
+void FLEXCAN_SetFDBaudRate(FLEXCAN_TypeDef *flex_can, flexcan_timing_config_t timingConfig);
+uint32_t FLEXCAN_GetFDMailboxOffset(FLEXCAN_TypeDef *flex_can, uint8_t mbIdx);
+
+void FLEXCAN_FDRxFifoConfig(FLEXCAN_TypeDef *flex_can, const flexcan_fd_rx_fifo_config_t *pRxFifoConfig, FunctionalState state);
+void FLEXCAN_ReadFDRxFifo(FLEXCAN_TypeDef *flex_can, uint8_t mbIdx, flexcan_fd_frame_t *pRxFrame);
+void FLEXCAN_FDRxFifoITConfig(FLEXCAN_TypeDef *flex_can, uint32_t it, FunctionalState state);
+FlagStatus FLEXCAN_FDGetRxFifoFlagStatus(FLEXCAN_TypeDef *flex_can, uint32_t flag);
+void FLEXCAN_FDClearRxFifoFlag(FLEXCAN_TypeDef *flex_can, uint32_t flag);
+</code></pre></div>
+<h2 id="flexcan_polling">例程 FlexCAN_Polling<a class="headerlink" href="#flexcan_polling" title="Permanent link">&para;</a></h2>
+<p>信箱7、8、9分别发送标准帧、扩展帧、远程帧，信箱10、11、12分别接收标准帧、扩展帧、远程帧。</p>
+<div class="highlight"><pre><span></span><code>/***********************************************************************************************************************
+  * @brief
+  * @note   none
+  * @param  none
+  * @retval none
+  *********************************************************************************************************************/
+void FlexCAN_Configure(void)
+{
+    GPIO_InitTypeDef GPIO_InitStruct;
+    RCC_ClocksTypeDef RCC_Clocks;
+
+    flexcan_config_t       FlexCAN_ConfigStruct;
+    flexcan_rx_mb_config_t FlexCAN_RxMB_ConfigStruct;
+
+    RCC_GetClocksFreq(&amp;RCC_Clocks);
+
+    RCC_APB1PeriphClockCmd(RCC_APB1Periph_FLEXCAN1, ENABLE);
+    RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOD, ENABLE);
+
+    GPIO_PinAFConfig(GPIOD, GPIO_PinSource8, GPIO_AF_25);
+    GPIO_PinAFConfig(GPIOD, GPIO_PinSource9, GPIO_AF_25);
+
+    GPIO_StructInit(&amp;GPIO_InitStruct);
+    GPIO_InitStruct.GPIO_Pin   = GPIO_Pin_8;
+    GPIO_InitStruct.GPIO_Speed = GPIO_Speed_High;
+    GPIO_InitStruct.GPIO_Mode  = GPIO_Mode_FLOATING;
+    GPIO_Init(GPIOD, &amp;GPIO_InitStruct);
+
+    GPIO_StructInit(&amp;GPIO_InitStruct);
+    GPIO_InitStruct.GPIO_Pin   = GPIO_Pin_9;
+    GPIO_InitStruct.GPIO_Speed = GPIO_Speed_High;
+    GPIO_InitStruct.GPIO_Mode  = GPIO_Mode_AF_PP;
+    GPIO_Init(GPIOD, &amp;GPIO_InitStruct);
+
+    FLEXCAN_GetDefaultConfig(&amp;FlexCAN_ConfigStruct);
+    FlexCAN_ConfigStruct.baudRate             = 250000; /* 250kbps */
+    FlexCAN_ConfigStruct.clkSrc               = Enum_Flexcan_ClkSrc1;
+    FlexCAN_ConfigStruct.enableLoopBack       = false;
+    FlexCAN_ConfigStruct.disableSelfReception = true;
+    FlexCAN_ConfigStruct.enableIndividMask    = true;
+
+#if 1    /* Baudrate calculate by automatically */
+    FLEXCAN_CalculateImprovedTimingValues(FlexCAN_ConfigStruct.baudRate, RCC_Clocks.PCLK1_Frequency, &amp;FlexCAN_ConfigStruct.timingConfig);
+#else  /* You can modify the parameters yourself */
+    FlexCAN_ConfigStruct.timingConfig.preDivider = 23;
+    FlexCAN_ConfigStruct.timingConfig.propSeg    = 6;
+    FlexCAN_ConfigStruct.timingConfig.phaseSeg1  = 3;
+    FlexCAN_ConfigStruct.timingConfig.phaseSeg2  = 3;
+    FlexCAN_ConfigStruct.timingConfig.rJumpwidth = 3;
+#endif
+
+    FLEXCAN_Init(FLEXCAN1, &amp;FlexCAN_ConfigStruct); 
+
+    FLEXCAN_TxMbConfig(FLEXCAN1, MB_Index_7, ENABLE);
+    FLEXCAN_TxMbConfig(FLEXCAN1, MB_Index_8, ENABLE);
+    FLEXCAN_TxMbConfig(FLEXCAN1, MB_Index_9, ENABLE);
+
+    /* STD */
+    FlexCAN_RxMB_ConfigStruct.id     = FLEXCAN_ID_STD(RX_StandardFrame_ID);
+    FlexCAN_RxMB_ConfigStruct.format = Enum_Flexcan_FrameFormatStandard;
+    FlexCAN_RxMB_ConfigStruct.type   = Enum_Flexcan_FrameTypeData;
+    FLEXCAN_RxMbConfig(FLEXCAN1, MB_Index_10, &amp;FlexCAN_RxMB_ConfigStruct, ENABLE);
+
+    FLEXCAN_SetRxIndividualMask(FLEXCAN1, MB_Index_10, FLEXCAN_RX_MB_STD_MASK(MASK_STD, 0, 0));
+
+    /* EXT */
+    FlexCAN_RxMB_ConfigStruct.id     = FLEXCAN_ID_EXT(RX_ExtendFrame_ID);
+    FlexCAN_RxMB_ConfigStruct.format = Enum_Flexcan_FrameFormatExtend;
+    FlexCAN_RxMB_ConfigStruct.type   = Enum_Flexcan_FrameTypeData;
+    FLEXCAN_RxMbConfig(FLEXCAN1, MB_Index_11, &amp;FlexCAN_RxMB_ConfigStruct, ENABLE);
+
+    FLEXCAN_SetRxIndividualMask(FLEXCAN1, MB_Index_11, FLEXCAN_RX_MB_EXT_MASK(MASK_EXT, 0, 1));
+
+    /* RTR */
+    FlexCAN_RxMB_ConfigStruct.id     = FLEXCAN_ID_STD(RX_RemoteFrame_ID);
+    FlexCAN_RxMB_ConfigStruct.format = Enum_Flexcan_FrameFormatStandard;
+    FlexCAN_RxMB_ConfigStruct.type   = Enum_Flexcan_FrameTypeRemote;
+    FLEXCAN_RxMbConfig(FLEXCAN1, MB_Index_12, &amp;FlexCAN_RxMB_ConfigStruct, ENABLE);
+
+    FLEXCAN_SetRxIndividualMask(FLEXCAN1, MB_Index_12, FLEXCAN_RX_MB_STD_MASK(MASK_STD, 1, 0));
+}
+
+/***********************************************************************************************************************
+  * @brief
+  * @note   none
+  * @param  none
+  * @retval none
+  *********************************************************************************************************************/
+void FlexCAN_SendStandardFrameMessage(uint32_t ID, uint8_t *Buffer, uint8_t Length)
+{
+    flexcan_frame_t FlexCAN_FrameStruct;
+
+    FlexCAN_FrameStruct.length = (uint8_t)Length;
+    FlexCAN_FrameStruct.type   = (uint8_t)Enum_Flexcan_FrameTypeData;
+    FlexCAN_FrameStruct.format = (uint8_t)Enum_Flexcan_FrameFormatStandard;
+    FlexCAN_FrameStruct.id     = FLEXCAN_ID_STD(ID);
+
+    FlexCAN_FrameStruct.dataByte0 = Buffer[0];
+    FlexCAN_FrameStruct.dataByte1 = Buffer[1];
+    FlexCAN_FrameStruct.dataByte2 = Buffer[2];
+    FlexCAN_FrameStruct.dataByte3 = Buffer[3];
+    FlexCAN_FrameStruct.dataByte4 = Buffer[4];
+    FlexCAN_FrameStruct.dataByte5 = Buffer[5];
+    FlexCAN_FrameStruct.dataByte6 = Buffer[6];
+    FlexCAN_FrameStruct.dataByte7 = Buffer[7];
+
+    FLEXCAN_TransferSendBlocking(FLEXCAN1, MB_Index_7, &amp;FlexCAN_FrameStruct);
+}
+
+/***********************************************************************************************************************
+  * @brief
+  * @note   none
+  * @param  none
+  * @retval none
+  *********************************************************************************************************************/
+void FlexCAN_SendExtendFrameMessage(uint32_t ID, uint8_t *Buffer, uint8_t Length)
+{
+    flexcan_frame_t FlexCAN_FrameStruct;
+
+    FlexCAN_FrameStruct.length = (uint8_t)Length;
+    FlexCAN_FrameStruct.type   = (uint8_t)Enum_Flexcan_FrameTypeData;
+    FlexCAN_FrameStruct.format = (uint8_t)Enum_Flexcan_FrameFormatExtend;
+    FlexCAN_FrameStruct.id     = FLEXCAN_ID_EXT(ID);
+
+    FlexCAN_FrameStruct.dataByte0 = Buffer[0];
+    FlexCAN_FrameStruct.dataByte1 = Buffer[1];
+    FlexCAN_FrameStruct.dataByte2 = Buffer[2];
+    FlexCAN_FrameStruct.dataByte3 = Buffer[3];
+    FlexCAN_FrameStruct.dataByte4 = Buffer[4];
+    FlexCAN_FrameStruct.dataByte5 = Buffer[5];
+    FlexCAN_FrameStruct.dataByte6 = Buffer[6];
+    FlexCAN_FrameStruct.dataByte7 = Buffer[7];
+
+    FLEXCAN_TransferSendBlocking(FLEXCAN1, MB_Index_8, &amp;FlexCAN_FrameStruct);
+}
+
+/***********************************************************************************************************************
+  * @brief
+  * @note   none
+  * @param  none
+  * @retval none
+  *********************************************************************************************************************/
+void FlexCAN_SendRemoteFrameMessage(uint32_t ID, uint8_t *Buffer, uint8_t Length)
+{
+    flexcan_frame_t FlexCAN_FrameStruct;
+
+    FlexCAN_FrameStruct.length = (uint8_t)Length;
+    FlexCAN_FrameStruct.type   = (uint8_t)Enum_Flexcan_FrameTypeRemote;
+    FlexCAN_FrameStruct.format = (uint8_t)Enum_Flexcan_FrameFormatStandard;
+    FlexCAN_FrameStruct.id     = FLEXCAN_ID_STD(ID);
+
+    FlexCAN_FrameStruct.dataByte0 = Buffer[0];
+    FlexCAN_FrameStruct.dataByte1 = Buffer[1];
+    FlexCAN_FrameStruct.dataByte2 = Buffer[2];
+    FlexCAN_FrameStruct.dataByte3 = Buffer[3];
+    FlexCAN_FrameStruct.dataByte4 = Buffer[4];
+    FlexCAN_FrameStruct.dataByte5 = Buffer[5];
+    FlexCAN_FrameStruct.dataByte6 = Buffer[6];
+    FlexCAN_FrameStruct.dataByte7 = Buffer[7];
+
+    FLEXCAN_TransferSendBlocking(FLEXCAN1, MB_Index_9, &amp;FlexCAN_FrameStruct);
+}
+
+void FlexCAN_MB10_RxHandler(void)
+{
+    uint32_t ID = 0;
+    uint8_t  Buffer[8], Length = 0;
+
+    ID     = FlexCAN_MB10_FrameStruct.id;
+    Length = FlexCAN_MB10_FrameStruct.length;
+
+    Buffer[0] = FlexCAN_MB10_FrameStruct.dataByte0;
+    Buffer[1] = FlexCAN_MB10_FrameStruct.dataByte1;
+    Buffer[2] = FlexCAN_MB10_FrameStruct.dataByte2;
+    Buffer[3] = FlexCAN_MB10_FrameStruct.dataByte3;
+    Buffer[4] = FlexCAN_MB10_FrameStruct.dataByte4;
+    Buffer[5] = FlexCAN_MB10_FrameStruct.dataByte5;
+    Buffer[6] = FlexCAN_MB10_FrameStruct.dataByte6;
+    Buffer[7] = FlexCAN_MB10_FrameStruct.dataByte7;
+
+    if (FlexCAN_MB10_FrameStruct.format == (uint8_t)Enum_Flexcan_FrameFormatStandard)
+    {
+        if (FlexCAN_MB10_FrameStruct.type == (uint8_t)Enum_Flexcan_FrameTypeData)
+        {
+            FlexCAN_SendStandardFrameMessage((ID &gt;&gt; FLEXCAN_ID_STD_Pos), Buffer, Length);
+        }
+        else
+        {
+            FlexCAN_SendRemoteFrameMessage((ID &gt;&gt; FLEXCAN_ID_STD_Pos), Buffer, Length);
+        }
+    }
+    else if (FlexCAN_MB10_FrameStruct.format == (uint8_t)Enum_Flexcan_FrameFormatExtend)
+    {
+        FlexCAN_SendExtendFrameMessage((ID &gt;&gt; FLEXCAN_ID_EXT_Pos), Buffer, Length);
+    }
+}
+
+/***********************************************************************************************************************
+  * @brief
+  * @note   none
+  * @param  none
+  * @retval none
+  *********************************************************************************************************************/
+void FlexCAN_Polling_Sample(void)
+{
+    uint8_t Buffer[8] = {0x00, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88};
+
+    printf(&quot;\r\nTest %s&quot;, __FUNCTION__);
+
+    FlexCAN_Configure();
+
+    FlexCAN_SendStandardFrameMessage(TX_StandardFrame_ID, Buffer, sizeof(Buffer));
+    FlexCAN_SendExtendFrameMessage(TX_ExtendFrame_ID, Buffer, sizeof(Buffer));
+    FlexCAN_SendRemoteFrameMessage(TX_RemoteFrame_ID, Buffer, sizeof(Buffer));
+
+    while (1)
+    {
+        /* MB10 Read Loop */
+        if (0 != FLEXCAN_GetMbStatusFlags(FLEXCAN1, 0x01U &lt;&lt; MB_Index_12))
+        {
+            FLEXCAN_ClearMbStatusFlags(FLEXCAN1, 0x01U &lt;&lt; MB_Index_12);
+
+            FLEXCAN_ReadRxMb(FLEXCAN1, MB_Index_12, &amp;FlexCAN_MB10_FrameStruct);
+            FlexCAN_MB10_RxHandler();
+        }
+    }
+}
+</code></pre></div>
+<h2 id="flexcan_interrupt">例程 FlexCAN_Interrupt<a class="headerlink" href="#flexcan_interrupt" title="Permanent link">&para;</a></h2>
+<p>功能同FlexCAN_Polling，使用中断方式实现。</p>
+<h2 id="flexcan_fifo_interrupt">例程 FlexCAN_FIFO_Interrupt<a class="headerlink" href="#flexcan_fifo_interrupt" title="Permanent link">&para;</a></h2>
+<p>FIFO的过滤功能前述章节已经介绍，例程中的过滤表设置如下：</p>
+<div class="highlight"><pre><span></span><code>uint32_t FlexCAN_RxFIFO_FilterTable[8] =
+{
+    FLEXCAN_RX_FIFO_STD_FILTER_TYPE_A(0x555, 0, 0),
+    FLEXCAN_RX_FIFO_STD_FILTER_TYPE_A(0x456, 0, 0),
+    FLEXCAN_RX_FIFO_STD_FILTER_TYPE_A(0x003, 0, 0),
+    FLEXCAN_RX_FIFO_STD_FILTER_TYPE_A(0x223, 0, 0),
+    FLEXCAN_RX_FIFO_STD_FILTER_TYPE_A(0x256, 0, 0),
+    FLEXCAN_RX_FIFO_STD_FILTER_TYPE_A(0x278, 0, 0),
+    FLEXCAN_RX_FIFO_STD_FILTER_TYPE_A(0x333, 0, 0),
+    FLEXCAN_RX_FIFO_STD_FILTER_TYPE_A(0x356, 0, 0),
+};
+</code></pre></div>
+<p>使用以下结构体与函数配置过滤表：</p>
+<div class="highlight"><pre><span></span><code>    FlexCAN_RxFIFO_ConfigStruct.idFilterTable = FlexCAN_RxFIFO_FilterTable;
+    FlexCAN_RxFIFO_ConfigStruct.idFilterNum   = 8;
+    FlexCAN_RxFIFO_ConfigStruct.idFilterType  = Enum_Flexcan_RxFifoFilterTypeA;
+    FlexCAN_RxFIFO_ConfigStruct.priority      = Enum_Flexcan_RxFifoPrioLow;
+    FLEXCAN_RxFifoConfig(FLEXCAN1, &amp;FlexCAN_RxFIFO_ConfigStruct, ENABLE);
+
+    /* MASK -&gt; 0:No Filter, 1:Filter */
+    FLEXCAN_SetRxFifoGlobalMask(FLEXCAN1, FLEXCAN_RX_FIFO_STD_MASK_TYPE_A(MASK_STD, 0, 0));
+
+    FlexCAN_FIFO_TransferStruct.frame = &amp;FlexCAN_FIFO_FrameStruct;
+    FLEXCAN_TransferReceiveFifoNonBlocking(FLEXCAN1, &amp;FlexCAN_Handle, &amp;FlexCAN_FIFO_TransferStruct);
+</code></pre></div>
+<h2 id="flexcan_fd_interrupt">例程 FlexCAN_FD_Interrupt<a class="headerlink" href="#flexcan_fd_interrupt" title="Permanent link">&para;</a></h2>
+<p>信箱1、3分别发送标准帧、扩展帧，信箱0、2分别接收标准帧、扩展帧。
+<div class="highlight"><pre><span></span><code>    FLEXCAN_FDInit(FLEXCAN1, &amp;FlexCAN_ConfigStruct, FLEXCAN_64BperMB, ENABLE);
+
+    FLEXCAN_FDTxMbConfig(FLEXCAN1, MB_Index_1, ENABLE);
+    FLEXCAN_FDTxMbConfig(FLEXCAN1, MB_Index_3, ENABLE);
+
+    FlexCAN_RxMB_ConfigStruct.id     = FLEXCAN_ID_STD(RX_StandardFrame_ID);
+    FlexCAN_RxMB_ConfigStruct.format = Enum_Flexcan_FrameFormatStandard;
+    FlexCAN_RxMB_ConfigStruct.type   = Enum_Flexcan_FrameTypeData;
+    FLEXCAN_FDRxMbConfig(FLEXCAN1, MB_Index_0, &amp;FlexCAN_RxMB_ConfigStruct, ENABLE);
+
+    FLEXCAN_SetRxIndividualMask(FLEXCAN1, MB_Index_0, FLEXCAN_RX_MB_STD_MASK(MASK_STD, 0, 0));
+
+    /* Enable MB0 Interrupt */
+    FLEXCAN1-&gt;IMASK1 |= (0x01U &lt;&lt; MB_Index_0); 
+
+    FlexCAN_RxMB_ConfigStruct.id     = FLEXCAN_ID_EXT(RX_ExtendFrame_ID);
+    FlexCAN_RxMB_ConfigStruct.format = Enum_Flexcan_FrameFormatExtend;
+    FlexCAN_RxMB_ConfigStruct.type   = Enum_Flexcan_FrameTypeData;
+    FLEXCAN_FDRxMbConfig(FLEXCAN1, MB_Index_2, &amp;FlexCAN_RxMB_ConfigStruct, ENABLE);
+
+    FLEXCAN_SetRxIndividualMask(FLEXCAN1, MB_Index_2, FLEXCAN_RX_MB_EXT_MASK(MASK_EXT, 0, 1));
+
+    /* Enable MB2 Interrupt */
+    FLEXCAN1-&gt;IMASK1 |= (0x01U &lt;&lt; MB_Index_2);
+</code></pre></div></p>
+<h2 id="flexcan_fd_fifo_interrupt">例程 FlexCAN_FD_FIFO_Interrupt<a class="headerlink" href="#flexcan_fd_fifo_interrupt" title="Permanent link">&para;</a></h2>
+<p>过滤表定义如下：
+<div class="highlight"><pre><span></span><code>/* Type 0: Standard filter elements, Based on masks and filters */
+uint32_t FlexCAN_FDRxFIFO_STD_FilterTable_0[2] =
+{
+    FLEXCAN_FD_RX_FIFO_STD_FILTER_TYPE_0(0x123, 0, MASK_STD, 0), /* Standard ID = 0x123 */
+    FLEXCAN_FD_RX_FIFO_STD_FILTER_TYPE_0(0x345, 0, MASK_STD, 0), /* Standard ID = 0x345 */
+};
+
+/* Type 1: Standard filter elements, Based on masks and filters */
+uint32_t FlexCAN_FDRxFIFO_STD_FilterTable_1[2] =
+{
+    FLEXCAN_FD_RX_FIFO_STD_FILTER_TYPE_1(0x156, 0, 0x154, 0), /* 0x154 &lt;= Standard ID &lt;= 0x156 */
+    FLEXCAN_FD_RX_FIFO_STD_FILTER_TYPE_1(0x123, 0, 0x088, 0), /* 0x088 &lt;= Standard ID &lt;= 0x123 */
+};
+
+/* Type 2: Standard filter elements, Based on masks and filters */
+uint32_t FlexCAN_FDRxFIFO_STD_FilterTable_2[2] =
+{
+    FLEXCAN_FD_RX_FIFO_STD_FILTER_TYPE_2(0x123, 0, 0x256, 0),  /* Standard ID = 0x123,  Standard ID = 0x256 */
+    FLEXCAN_FD_RX_FIFO_STD_FILTER_TYPE_2(0x333, 0, 0x212, 0),  /* Standard ID = 0x333,  Standard ID = 0x212 */
+};
+
+
+/* Type 0: Extended filter elements, Based on masks and filters */
+uint32_t FlexCAN_FDRxFIFO_EXT_FilterTable_0[2] =
+{
+    FLEXCAN_FD_RX_FIFO_EXT_FILTER_TYPE_0_0(0x678, 0), 
+    FLEXCAN_FD_RX_FIFO_EXT_FILTER_TYPE_0_1(MASK_EXT, 0), /* Standard ID = 0x123 */
+};
+
+/* Type 1: Extended filter elements, Based on masks and filters */
+uint32_t FlexCAN_FDRxFIFO_EXT_FilterTable_1[2] =
+{
+    FLEXCAN_FD_RX_FIFO_EXT_FILTER_TYPE_1_0(0x156, 0),
+    FLEXCAN_FD_RX_FIFO_EXT_FILTER_TYPE_1_1(0x154, 0), /* 0x154 &lt;= Extended ID &lt;= 0x156 */
+};
+
+/* Type 2: Extended filter elements, Based on masks and filters */
+uint32_t FlexCAN_FDRxFIFO_EXT_FilterTable_2[2] =
+{
+    FLEXCAN_FD_RX_FIFO_EXT_FILTER_TYPE_2_0(0x888, 0),  /* Extended ID = 0x888 */
+    FLEXCAN_FD_RX_FIFO_EXT_FILTER_TYPE_2_1(0x666, 0),  /* Extended ID = 0x666 */
+};
+</code></pre></div></p>
+<p>在初始化的时候选择一个过滤表做测试。
+<div class="highlight"><pre><span></span><code>    FLEXCAN_FDInit(FLEXCAN1, &amp;FlexCAN_ConfigStruct, FLEXCAN_64BperMB, ENABLE);
+
+    FLEXCAN_FDTxMbConfig(FLEXCAN1, MB_Index_1, ENABLE);
+    FLEXCAN_FDTxMbConfig(FLEXCAN1, MB_Index_3, ENABLE);
+
+    /* Select one of the above defined arrays containing filter elements. */
+    FlexCAN_FD_RxFIFO_ConfigStruct.idFilterTable  = FlexCAN_FDRxFIFO_STD_FilterTable_0;
+    //FlexCAN_FD_RxFIFO_ConfigStruct.idFilterTable  = FlexCAN_FDRxFIFO_STD_FilterTable_1;
+    //FlexCAN_FD_RxFIFO_ConfigStruct.idFilterTable  = FlexCAN_FDRxFIFO_STD_FilterTable_2;
+    //FlexCAN_FD_RxFIFO_ConfigStruct.idFilterTable  = FlexCAN_FDRxFIFO_EXT_FilterTable_0;
+    //FlexCAN_FD_RxFIFO_ConfigStruct.idFilterTable  = FlexCAN_FDRxFIFO_EXT_FilterTable_1;
+    //FlexCAN_FD_RxFIFO_ConfigStruct.idFilterTable  = FlexCAN_FDRxFIFO_EXT_FilterTable_2;
+
+    FlexCAN_FD_RxFIFO_ConfigStruct.rfWaterline    = 3;
+    FlexCAN_FD_RxFIFO_ConfigStruct.idFilterType   = Enum_Flexcan_FD_RxFifoFilterType0;
+#ifdef RxFIFO_STD
+    FlexCAN_FD_RxFIFO_ConfigStruct.idFilterFormat = Enum_Flexcan_FD_RxFifoFilterFormatSTD;
+#else
+    FlexCAN_FD_RxFIFO_ConfigStruct.idFilterFormat = Enum_Flexcan_FD_RxFifoFilterFormatEXT;
+#endif
+    FLEXCAN_FDRxFifoConfig(FLEXCAN1, &amp;FlexCAN_FD_RxFIFO_ConfigStruct, ENABLE);
+
+    FLEXCAN_FDRxFifoITConfig(FLEXCAN1, 
+                             (FlexCANFD_RxFifoUsableInterrupt | FlexCANFD_RxFifoWaterlineInterrupt | \
+                              FlexCANFD_RxFifoOverflowInterrupt | FlexCANFD_RxFifoUnderflowInterrupt),
+                             ENABLE);
+</code></pre></div></p>
 
 
 
