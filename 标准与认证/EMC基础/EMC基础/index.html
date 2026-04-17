@@ -893,6 +893,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    EMC基础
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -904,6 +917,70 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#emc_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      EMC概述
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esd" class="md-nav__link">
+    <span class="md-ellipsis">
+      什么是ESD
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      三种放电模型概览
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      三模型对比表
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esd_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ESD防护设计核心建议
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1263,7 +1340,7 @@
 
 
 <h1 id="emc">EMC基础<a class="headerlink" href="#emc" title="Permanent link">&para;</a></h1>
-<h1 id="_1">概述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="emc_1">EMC概述<a class="headerlink" href="#emc_1" title="Permanent link">&para;</a></h2>
 <p>从事电子产品开发的朋友应该都知道，电子产品样机完成之后，会进入产品性能测试阶段，而其中的EMC（电磁兼容）测试则是至关重要的一项。</p>
 <p>EMC（电磁兼容）又被分为两大类：EMI（电磁干扰）和EMS（电磁抗干扰）。</p>
 <p>EMI（电磁干扰）：其简单定义就是我们所设计的电子产品在正常运行时，不能干扰到其他的电子产品正常使用；</p>
@@ -1276,7 +1353,7 @@
 <p>ESD（Electro-Static discharge）即静电释放，是20世纪中期以来形成的以研究静电的产生、危害及防护的学科，国际上将用于静电防护的器材统称为ESD，中文名称为静电阻抗器。其防护措施涵盖接地、静电屏蔽与离子中和，后者通过离子风机等设备消除绝缘体静电。主要应用于电子电气、IT通讯及汽车领域，需在接口附近配置ESD保护二极管（如TVS）以导引静电电流至地，正常工作时不产生电流。</p>
 <p>ESD损伤分为突发性与潜在性两类，其中潜在性损伤占比达90%，可导致电子产品功能异常且难以检测。标准体系中，生产环节则采用HBM与CDM模型，其中CDM对先进工艺芯片破坏性最强，是当前设计重点关注对象，而MM模型已逐步退出历史舞台。保护器件选型需根据接口信号速率匹配工作电压、极性、寄生电容及钳位电压，动态电阻越小则钳位电压越低，防护效果越优。硅基ESD防护器件正在全面取代传统聚合物方案，应用于射频场景。</p>
 <p>目前，国际上主流的ESD防静电防护管理体系认证标准包括国际电工委员会发布的IEC 61340-5-1标准和美国静电放电协会发布的ANSI/ESD S20.20标准。ANSI/ESD S20.20是一个买方认证标准，企业建立符合这些标准的防护体系是进入全球电子制造供应链的重要条件。IEC 61340-5-1标准与ANSI/ESD S20.20标准兼容并可进行转换。国际电工委员会电子元器件质量评定体系（IECQ）和美国静电放电协会（ESDA）是全球主流的ESD认证认可机构。这意味着企业可通过一次审核，同时获得带有IECQ和ESDA标志的双重认证证书，即“一审双证”服务。ESD认证在电子制造业、精密仪器设备、计算机与通信设备、汽车电子、航空航天电子等领域具有关键的应用价值。</p>
-<h2 id="_2">三种放电模型概览<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_1">三种放电模型概览<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p><img alt="alt text" src="../image.png" /></p>
 <ul>
 <li>✅ HBM — Human Body Model（人体放电模型）<ul>
@@ -1320,7 +1397,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="_3">三模型对比表<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_2">三模型对比表<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
