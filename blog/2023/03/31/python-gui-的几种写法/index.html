@@ -12,28 +12,28 @@
         <meta name="author" content="张彬彬">
       
       
-        <link rel="canonical" href="https://iamzhangbinbin.github.io/Python%E7%AC%94%E8%AE%B0/Treeview%20%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B/Treeview%20%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B/">
+        <link rel="canonical" href="https://iamzhangbinbin.github.io/blog/2023/03/31/python-gui-%E7%9A%84%E5%87%A0%E7%A7%8D%E5%86%99%E6%B3%95/">
       
       
-        <link rel="prev" href="../../Python%20GUI%20%E7%9A%84%E5%87%A0%E7%A7%8D%E5%86%99%E6%B3%95/">
+        <link rel="prev" href="../../24/%E8%AE%A4%E8%AF%86%E5%88%86%E6%95%A3%E5%8A%A0%E8%BD%BD%E6%96%87%E4%BB%B6/">
       
       
-        <link rel="next" href="../../../%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%A7%BB%E6%A4%8D/">
+        <link rel="next" href="../../../04/07/treeview-%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B/">
       
       
-      <link rel="icon" href="../../../img/favicon.ico">
+      <link rel="icon" href="../../../../../img/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
-        <title>Treeview 控件使用示例 - 张彬彬的杂货铺</title>
+        <title>Python GUI 的几种写法 - 张彬彬的杂货铺</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,9 +46,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#treeview" class="md-skip">
+        <a href="#python-gui" class="md-skip">
           跳转至
         </a>
       
@@ -88,9 +88,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../.." title="张彬彬的杂货铺" class="md-header__button md-logo" aria-label="张彬彬的杂货铺" data-md-component="logo">
+    <a href="../../../../.." title="张彬彬的杂货铺" class="md-header__button md-logo" aria-label="张彬彬的杂货铺" data-md-component="logo">
       
-  <img src="../../../img/zahuopu.png" alt="logo">
+  <img src="../../../../../img/zahuopu.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Treeview 控件使用示例
+              Python GUI 的几种写法
             
           </span>
         </div>
@@ -227,7 +227,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../MCU%E5%BC%80%E5%8F%91%E6%94%AF%E6%8C%81/" class="md-tabs__link">
+        <a href="../../../../../MCU%E5%BC%80%E5%8F%91%E6%94%AF%E6%8C%81/" class="md-tabs__link">
           
   
   
@@ -249,7 +249,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../MM32%20Guide/" class="md-tabs__link">
+        <a href="../../../../../MM32%20Guide/" class="md-tabs__link">
           
   
   
@@ -267,19 +267,17 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../../../%E6%AD%A7%E9%80%94%E7%AC%94%E8%AE%B0/" class="md-tabs__link">
           
   
   
     
   
-  Python笔记
+  歧途笔记
 
         </a>
       </li>
@@ -295,13 +293,13 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%A7%BB%E6%A4%8D/" class="md-tabs__link">
+        <a href="../../../../../%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%A7%BB%E6%A4%8D/" class="md-tabs__link">
           
   
   
     
   
-  开源软件移植
+  桌面软件开发
 
         </a>
       </li>
@@ -317,7 +315,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../%E6%A0%87%E5%87%86%E4%B8%8E%E8%AE%A4%E8%AF%81/" class="md-tabs__link">
+        <a href="../../../../../%E6%A0%87%E5%87%86%E4%B8%8E%E8%AE%A4%E8%AF%81/" class="md-tabs__link">
           
   
   
@@ -339,7 +337,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../USB%E5%85%A5%E9%97%A8/" class="md-tabs__link">
+        <a href="../../../../../USB%E5%85%A5%E9%97%A8/" class="md-tabs__link">
           
   
   
@@ -361,7 +359,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../CAN%E5%85%A5%E9%97%A8/" class="md-tabs__link">
+        <a href="../../../../../CAN%E5%85%A5%E9%97%A8/" class="md-tabs__link">
           
   
   
@@ -383,7 +381,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../ENET%E5%85%A5%E9%97%A8/" class="md-tabs__link">
+        <a href="../../../../../ENET%E5%85%A5%E9%97%A8/" class="md-tabs__link">
           
   
   
@@ -401,11 +399,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../blog/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../../" class="md-tabs__link">
           
   
   
@@ -427,7 +427,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../.." class="md-tabs__link">
+        <a href="../../../../.." class="md-tabs__link">
           
   
   
@@ -452,7 +452,9 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -465,9 +467,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="张彬彬的杂货铺" class="md-nav__button md-logo" aria-label="张彬彬的杂货铺" data-md-component="logo">
+    <a href="../../../../.." title="张彬彬的杂货铺" class="md-nav__button md-logo" aria-label="张彬彬的杂货铺" data-md-component="logo">
       
-  <img src="../../../img/zahuopu.png" alt="logo">
+  <img src="../../../../../img/zahuopu.png" alt="logo">
 
     </a>
     张彬彬的杂货铺
@@ -534,7 +536,7 @@
   
   
   
-    <a href="../../../MCU%E5%BC%80%E5%8F%91%E6%94%AF%E6%8C%81/" class="md-nav__link">
+    <a href="../../../../../MCU%E5%BC%80%E5%8F%91%E6%94%AF%E6%8C%81/" class="md-nav__link">
       
   
   
@@ -598,7 +600,7 @@
   
   
   
-    <a href="../../../MM32%20Guide/" class="md-nav__link">
+    <a href="../../../../../MM32%20Guide/" class="md-nav__link">
       
   
   
@@ -623,8 +625,6 @@
       
   
   
-    
-  
   
   
     
@@ -636,16 +636,9 @@
       
         
       
-        
-      
-        
-      
     
     
     
-      
-        
-        
       
       
         
@@ -653,201 +646,32 @@
     
     
       
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
-              
+  
+  
+  
+    <a href="../../../../../%E6%AD%A7%E9%80%94%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+      
   
   
   <span class="md-ellipsis">
-    Python笔记
+    歧途笔记
     
   </span>
   
 
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            Python笔记
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../SXT%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/SXT%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    SXT课堂笔记
-    
-  </span>
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
   
 
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Python%20GUI%20%E7%9A%84%E5%87%A0%E7%A7%8D%E5%86%99%E6%B3%95/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Python GUI 的几种写法
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Treeview 控件使用示例
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    Treeview 控件使用示例
-    
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      显示表格数据
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      选择数据
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      添加删除数据
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      显示分层数据
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#insert" class="md-nav__link">
-    <span class="md-ellipsis">
-      insert方法详解
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
       
     </li>
   
@@ -888,12 +712,12 @@
   
   
   
-    <a href="../../../%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%A7%BB%E6%A4%8D/" class="md-nav__link">
+    <a href="../../../../../%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E7%A7%BB%E6%A4%8D/" class="md-nav__link">
       
   
   
   <span class="md-ellipsis">
-    开源软件移植
+    桌面软件开发
     
   </span>
   
@@ -950,7 +774,7 @@
   
   
   
-    <a href="../../../%E6%A0%87%E5%87%86%E4%B8%8E%E8%AE%A4%E8%AF%81/" class="md-nav__link">
+    <a href="../../../../../%E6%A0%87%E5%87%86%E4%B8%8E%E8%AE%A4%E8%AF%81/" class="md-nav__link">
       
   
   
@@ -1020,7 +844,7 @@
   
   
   
-    <a href="../../../USB%E5%85%A5%E9%97%A8/" class="md-nav__link">
+    <a href="../../../../../USB%E5%85%A5%E9%97%A8/" class="md-nav__link">
       
   
   
@@ -1086,7 +910,7 @@
   
   
   
-    <a href="../../../CAN%E5%85%A5%E9%97%A8/" class="md-nav__link">
+    <a href="../../../../../CAN%E5%85%A5%E9%97%A8/" class="md-nav__link">
       
   
   
@@ -1142,7 +966,7 @@
   
   
   
-    <a href="../../../ENET%E5%85%A5%E9%97%A8/" class="md-nav__link">
+    <a href="../../../../../ENET%E5%85%A5%E9%97%A8/" class="md-nav__link">
       
   
   
@@ -1167,6 +991,8 @@
       
   
   
+    
+  
   
   
     
@@ -1184,24 +1010,26 @@
     
     
       
+        
+        
+      
       
         
       
     
     
       
-        
-        
-      
     
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
-  
-  
-  
-    <a href="../../../blog/" class="md-nav__link">
-      
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -1210,12 +1038,470 @@
   </span>
   
 
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            博客
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
       
-        <span class="md-nav__icon md-icon"></span>
+        
       
-    </a>
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_2" id="__nav_9_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    归档
+    
+  </span>
   
 
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_2">
+            <span class="md-nav__icon md-icon"></span>
+            归档
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2025
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2024
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2023/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2023
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_3" id="__nav_9_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    分类
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_3">
+            <span class="md-nav__icon md-icon"></span>
+            分类
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/cmake/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CMake
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/c%E8%AF%AD%E8%A8%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C语言
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/vscode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    VSCode
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/%E5%9B%BA%E4%BB%B6%E5%BA%93%E5%BC%80%E5%8F%91/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    固件库开发
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/%E5%B0%8F%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    小工具使用
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/%E7%A1%AC%E4%BB%B6%E8%AE%BE%E8%AE%A1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    硬件设计
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/%E7%BC%96%E7%A8%8B%E8%BF%9B%E9%98%B6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    编程进阶
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -1276,7 +1562,7 @@
   
   
   
-    <a href="../../.." class="md-nav__link">
+    <a href="../../../../.." class="md-nav__link">
       
   
   
@@ -1306,287 +1592,276 @@
             
           
           
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
-                
-                  
-
-
-  
-  
-
-
-<h1 id="treeview">Treeview 控件使用示例<a class="headerlink" href="#treeview" title="Permanent link">&para;</a></h1>
-<p>Tkinter 中，没有专门的表格控件，Treeview 可以很好地显示表格数据，支持多列显示。 </p>
-<p>要创建 Treeview 树视图小控件，可以使用以下构造函数：
-<div class="highlight"><pre><span></span><code>tree = ttk.Treeview(master, **options)
-</code></pre></div></p>
-<h2 id="_1">显示表格数据<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>自定义列，列宽，对齐方式
-<div class="highlight"><pre><span></span><code>tree.column(&#39;name&#39;, anchor=tk.CENTER, width=200)
-</code></pre></div>
-设置列标题
-<div class="highlight"><pre><span></span><code>tree.heading(&#39;name&#39;, text=&#39;姓名&#39;)
-</code></pre></div>
-示例代码与运行结果
-<div class="highlight"><pre><span></span><code>import tkinter as tk
-from tkinter import ttk
-
-root = tk.Tk()
-root.geometry(&#39;600x400+200+200&#39;)
-root.title(&#39;Treeview 树视图演示&#39;)
-
-columns = (&#39;name&#39;, &#39;gender&#39;, &#39;email&#39;) # 元组，用于创建列
-
-# 创建树视图，指定列，显示元素，行数
-tree = ttk.Treeview(root, columns=columns, show=&#39;headings&#39;, height=18)
-tree.column(&#39;name&#39;, anchor=tk.CENTER, width=200)
-tree.column(&#39;gender&#39;, anchor=tk.CENTER, width=120)
-tree.column(&#39;email&#39;, anchor=tk.CENTER, width=260)
-
-# 设置列标题
-tree.heading(&#39;name&#39;, text=&#39;姓名&#39;)
-tree.heading(&#39;gender&#39;, text=&#39;性别&#39;)
-tree.heading(&#39;email&#39;, text=&#39;电子邮箱&#39;)
-
-# 数据表插入数据
-for n in range(1, 100):
-    tree.insert(&#39;&#39;, tk.END, values=(f&#39;name {n}&#39;, f&#39;female/male&#39;, f&#39;email{n}@example.com&#39;))
-
-tree.grid(row=0, column=0, sticky=&#39;nsew&#39;, pady=5)
-
-# 数据表加滚动条
-scrollbar = ttk.Scrollbar(root, orient=tk.VERTICAL, command=tree.yview)
-tree.configure(yscroll=scrollbar.set)
-scrollbar.grid(row=0, column=1, sticky=&#39;ns&#39;)
-
-root.mainloop()
-</code></pre></div>
-<img alt="alt text" src="../image.png" /></p>
-<h2 id="_2">选择数据<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>访问选择的数据：
-<div class="highlight"><pre><span></span><code>for selected_item in tree.selection()
-</code></pre></div></p>
-<p>绑定项目选择事件：
-<div class="highlight"><pre><span></span><code>tree.bind(&#39;&lt;&lt;TreeviewSelect&gt;&gt;&#39;, item_selected)
-</code></pre></div>
-示例代码与运行结果
-<div class="highlight"><pre><span></span><code>import tkinter as tk
-from tkinter import ttk
-from tkinter.messagebox import showinfo
-
-root = tk.Tk()
-root.geometry(&#39;600x400+200+200&#39;)
-root.title(&#39;Treeview 树视图演示&#39;)
-
-columns = (&#39;name&#39;, &#39;gender&#39;, &#39;email&#39;) # 元组，用于数据表列标
-
-# 创建树视图，指定列标，显示元素，行数
-tree = ttk.Treeview(root, columns=columns, show=&#39;headings&#39;, height=18)
-
-# 设置列宽，对齐方式
-tree.column(&#39;name&#39;, anchor=tk.CENTER, width=160)
-tree.column(&#39;gender&#39;, anchor=tk.CENTER, width=120)
-tree.column(&#39;email&#39;, anchor=tk.CENTER, width=300)
-
-# 设置列标显示的文字
-tree.heading(&#39;name&#39;, text=&#39;姓名&#39;)
-tree.heading(&#39;gender&#39;, text=&#39;性别&#39;)
-tree.heading(&#39;email&#39;, text=&#39;邮箱&#39;)
-
-# 数据表插入数据
-for n in range(1, 100):
-    tree.insert(&#39;&#39;, tk.END, values=(f&#39;name {n}&#39;, f&#39;female/male&#39;, f&#39;email{n}@example.com&#39;))
-
-tree.grid(row=0, column=0, sticky=&#39;nsew&#39;, pady=5, rowspan=5)
-
-# 数据表加滚动条
-scrollbar = ttk.Scrollbar(root, orient=tk.VERTICAL, command=tree.yview)
-tree.configure(yscroll=scrollbar.set)
-scrollbar.grid(row=0, column=1, sticky=&#39;ns&#39;, rowspan=5)
-
-def item_selected(event):
-    for selected_item in tree.selection():
-        item = tree.item(selected_item)
-        record = item[&#39;values&#39;]
-        showinfo(title=&#39;你选择了&#39;, message=&#39;,&#39;.join(record))
-
-tree.bind(&#39;&lt;&lt;TreeviewSelect&gt;&gt;&#39;, item_selected)
-
-root.mainloop()
-</code></pre></div>
-<img alt="alt text" src="../image-1.png" /></p>
-<h2 id="_3">添加删除数据<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>在数据表开头添加数据：
-<div class="highlight"><pre><span></span><code>tree.insert(&#39;&#39;, 0, values=contact)
-</code></pre></div>
-在数据表末尾添加数据：
-<div class="highlight"><pre><span></span><code>tree.insert(&#39;&#39;, tk.END, values=contact)
-</code></pre></div>
-访问选择的数据：
-<div class="highlight"><pre><span></span><code>for selected_item in tree.selection()
-</code></pre></div>
-删除数据：
-<div class="highlight"><pre><span></span><code>tree.delete(selected_item)
-</code></pre></div>
-示例代码与运行结果
-<div class="highlight"><pre><span></span><code>import tkinter as tk
-from tkinter import ttk
-
-root = tk.Tk()
-root.geometry(&#39;600x400+200+200&#39;)
-root.title(&#39;Treeview 树视图演示&#39;)
-
-name = tk.StringVar()
-gender = tk.StringVar()
-email = tk.StringVar()
-
-def add():
-    tree.insert(&#39;&#39;, 0, values=(f&#39;{name.get()}&#39;, f&#39;{gender.get()}&#39;, f&#39;{email.get()}&#39;))
-
-def delete():
-    for selected_item in tree.selection():
-        tree.delete(selected_item)
-
-columns = (&#39;name&#39;, &#39;gender&#39;, &#39;email&#39;) # 元组，用于数据表列标
-
-# 创建树视图，指定列标，显示元素，行数
-tree = ttk.Treeview(root, columns=columns, show=&#39;headings&#39;, height=18)
-
-# 设置列宽，对齐方式
-tree.column(&#39;name&#39;, anchor=tk.CENTER, width=120)
-tree.column(&#39;gender&#39;, anchor=tk.CENTER, width=120)
-tree.column(&#39;email&#39;, anchor=tk.CENTER, width=160)
-
-# 设置列标显示的文字
-tree.heading(&#39;name&#39;, text=&#39;姓名&#39;)
-tree.heading(&#39;gender&#39;, text=&#39;性别&#39;)
-tree.heading(&#39;email&#39;, text=&#39;邮箱&#39;)
-
-# 数据表插入数据
-for n in range(1, 100):
-    tree.insert(&#39;&#39;, tk.END, values=(f&#39;name {n}&#39;, f&#39;female/male&#39;, f&#39;email{n}@example.com&#39;))
-
-tree.grid(row=0, column=0, sticky=&#39;nsew&#39;, pady=5, rowspan=5)
-
-# 数据表加滚动条
-scrollbar = ttk.Scrollbar(root, orient=tk.VERTICAL, command=tree.yview)
-tree.configure(yscroll=scrollbar.set)
-
-scrollbar.grid(row=0, column=1, sticky=&#39;ns&#39;, rowspan=5)
-
-name_label = tk.Label(root, text=&quot;姓名&quot;)
-name_label.grid(row=0, column=2)
-name_entry = tk.Entry(root, width=15, textvariable=name)
-name_entry.grid(row=0, column=3)
-gender_label = tk.Label(root, text=&quot;性别&quot;)
-gender_label.grid(row=1, column=2)
-gender_entry = tk.Entry(root, width=15, textvariable=gender)
-gender_entry.grid(row=1, column=3)
-email_label = tk.Label(root, text=&quot;邮箱&quot;)
-email_label.grid(row=2, column=2)
-email_entry = tk.Entry(root, width=15, textvariable=email)
-email_entry.grid(row=2, column=3)
-button1 = tk.Button(root, text=&quot;添加&quot;, command=add, width=10)
-button1.grid(row=3, column=3)
-button2 = tk.Button(root, text=&quot;删除&quot;, command=delete, width=10)
-button2.grid(row=4, column=3)
-root.mainloop()
-</code></pre></div>
-<img alt="alt text" src="../image-2.png" /></p>
-<h2 id="_4">显示分层数据<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>添加项目
-<div class="highlight"><pre><span></span><code>tree.insert(&#39;&#39;, tk.END, text=&#39;山东省&#39;, iid=0, open=False)
-</code></pre></div>
-利用 iid ，将项目移动到某个项目作为子项目
-<div class="highlight"><pre><span></span><code>tree.move(5, 0, 1)
-</code></pre></div>
-将 iid 为 5 的项目移到 iid 为 0 的项目中，作为子项目，排在第二位。</p>
-<p>示例代码与运行结果
-<div class="highlight"><pre><span></span><code>import tkinter as tk
-from tkinter import ttk
-
-root = tk.Tk()
-root.geometry(&#39;600x400+200+200&#39;)
-root.title(&#39;Treeview 树视图演示&#39;)
-root.rowconfigure(0, weight=1)
-root.columnconfigure(0, weight=1)
-
-tree = ttk.Treeview(root)
-tree.heading(&#39;#0&#39;, text=&#39;行政区划&#39;, anchor=tk.W)
-
-tree.insert(&#39;&#39;, tk.END, text=&#39;山东省&#39;, iid=0, open=False)
-tree.insert(&#39;&#39;, tk.END, text=&#39;江苏省&#39;, iid=1, open=False)
-tree.insert(&#39;&#39;, tk.END, text=&#39;吉林省&#39;, iid=2, open=False)
-tree.insert(&#39;&#39;, tk.END, text=&#39;北京市&#39;, iid=3, open=False)
-tree.insert(&#39;&#39;, tk.END, text=&#39;上海市&#39;, iid=4, open=False)
-
-tree.insert(&#39;&#39;, tk.END, text=&#39;济南&#39;, iid=5, open=False)
-tree.insert(&#39;&#39;, tk.END, text=&#39;青岛&#39;, iid=6, open=False)
-tree.insert(&#39;&#39;, tk.END, text=&#39;淄博&#39;, iid=7, open=False)
-
-tree.move(5, 0, 0)
-tree.move(6, 0, 1)
-tree.move(7, 0, 2)
-
-tree.insert(&#39;&#39;, tk.END, text=&#39;长春&#39;, iid=8, open=False)
-tree.insert(&#39;&#39;, tk.END, text=&#39;吉林&#39;, iid=9, open=False)
-
-tree.move(8, 2, 0)
-tree.move(9, 2, 1)
-
-tree.grid(row=0, column=0, sticky=tk.NSEW)
-
-root.mainloop()
-</code></pre></div>
-<img alt="alt text" src="../image-3.png" /></p>
-<h2 id="insert">insert方法详解<a class="headerlink" href="#insert" title="Permanent link">&para;</a></h2>
-<p>insert方法是Treeview控件中用于添加数据项的关键函数。其基本语法如下：
-<div class="highlight"><pre><span></span><code>insert(parent, index, iid, text, values=(), open=False)
-</code></pre></div>
-参数解释：</p>
-<ul>
-<li>parent：父项的ID。如果要添加到根节点，使用’’。</li>
-<li>index：指定在父项中的插入位置。可以是’end’（末尾）、’top’（开头）或数字索引。</li>
-<li>iid：新项的唯一标识符。通常是一个字符串。</li>
-<li>text：在树形视图中显示的文本。</li>
-<li>values：一个元组，包含要显示在各个列中的值。</li>
-<li>open：布尔值，指定新项是否默认展开。</li>
-</ul>
-<p>示例代码与运行结果
-<div class="highlight"><pre><span></span><code>import tkinter as tk
-from tkinter import ttk
-root = tk.Tk()
-# 创建Treeview控件
-tree = ttk.Treeview(root, columns=(&#39;col1&#39;, &#39;col2&#39;))
-# 设置列标题
-tree.heading(&#39;col1&#39;, text=&#39;Column 1&#39;)
-tree.heading(&#39;col2&#39;, text=&#39;Column 2&#39;)
-# 添加数据项
-tree.insert(&#39;&#39;, &#39;end&#39;, iid=&#39;item1&#39;, text=&#39;Item 1&#39;, values=(&#39;Value 1a&#39;, &#39;Value 1b&#39;))
-tree.insert(&#39;&#39;, &#39;end&#39;, iid=&#39;item2&#39;, text=&#39;Item 2&#39;, values=(&#39;Value 2a&#39;, &#39;Value 2b&#39;))
-tree.insert(&#39;item1&#39;, &#39;end&#39;, iid=&#39;item1a&#39;, text=&#39;Item 1a&#39;, values=(&#39;Value 1a1&#39;, &#39;Value 1a2&#39;))
-# 布局控件
-tree.pack()
-root.mainloop()
-</code></pre></div>
-<img alt="alt text" src="../image-4.png" /></p>
-
-
-
-
-
-
-
-
-
-
-
-
-                
-              </article>
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    回到主页
+                  </span>
+                </a>
+              </div>
             </div>
+            
+              <div class="md-post__authors md-typeset">
+                
+                  <div class="md-profile md-post__profile">
+                    <span class="md-author md-author--long">
+                      <img src="https://github.com/iamzhangbinbin.png" alt="张彬彬">
+                    </span>
+                    <span class="md-profile__description">
+                      <strong>
+                        
+                          张彬彬
+                        
+                      </strong>
+                      <br>
+                      site creator
+                    </span>
+                  </div>
+                
+              </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    元数据
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2023-03-31 00:00:00+00:00" class="md-ellipsis">2023年3月31日</time>
+                      </div>
+                    </li>
+                    
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"/></svg>
+                          <span class="md-ellipsis">
+                            分类于
+                            
+                              <a href="../../../../category/python/">Python</a></span>
+                        </div>
+                      </li>
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              需要 2 分钟阅读时间
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
           
+            
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      逻辑写法
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      类的写法
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      完全封装
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+
+  
+  
+
+
+<h1 id="python-gui">Python GUI 的几种写法<a class="headerlink" href="#python-gui" title="Permanent link">&para;</a></h1>
+<p>依示例的形式介绍 Treeview 控件的使用方法。</p>
+<!-- more -->
+
+<h2 id="_1">逻辑写法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>就是按程序执行的先后顺序从前到后写代码。
+<div class="highlight"><pre><span></span><code>from tkinter import *
+
+root = Tk()
+root.title(&#39;张彬彬&#39;)
+root.geometry(&#39;200x100+100+100&#39;)
+Button(root, text=&#39;确定&#39;).pack()
+Button(root, text=&#39;取消&#39;).pack()
+root.mainloop()
+</code></pre></div></p>
+<p>就三步就可以创建一个 GUI 了，1创建Tk对象，2添加控件，3给个 mainloop 循环。这种写法的好处就是前后逻辑比较好理解，比较适合初学者掌握库的使用逻辑，不利之处就是不好复用。</p>
+<h2 id="_2">类的写法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Python里，一切都是对象，因此，可以用类将窗口封装起来，便于扩展、重构等。
+<div class="highlight"><pre><span></span><code>from tkinter import *
+
+class Myapp(Frame):
+    def __init__(self, master):
+        super().__init__()
+        self.master = master
+        self.pack()
+        self.createWidget()
+
+    def createWidget(self):
+        Button(root, text=&#39;确定&#39;).pack()
+        Button(root, text=&#39;取消&#39;).pack()
+
+if __name__ == &#39;__main__&#39;:
+    root = Tk()
+    root.title(&#39;张彬彬&#39;)
+    root.geometry(&#39;200x100+100+100&#39;)
+    app = Myapp(master=root)
+    app.mainloop()
+</code></pre></div>
+这是一种网上常见的写法，其中还是有几个问题。1是主窗口 if 主程序中创建，需要进行必要的主窗口，还需要传递一个 master 参数，表明 Myapp 类的依附对象，比较麻烦，容易犯错。另外，如果程序涉及多个窗口时，这种写法就不好管理了，除了创建新的窗口类之外，还得在 if 主程序中创建新的窗口，略显重复臃肿。需要注意，Myapp 类继承的是 Frame 类，初始化里面必须要自己 pack（）一下。很多很牛的 python 课程里都可能只讲单窗口的案例。比如尚学堂里的例子：</p>
+<p>采用了面向对象的方式, 通过类 Application 组织整个 GUI 程序, 类 Application 继承了父类的特性, 通过 <strong>init</strong>() 初始化窗口中的对象, 通过 createWidgets() 方法创建窗口中的对象。<br />
+Frame 框架是一个 tkinter 组件, 表示一个矩形区域。 Frame 通常作为容器使用, 可以放置其他组件, 从而实现复杂的布局。
+<div class="highlight"><pre><span></span><code>from tkinter import *
+from tkinter import messagebox
+
+class Application(Frame):
+    &quot;&quot;&quot;一个经典的GUI程序类写法&quot;&quot;&quot;
+    def __init__(self, master=None):
+        super().__init__(master)          # super代表的是父类的定义,而不是父类的对象
+        self.master = master
+        self.pack()
+        self.createWidget()
+
+    def createWidget(self):
+        &quot;&quot;&quot;创建组件&quot;&quot;&quot;
+        self.btn01 = Button(self)
+        self.btn01[&#39;text&#39;] = &quot;点击送花&quot;
+        self.btn01.pack()
+        self.btn01[&quot;command&quot;] = self.songhua
+        self.btnQuit = Button(self, text=&#39;退出&#39;, command=self.destroy)
+        self.btnQuit.pack()
+
+    def songhua(self):
+        messagebox.showinfo(&#39;送花&#39;, &#39;送你99朵玫瑰花&#39;)
+
+root = Tk()
+root.geometry(&quot;400x100+200+300&quot;)
+root.title(&#39;测试&#39;)
+app = Application(master=root)
+root.mainloop()
+</code></pre></div></p>
+<h2 id="_3">完全封装<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>将一个窗口所有内容全部封装到一个类中。
+<div class="highlight"><pre><span></span><code>from tkinter import *
+
+class Myapp(Tk):
+    def __init__(self):
+        super().__init__()
+        self.title(&#39;张彬彬&#39;)
+        self.geometry(&#39;200x100+100+100&#39;)
+        self.createWidget()
+
+    def createWidget(self):
+        Button(self, text=&#39;确定&#39;).pack()
+        Button(self, text=&#39;取消&#39;).pack()
+
+if __name__ == &#39;__main__&#39;:
+    app = Myapp()
+    app.mainloop()
+</code></pre></div>
+这样，无论你有多少窗口，结构都十分清晰，主程序简简单单，顿时神清气爽。 <br />
+这些问题都是小问题，可能很多根本不会引人注意，但你思考得越深，境界越高。</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+    <script src="https://giscus.app/client.js"
+            data-repo="iamzhangbinbin/MyGiscus"
+            data-repo-id="R_kgDOPKpP-A"
+            data-category="[在此输入分类名]"
+            data-category-id="[在此输入分类 ID]"
+            data-mapping="title"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="1"
+            data-input-position="top"
+            data-theme="preferred_color_scheme"
+            data-lang="zh-CN"
+            crossorigin="anonymous"
+            async>
+    </script>
+
+      
+    </article>
+  </div>
+
           
   <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
 
@@ -1689,10 +1964,10 @@ root.mainloop()
     
     
       
-      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.prune", "navigation.indexes", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "search.share", "header.autohide", "announce.dismiss", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.prune", "navigation.indexes", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "search.share", "header.autohide", "announce.dismiss", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips"], "search": "../../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
     
   </body>
